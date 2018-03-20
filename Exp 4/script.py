@@ -24,10 +24,14 @@ def nice_data(c,v):
 	#mean over 10 point
 	new_c = np.array([])
 	new_v = np.array([])
+	dc = np.array([])
+	dv = np.array([])
 	for i in range(len(c)-N):
 		new_c = np.append(new_c,np.mean(c[i:i+N]))
 		new_v = np.append(new_v,np.mean(v[i:i+N]))
-	return new_c,new_v
+		dc = np.append(dc,np.std(c[i:i+N]))
+		dv = np.append(dv,np.std(v[i:i+N]))
+	return new_c,new_v,dc,dv
 
 t1, current = read_data("data/MARCO_24.CSV")
 t2, voltage = read_data('data/MARCO_23.CSV')
