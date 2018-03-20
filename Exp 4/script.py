@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 from scipy import signal
 
-
 N = 10
-
 
 def read_data(file):
     data = np.genfromtxt(file, delimiter=",",usecols=range(0,2), skip_header=1)
@@ -65,8 +63,29 @@ print(spl.get_coeffs())
 
 r = spl.derivative(2).roots()
 
-plt.plot(r, spl(r), 'ro')
+#closest point?
+
+def distance(x,y,x1,y1):
+	return np.sqrt((x-x1)**2+(y-y1)**2)
+
+best_index = np.array([])
+for j in r:
+	best = 10000000000
+	index = 0
+	for i in range(len(current)):
+		d = distance(current[i],voltage[i],j,spl(j))
+		if(d<best):
+			best = d
+			index =i
+	best_index = np.append(best_index,index)
+
+print(best_index)
+for i in best_index:
+	plt.plot(current[int(i)],voltage[int(i)],'ro')
+
+#plt.plot(r, spl(r), 'ro')
 plt.plot(current,spl(current))
+
 
 
 plt.grid(True)
