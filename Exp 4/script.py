@@ -4,7 +4,7 @@ from scipy.interpolate import UnivariateSpline
 from scipy import signal
 
 
-N =20
+N = 20
 
 
 def read_data(file):
@@ -24,9 +24,9 @@ def nice_data(c,v):
 	#mean over 10 point
 	new_c = np.array([])
 	new_v = np.array([])
-	for i in range(len(c)-10):
-		new_c = np.append(new_c,np.mean(c[i:i+10]))
-		new_v = np.append(new_v,np.mean(v[i:i+10]))
+	for i in range(len(c)-N):
+		new_c = np.append(new_c,np.mean(c[i:i+N]))
+		new_v = np.append(new_v,np.mean(v[i:i+N]))
 	return new_c,new_v
 
 t1, current = read_data("data/MARCO_24.CSV")
