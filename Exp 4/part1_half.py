@@ -37,13 +37,13 @@ def nice_data(c,v):
 
 #tI = np.genfromtxt('data/MARCO_11.CSV', delimiter=",",usecols=range(0), skip_header=1)
 
-tI, current = read_data('data/MARCO_11.CSV')
-tU, voltage = read_data('data/MARCO_12.CSV')
+tI, current = read_data('data/MARCO_03.CSV')
+tU, voltage = read_data('data/MARCO_04.CSV')
 
 current, voltage, dI, dU = nice_data(current, voltage)
 
-low = 0.63
-high= 0.67
+low = 0.55
+high= 0.65
 
 I_fit = current[(current < high) & (current > low)]
 U_fit = voltage[(current < high) & (current > low)]
@@ -66,7 +66,7 @@ params2, cov2 = sp.curve_fit(linear_function, I_fit2, U_fit2, sigma = dU_fit2)
 dparams2 = np.sqrt(np.diag(cov2))
 print(params2[0], params2[1]*100)
 
-x = np.linspace(0.5, 0.7)
+x = np.linspace(0, 1)
 
 intersection = (params2[1] - params[1]) / (params[0] - params2[0])
 dintersection= 1/(params[0] - params2[0]) * np.sqrt(dparams[1]**2 + dparams2[1]**2 + (params2[1] - params[1])**2 * ( (dparams[0]**2 + dparams2[0]**2) / (params[0] - params2[0])**2 ))
