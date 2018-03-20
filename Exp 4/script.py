@@ -4,7 +4,7 @@ from scipy.interpolate import UnivariateSpline
 from scipy import signal
 
 
-N = 20
+N = 10
 
 
 def read_data(file):
@@ -26,18 +26,18 @@ def nice_data(c,v):
 	new_v = np.array([])
 	dc = np.array([])
 	dv = np.array([])
-	for i in range(len(c)-N):
-		new_c = np.append(new_c,np.mean(c[i:i+N]))
-		new_v = np.append(new_v,np.mean(v[i:i+N]))
-		dc = np.append(dc,np.std(c[i:i+N]))
-		dv = np.append(dv,np.std(v[i:i+N]))
+	for i in range(int(len(c)/N)-N):
+		new_c = np.append(new_c,np.mean(c[N*i:N*i+N]))
+		new_v = np.append(new_v,np.mean(v[N*i:N*i+N]))
+		dc = np.append(dc,np.std(c[N*i:N*i+N]))
+		dv = np.append(dv,np.std(v[N*i:N*i+N]))
 	return new_c,new_v,dc,dv
 
 t1, current = read_data("data/MARCO_24.CSV")
 t2, voltage = read_data('data/MARCO_23.CSV')
 
 
-current,voltage = nice_data(current,voltage)
+current,voltage,dc,dv = nice_data(current,voltage)
 
 plt.figure()
 
