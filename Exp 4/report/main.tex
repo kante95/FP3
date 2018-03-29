@@ -192,6 +192,7 @@ This equation finally shows the critical maximum the supercurrent can reach when
 \section{Experimental Setup}
 
 \subsection{The $V$-$I$ characteristics}
+\label{setup_vi}
 The first part of the experiment was the measurement of the $V$-$I$ characteristics. In order to conduct this measurement the SQUID probe was first connected to the control box and then inserted into a bath of liquid nitrogen in order to cool down below the critical temperature $T_C$. Measurements above $T_C$ were conducted only in the last part of the experiment. 
 The lever on the control box is switched to $V$-$I$ mode, the FLUX and BIAS OFFSET are both turned into 12-o'clock position, the SWEEP OUTPUT is put at the zero position. Then the BIAS is tuned to what was estimated to be the center position in the $V$-$I$ characteristic curve on the oscilloscope. Then the SWEEP OUTPUT was gradually increased. In $V$-$I$ mode the SWEEP varies the BIAS OFFSET so one can actually see a characteristic curve on the oscilloscope. However, one has to consider that the output of the control box, which is visible on the oscilloscope is amplified by a factor of $\num{e4}$.\cite{skriptum} 
 To vary the critical current one can in a final step change the FLUX OFFSET. This causes the $I_C$ to oscillate between a minimum and a maximum. For several FLUX settings the $V$-$I$ characteristics were recorded and are further discussed in the analysis.
@@ -211,7 +212,50 @@ We took several point with different spacing, more densly near the critical temp
 \includegraphics[width = .5\textwidth]{circuit}
 \caption{Circuit for current source used to measure the temperature}\label{circuit}
 \end{figure}
+
 \section{Analysis}
+\subsection{The $V$-$I$ characteristics}
+As was already described in Sec. \ref{setup_vi}, the characteristic $V$-$I$ curve was measured in the first part of the experiment. Fig. \ref{fig_iv_characteristics} displays two $V$-$I$ characteristics. The left curve shows the maximum value of $I_C$ that was measured during the experiment, which means that the flux was at that point an integer multiple of the fluxon $\Phi_0$. On the right one can see the minimized $I_C$, which corresponds to an integer plus $1/2$ multiple of $\Phi_0$. 
+\begin{figure}[htp!]
+    \centering
+    \begin{subfigure}[t]{0.45 \textwidth}
+        \centering
+        \includegraphics[height=6cm]{iv_max.pdf}
+        \caption{ }
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45 \textwidth}
+        \centering
+        \includegraphics[height=6cm]{iv_min.pdf}
+        \caption{ }
+    \end{subfigure}
+    \caption{Measured $V$-$I$ characteristics for an integer and an integer plus $1/2$ magnetic flux. The parameters of the linear functions are listed in Tab. \ref{tab_iv_characteristics}. The resulting critical currents are $I_C^{max} = \SI{56.8(8)}{\micro \ampere}$ and $I_C^{min} = \SI{47.2(17)}{\micro \ampere}$. }
+    \label{fig_iv_characteristics}
+\end{figure}
+\begin{table}[htp!]
+    \caption{List of the fit parameters from Fig. \ref{fig_iv_characteristics}. The fitted function was $V = a I + b$}
+    \centering
+    \begin{tabular}{l | l | l | l}
+        max/min $I_C$ & color & $a$ & $b$ \\ \hline
+        $I_C^{max}$ & red & \SI{1.082(11)}{\micro \volt \per \micro \ampere} & \SI{-54.3(7)}{\micro \volt} \\ 
+        $I_C^{max}$ & blue & \SI{0.0006(109)}{\micro \volt \per \micro \ampere} & \SI{7.1(7)}{\micro \volt} \\
+        $I_C^{min}$ & red & \SI{0.394(9)}{\micro \volt \per \micro \ampere} & \SI{-11.2(5)}{\micro \volt} \\
+        $I_C^{min}$ & blue & \SI{0.00328(19)}{\micro \volt \per \micro \ampere} & \SI{7.230(3)}{\micro \volt}
+    \end{tabular}
+    \label{tab_iv_characteristics}
+\end{table}
+From the fit parameters the critical currents are deduced as $I_C^{max} = \SI{56.8(8)}{\micro \ampere}$ and $I_C^{min} = \SI{47.2(17)}{\micro \ampere}$. From the difference between these two values, one can derive the screening current as $I_S = I_C^{max} - I_C^{min} = \SI{9.6(19)}{\micro \ampere}$. 
+
+To determine the normal resistance $R_n$ one takes a data set with a wide range of $I$ values as is depicted in Fig. \ref{fig_resistance}. The slope of the linear fit across the data corresponds to the normal resistance $R_n = \SI{0.6747(2)}{\ohm}$, which is reasonably close to the \SI{0.64}{\ohm} that are given in the data sheet.\cite{datasheet} 
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphics[width = 0.6 \textwidth]{resistance.pdf}
+    \caption{Wide range $V$-$I$ characteristic curve. From the linear fit with parameters $a = \SI{0.6747(2)}{\ohm}$ and $b = \SI{5.36(7)}{\micro \ampere}$ the resistance $R_n = a$ can be deduced. }
+    \label{fig_resistance}
+\end{figure}
+% still missing the \beta_L shit ...
+\subsection{The $V$-$\Phi$ characteristics}
 \subsection{Shapiro steps and $e/h$}
 \subsection{Critical temperature measurement}
 
@@ -227,7 +271,8 @@ De Gruyter Studium, \textit{Festkörperphysik}. \textsc{Rudolf Gross, Achim Marx
 \bibitem{squid_circuit}
 Wikimedia, \textsc{Jan Olaf}. \url{https://upload.wikimedia.org/wikipedia/commons/7/71/SQUID_IV.jpg}.
 
-%\bibitem{skriptum} Fortgeschrittenenpraktikum 2, \textit{Entanglement and Bell’s inequality}. \textsc{Gregor Weihs, Kaisa Laiho, Harishankar Jayakumar}. WS 2015/16
+\bibitem{datasheet}
+STAR Cryoelectronics, \textit{Mr. SQUID Datasheet}. \textsc{R. Cantor}. 
 
 \end{thebibliography}
 \end{document}
