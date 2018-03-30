@@ -254,7 +254,47 @@ To determine the normal resistance $R_n$ one takes a data set with a wide range 
     \caption{Wide range $V$-$I$ characteristic curve. From the linear fit with parameters $a = \SI{0.6747(2)}{\ohm}$ and $b = \SI{5.36(7)}{\micro \ampere}$ the resistance $R_n = a$ can be deduced. }
     \label{fig_resistance}
 \end{figure}
-% still missing the \beta_L shit ...
+
+To finalize the analysis of the first part, we had to calculate the modulation parameter $\beta_L$ in three different ways, that are all precisely outlined in \cite{skriptum}. In short, the modulation parameter reveals to which extent the SQUID is able to hold the flux constant by generating a circular current. Furthermore, it holds information on the SQUID's flux-to-voltage transfer ratio. 
+\\
+All necessary equations are listed below. As one will notice, the second and the third equations are very similar to each other. Essentially, the difference is that the third one also accounts for effects like thermal noise. Thermal effects may not be so important for low-temperature superconductors, but since the Mr. SQUID probe is held at comparably high \SI{77}{\kelvin} (boiling temperature of molecular nitrogen) one will see that thermal effects are important to consider. 
+\begin{equation}
+    \label{beta_1}
+    \beta_L = \frac{2 L I_C}{\Phi_0}
+\end{equation}
+\begin{equation}
+    \label{beta_2}
+    \beta_L = \frac{4 I_C R_n}{\pi \Delta V} - 1
+\end{equation}
+\begin{equation}
+    \label{beta_3}
+    \beta_L = \frac{4 I_C R_n}{\pi \Delta V} \big( 1 - 3.57  \frac{\sqrt{k_B T L}}{\Phi_0} \big) - 1
+\end{equation}
+Here, $L$ is the inductance of the Mr. SQUID probe, which is estimated to be \SI{73}{\pico \henry} in \cite{skriptum}. $I_C$ and $R_n$ are known from the $V$-$I$ characteristics and the measurement of the resistance. Finally, $\Phi_0$ is the flux of one quantized fluxon. Since $\Delta V$ describes the maximum modulation depth of the $V$-$\Phi$ characteristic curve, the result for Eq. \ref{beta_2} and \ref{beta_3} will be given in Sec. \ref{sec_v_phi}. 
+\\
+Using the mentioned values for $L$, $\Phi_0$ and Eq. \ref{beta_1} one arrives at $\beta_{L,1} = \num{4.01(6)}$. 
+
+\subsection{The $V$-$\Phi$ characteristics}
+\label{sec_v_phi}
+In the second part of the experiment several $V$-$\Phi$ curves were recorded, a more thorough description of the conduction of the experiment is given in the description of the experimental setup. Fig. \ref{fig_iphi_characteristics} shows the dataset with the highest amplitude of the oscillation. 
+\begin{figure}[htp!]
+    \centering
+    \includegraphics[width = 0.6 \textwidth]{v_flux.pdf}
+    \caption{Plot with measured data (black) and fitted function (red). The function used was $V = a \sin(b I_{Coil} + C) + d$, which yielded parameters of $a = \SI{2.874(3)}{\micro \volt}$, $b = \SI{0.06515(2)}{\per \micro \ampere}$, $c = \num{2.777(3)}$ and $d = \SI{18.369(3)}{\micro \volt}$.}
+    \label{fig_iphi_characteristics}
+\end{figure}
+The most interesting results are the modulation depth $\Delta V = 2 a = \SI{5.748(6)}{\micro \volt}$ and the period of the function $\Delta I = 2 \pi / b = \SI{96.44(3)}{\micro \ampere}$. 
+\\
+Starting with $\Delta V$, one can now calculate $\beta_L$ with Eq. \ref{beta_2} and \ref{beta_3}, which leads to 
+\begin{equation*}
+    \begin{split}
+        \beta_{L,2} &= \num{7.49(12)} \\
+        \beta_{L,3} &= \num{3.41(6)}
+    \end{split}
+\end{equation*}
+While both values disagree with $\beta_{L,1}$, which was calculated from the definition of the moulation parameter, one also notices that the value for $\beta_{L,3}$ is by far closer to $\beta_{L,1}$ than $\beta_{L,2}$. This was to be expected, since $\beta_{L,3}$ takes thermal effects into account.
+% Here comes the coupling of the coil
+% Here comes the flux sensitivity
 \subsection{The $V$-$\Phi$ characteristics}
 \subsection{Shapiro steps and $e/h$}
 \begin{figure}[H]
