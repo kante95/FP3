@@ -257,6 +257,20 @@ To determine the normal resistance $R_n$ one takes a data set with a wide range 
 % still missing the \beta_L shit ...
 \subsection{The $V$-$\Phi$ characteristics}
 \subsection{Shapiro steps and $e/h$}
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{shapirosteps}
+\caption{Shapiro steps for frequency of 15 GHz, red points are the calculated inflection points. Errors are too small to be seen}\label{shapiro}
+\end{figure}
+Due to the SWEEP OUTPUT the line sweep several time from left to right and vice versa, so we exploited this excess of data to smooth the line and calculate an error for every point. First we sorted the data in the characteristic curve, then we averaged over 10 neighbor points. The final curve is the set of all the averages and the standard deviation used as an error, an example of acquired data is shown in figure \ref{shapiro}. The next step in the analysis is to find the steps in the curve, a task not trivial. We identify a step as an inflection point in our data. The approach we used to find the inflection point was to interpolate the data with a spline for which is easy to find the inflection point, then after finding the inflection points on the spline, we took the closer points of the data to the calculate inflection points. The result of this algorithm can be seen in figure \ref{shapiro}.\\
+To calculate the step height we took as many steps as it was possible for every frequency, calculated the difference in height between these steps and then divided by the number of steps taken, such that the error is minimized. The step height for every frequency can be seen in figure \ref{eh}, the error is calculated with propagation on the difference between two point and then is divided by the number of steps taken. From the theory we know that the height of one step should be
+\[V_0 = \frac{h\nu}{2e},\]
+hence, we did a linear regression on the data in figure \ref{eh} to find the slope $h/2e$. The point at 20 GHz was excluded since it is several standard deviations aways from what we expected, likely due to an unknown error or maybe a problem in the inflection point detection algorithm. The regression gave the value $0.00208\pm 0.8\cdot 10^5$ mV for the slope with a reduced chi squared of $\chi_\nu \simeq 75$, thus we find $e/h = 24010 \pm 930$ GHz/V, where the error is calculated through propagation. The literature value for $e/h$ is $ 2.4179671\cdot 10^{14}$ Hz/V \cite{skriptum}, which is compatible with what we found, even if the regression has a very high $\chi_\nu$, but this could be caused by low statistics, in fact the regression has only two degrees of freedom.
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{eh}
+\caption{Step height as a function of frequency, orange line is the linear regression. Errors on the point are too small to be seen}\label{eh}
+\end{figure}
 \subsection{Critical temperature measurement}
 
 \begin{thebibliography}{99}

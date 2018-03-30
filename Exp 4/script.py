@@ -4,6 +4,8 @@ from scipy.interpolate import UnivariateSpline
 from scipy import signal
 from scipy.optimize import curve_fit
 
+plt.rcParams['font.size'] = 16
+
 N = 10
 
 def distance(x,y,x1,y1):
@@ -51,9 +53,11 @@ dsteps_heigth = np.zeros(len(freq))
 
 
 for k in range(len(freq)):
-	t1, current = read_data("data/MARCO_"+str(files_ch1[k])+".CSV")
-	t2, voltage = read_data("data/MARCO_"+str(files_ch2[k])+".CSV")
+	t1, current = read_data("data/MARCO_"+str(files_ch1[k])+".CSV") 
+	t2, voltage = read_data("data/MARCO_"+str(files_ch2[k])+".CSV") 
 
+	#voltage = 0.1*voltage #scaling factor of squid and conversion V ---> mV
+	#current = 0.1*current #scaling factor of squid and conversion V ---> mA
 
 	current,voltage,dc,dv = nice_data(current,voltage)
 
@@ -64,7 +68,7 @@ for k in range(len(freq)):
 	dc = dc[p]
 	dv = dv[p]
 
-	plt.errorbar(current,voltage, xerr=dc , yerr=dv,fmt='-')
+	plt.errorbar(0.1*current,0.1*voltage, xerr=0.1*dc , yerr=0.1*dv,fmt='-')
 
 	spl = UnivariateSpline(current,voltage,k=5)
 	spl.set_smoothing_factor(0.1)
@@ -90,7 +94,7 @@ for k in range(len(freq)):
 
 	print(best_index)
 	for i in best_index:
-		plt.plot(current[int(i)],voltage[int(i)],'ro')
+		plt.plot(0.1*current[int(i)],0.1*voltage[int(i)],'ro')
 
 	if(k!=0):
 		steps_heigth[k] = (voltage[int(best_index[higher_step[k]])] - voltage[int(best_index[lower_step[k]])] )/n_steps[k]
@@ -107,7 +111,7 @@ for k in range(len(freq)):
 	plt.xlabel("Current [mA]")
 
 plt.figure()
-plt.errorbar(freq,steps_heigth,yerr=dsteps_heigth,fmt='.')
+plt.errorbar(freq,0.1*steps_heigth,yerr=0.1*dsteps_heigth,fmt='.')
 plt.ylabel("Step height [mV]")
 plt.xlabel("Frequency [GHz]")
 
@@ -118,15 +122,25 @@ freq = np.delete(freq, 1)
 steps_heigth = np.delete(steps_heigth, 1)
 dsteps_heigth = np.delete(dsteps_heigth,1)
 popt, pcov = curve_fit(line,freq,steps_heigth,sigma=dsteps_heigth)
+
+
+chi_squared = np.sum( ((line(freq, *popt)-steps_heigth)/(dsteps_heigth))**2 )
+reduced_chi_squared = chi_squared / (len(freq) - len(popt))
+print("Chi squared!! ", reduced_chi_squared)
+
+
+
+print(0.1*popt[0],0.1*np.sqrt(np.diag(pcov))[0])
+
 eh = 2*popt[0]
 
 f = np.linspace(10,20,10000)
-plt.plot(f,line(f,*popt))
+plt.plot(f,0.1*line(f,*popt))
 plt.grid(True)
 
-deh = np.sqrt(np.diag(pcov))[0]
+deh = 2*np.sqrt(np.diag(pcov))[0]
 print("Value of h/e = ", 1/eh,deh*(1/eh)**2)
 
 print(freq/(2*steps_heigth))
 
-plt.show() 
+#plt.show() 
