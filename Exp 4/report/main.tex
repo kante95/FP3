@@ -230,6 +230,9 @@ We took several point with different spacing, more densly near the critical temp
 \end{figure}
 
 \section{Analysis}
+Before starting to analyse the data, one has to decide on a method to structurize the data, which is extracted from the oscilloscope. The problem is that the oscilloscope saves VOLTAGE and CURRENT OUTPUT in two independent files, in each of which the time of the measuremet point is noted. Since multiple oscillations of both outputs are analysed and the data is plotted in $x/y$ mode, one can get multiple lines in each characteristic curve. 
+\\
+To solve this problem it was decided to reorder the measured points in ascending order according to their respective $x$ axis value (usually the current). Then the line was smoothened by taking always ten points of which the mean and the standard deviation along both axes was calculated. Thus, a more smooth curve is created and the measurement points now have a known uncertainty.
 \subsection{The $V$-$I$ characteristics}
 As was already described in Sec. \ref{setup_vi}, the characteristic $V$-$I$ curve was measured in the first part of the experiment. Fig. \ref{fig_iv_characteristics} displays two $V$-$I$ characteristics. The left curve shows the maximum value of $I_C$ that was measured during the experiment, which means that the flux was at that point an integer multiple of the fluxon $\Phi_0$. On the right one can see the minimized $I_C$, which corresponds to an integer plus $1/2$ multiple of $\Phi_0$. 
 \begin{figure}[htp!]
@@ -304,14 +307,38 @@ The most interesting results are the modulation depth $\Delta V = 2 a = \SI{5.74
 Starting with $\Delta V$, one can now calculate $\beta_L$ with Eq. \ref{beta_2} and \ref{beta_3}, which leads to 
 \begin{equation*}
     \begin{split}
+        \label{eq_noise}
         \beta_{L,2} &= \num{7.49(12)} \\
         \beta_{L,3} &= \num{3.41(6)}
     \end{split}
 \end{equation*}
 While both values disagree with $\beta_{L,1}$, which was calculated from the definition of the moulation parameter, one also notices that the value for $\beta_{L,3}$ is by far closer to $\beta_{L,1}$ than $\beta_{L,2}$. This was to be expected, since $\beta_{L,3}$ takes thermal effects into account.
-% Here comes the coupling of the coil
+\\ % coupling of the coil
+Next, one is looking for the coupling of the internal coil, which was used to generate the flux in the $V$-$\Phi$ curve. Because the induced current in the SQUID is equal for $\Phi = n \Phi_0$ and $\Phi = (n + 1) \Phi_0$, but not for $\Phi = (n + 1/2) \Phi_0$, one can say that after one period in Fig. \ref{fig_iphi_characteristics} the flux has increased by exactly one fluxon. This means that the coupling constant $C$ would be $\Delta I / \Phi_0 = \SI{96.44(3)}{\micro \ampere} / \Phi_0$. The corresponding value in the data sheet \cite{datasheet} is given as $\SI{98}{\micro \ampere} / \Phi_0$, which means that our measurement is close. Again, the margin is likely due to limited experience in fully opimizing all the settings on the controlbox of the SQUID. 
+\\
+Further, one can calculate the mutual inductance $M$ of the internal feedback coil, which is essentially the inverse of the coupling constant as Eq. \ref{eq_inductance} shows. 
+\begin{equation}
+    \label{eq_inductance}
+    M = \frac{\Phi_0}{\Delta I} = \SI{2.144(7)e-11}{\ohm \second}
+\end{equation}
 % Here comes the flux sensitivity
-\subsection{The $V$-$\Phi$ characteristics}
+Next, a look is taken at the flux sensitivity of the SQUID, meaning the smallest measurable change in flux. Here, it is essential to know the noise in the setup. The noise in the voltage $\delta V$ is estimated by calculating the standard deviation of every data point and the fit function from Fig. \ref{fig_iphi_characteristics}. Then it is assumed that the relation to the noise in the current $\delta I$ is 
+\begin{equation}
+    \begin{split}
+        \frac{\delta V}{\delta I} &= \frac{\dif V}{\dif I} \\
+        \delta I &= \frac{\delta V}{\frac{\dif V}{\dif I}}. 
+    \end{split}
+\end{equation}
+The plot of $\delta I$ can be seen in Fig. \ref{fig_noise}. As one can see, the minima in the noise of the current, which is proportional to the flux, is minimized when the slope of the $V$-$\Phi$ curve is very steep. That the setup is most sensitive at the steepest slopes appears to be reasonable, since a small change in the flux would cause a bigger change in voltage the steeper the slope is. The minimum value that is reached is $\delta I_\mathrm{min} = \SI{1.56(2)}{\micro \ampere}$, which would correspond to a flux of $\Phi = 0.0162(2) \Phi_0$. Fig. \ref{fig_noise} also shows singularities, which appear whenever the cosine in Eq. \ref{eq_noise} is equal to zero. Of course these singularities are not physical, because appear because of the derivative used in Eq. \ref{eq_noise}. Since the maximum or minimum turning points in the $V$-$\Phi$ curve are not so interesting the maximum of sensitivity, the sensitivity at the high/low turning points was graphically estimated to be roughly \SI{7}{\micro \ampere}. 
+\\
+According to \cite{hyperphysics}, SQUIDs can % where is the fucking area?
+\begin{figure}[htp!]
+    \centering
+    \includegraphics[width = 0.6 \textwidth]{noise.pdf}
+    \caption{Depiction of the noise in the current $\delta I$ which drives the coil. }
+    \label{fig_noise}
+\end{figure}
+
 \subsection{Shapiro steps and $e/h$}
 \begin{figure}[H]
 \centering
@@ -371,6 +398,9 @@ STAR Cryoelectronics, \textit{Mr. SQUID Datasheet}. \textsc{R. Cantor}.
 
 \bibitem{magneticfluxquantum}
 \textit{The NIST Reference on Constants, Units, and Uncertainty} US National Institute of Standards and Technology. June 2015. 
+
+\bibitem{hyperphysics}
+Georgia State University, \textsc{R. Nave}. \url{http://hyperphysics.phy-astr.gsu.edu/hbase/Solids/Squid2.html}
 
 \end{thebibliography}
 \end{document}
