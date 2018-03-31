@@ -86,8 +86,24 @@ The theoretical introduction in this report is split into two parts, one being a
 Superconductivity is the property of a medium to conduct current without any resistance. It was first discovered in 1911, when Heike Onnes cooled down mercury below 4.2 K \cite{firstsuperconductor}, finding out that the resistance dropped to zero. Since this discovery, superconductivity has been discovered in many elements and media which resistance drops to zero below a particular critical temperature $T_c$. There are different ways to classify superconductors, the easiest one is to divide superconductors in low-$T_c$ and high-$T_c$ superconductors. Low temperature superconductors are material with a critical temperature below $30$ K, while high temperature superconductors have $T_c$ greater than 30 K.\\
 Superconductors can lose their property of superconductivity not only with a change in temperature, but also with a change of magnetic field or current, this leads to a different classification of superconductors: type I and type II superconductors. The former has a critical external magnetic field $H_c$ and behaves as superconductor below this field. Type II superconductors have two different critical fields, and they behave differently in various regimes.\\
 In this experiment we used a Yttrium barium copper oxide (YBCO) superconductor which is a high-$T_c$ superconductors, historically is also the first high-$T_c$ superconductors found with a critical temperature above 77 K, the boiling point of liquid nitrogen. Indeed the critical temperature of YBCO is around 90-94 K, depending of the compound and purity.\\
-The theoretical description of superconductivity can be done in different ways, the first classical approach is the simplest description using London equations, a quantum mechanical formulation is the Ginzburg-Landau (GL) theory which describes the macroscopic properties of superconductors. However this theory is still phenomenological, the first microscopic model is the BCS theory which was able to describe superconductivity from a microscopic point of view and has the GL theory as a limit. The key idea of BCS theory is that at low temperatures electrons pair up and form Copper pairs, creating a bosonic condensate. This condensate must be described as a single entity with a wavefunction $\psi(\mathbf{r},\theta) = |\psi(\mathbf{r})| e^{i\theta}$, which is not normalized, but $|\psi(\mathbf{r},\theta)|^2 = n_e$, where $n_e$ is the number of electrons in the superconductive state. These theory predicts the behaviour of low temperature superconductors, but fails to describe high temperature superconductors, whose description is still an open problem.
-
+The theoretical description of superconductivity can be done in different ways, the first classical approach is the simplest description using London equations, a quantum mechanical formulation is the Ginzburg-Landau (GL) theory which describes the macroscopic properties of superconductors. However this theory is still phenomenological, the first microscopic model is the BCS theory which was able to describe superconductivity from a microscopic point of view and has the GL theory as a limit. The key idea of BCS theory is that at low temperatures electrons pair up and form Copper pairs, creating a bosonic condensate. This condensate must be described as a single entity with a wavefunction $\psi(\mathbf{r},\theta) = |\psi(\mathbf{r})| e^{i\theta}$, which is not normalized, but $|\psi(\mathbf{r},\theta)|^2 = n_e$, where $n_e$ is the number of electrons in the superconductive state. These theory predicts the behaviour of low temperature superconductors, but fails to describe high temperature superconductors, whose description is still an open problem.\\
+The wavefunction $\psi(\mathbf{r},\theta)$ satisfies the Schroedinger equation \cite{fluxquantization}
+\begin{equation}\frac{1}{2m}\left(-i\hbar\nabla\psi - q\mathbf{A}\psi \right)^2 + q\phi \psi = i\hbar\frac{\partial \psi }{\partial t}\end{equation}
+where $\mathbf{A}$ is the vector potential, $\phi$ the scalar potential, and $m$ and $q$ are mass and charge of a cooper pair. Furthermore, from this equation we can arrive at the expression for the supercurrent $\mathbf{J_s}$
+\begin{equation}\label{supercurrent}\mathbf{J_s} = \frac{\hbar q}{2mi}\left(\psi^* \nabla \psi - \psi \nabla \psi^*\right) -\frac{q^2}{m}|\psi|^2\mathbf{A}.\end{equation}
+Using the fact that $\psi = |\psi| e^{i\theta}$, and $|\psi|^2 = n_e$, from equation \eqref{supercurrent} we arrive at
+\begin{equation}\label{supercurrent2}
+\frac{m}{n_eq^2} \mathbf{J_s} + \mathbf{A} = \frac{\hbar}{q}\nabla\theta.
+\end{equation}
+Consider now a superconducting ring $R$, we can integrate equation \eqref{supercurrent2} over the ring, thus we have
+\begin{equation}\label{counterintegral}\frac{m}{n_eq^2}\oint_R \mathbf{J_s} dl + \oint_R \mathbf{A}dl = \frac{\hbar}{q}\oint_R\nabla\theta dl.\end{equation}
+If the integration path is inside the ring, the first term in the left hand side of the equation is zero, because inside a superconductor there is no supercurrent. The second term can be worked out using the Stokes' theorem
+\[\oint_R \mathbf{A}dl = \int_S \nabla \times \mathbf{\mathbf{A}}ds = \int_S \mathbf{B} ds = \Phi,\]
+where $S$ is the surface with boundary R: $\partial S = R$, and $\Phi$ is the magnetic flux through S. Equation \eqref{counterintegral} became
+\[\Phi = \frac{\hbar}{q}\oint_R\nabla\theta dl = \frac{\hbar}{q}\left(\theta(\mathbf{r}+2\pi) - \theta(\mathbf{r})\right)\]
+where $\theta(r+2\pi)$ is the phase of $\psi$ after a round trip. The wavefunction must be the same in every point, so the $\theta(\mathbf{r}+2\pi) - \theta(\mathbf{r})$ can only be a multiple of $2\pi$. In conclusion we find that inside a superconducting ring, the magnetic flux is quantized
+\[\Phi = \frac{\hbar}{q} 2\pi n = \frac{h}{2e} n \equiv \Phi_0 n \qquad n\in \mathbb{Z}.\]
+$\Phi_0$ is called magnetic flux quantum and it has a value of $2.067833831(13)\cdot 10^{-15}$ Wb \cite{magneticfluxquantum}.
 \subsection{Josephson Effect and SQUID} % AC, DC Josephson effect & Shapiro steps, SQUID 
 
 \subsubsection*{DC Josephson Effect}
@@ -304,7 +320,7 @@ While both values disagree with $\beta_{L,1}$, which was calculated from the def
 \end{figure}
 Due to the SWEEP OUTPUT the line sweep several time from left to right and vice versa, so we exploited this excess of data to smooth the line and calculate an error for every point. First we sorted the data in the characteristic curve, then we averaged over 10 neighbor points. The final curve is the set of all the averages and the standard deviation used as an error, an example of acquired data is shown in figure \ref{shapiro}. The next step in the analysis is to find the steps in the curve, a task not trivial. We identify a step as an inflection point in our data. The approach we used to find the inflection point was to interpolate the data with a spline for which is easy to find the inflection point, then after finding the inflection points on the spline, we took the closer points of the data to the calculate inflection points. The result of this algorithm can be seen in figure \ref{shapiro}.\\
 To calculate the step height we took as many steps as it was possible for every frequency, calculated the difference in height between these steps and then divided by the number of steps taken, such that the error is minimized. The step height for every frequency can be seen in figure \ref{eh}, the error is calculated with propagation on the difference between two point and then is divided by the number of steps taken. From the theory we know that the height of one step should be
-\[U_0 = \frac{h\nu}{2e},\]
+\begin{equation}U_0 = \frac{h\nu}{2e},\end{equation}
 hence, we did a linear regression on the data in figure \ref{eh} to find the slope $h/2e$. The point at 20 GHz was excluded since it is several standard deviations aways from what we expected, likely due to an unknown error or maybe a problem in the inflection point detection algorithm. The regression gave the value $0.00208\pm 0.8\cdot 10^5$ mV for the slope with a reduced chi squared of $\chi_\nu \simeq 75$, thus we find $e/h = 24010 \pm 930$ GHz/V, where the error is calculated through propagation. The literature value for $e/h$ is $ 2.4179671\cdot 10^{14}$ Hz/V \cite{skriptum}, which is compatible with what we found, even if the regression has a very high $\chi_\nu$, but this could be caused by low statistics, in fact the regression has only two degrees of freedom.
 \begin{figure}[H]
 \centering
@@ -315,7 +331,7 @@ hence, we did a linear regression on the data in figure \ref{eh} to find the slo
 \begin{figure}[H]
 \centering
 \includegraphics[width = \textwidth]{img/tempR.png}
-\caption{Resistance of the SQUID as a function of temperature, data above 90 K has been fitted with a line: slope: $0.150\pm 0.003$ 1/K, intercept: $-1.5\pm0.4\,\Omega$.}\label{resistance}
+\caption{Resistance of the SQUID as a function of temperature, data above 90 K has been fitted with a line: slope: $0.150\pm 0.003$ 1/K, intercept: $-1.5\pm0.4\,\Omega$.ux qu}\label{resistance}
 \end{figure}
 The calibration of the circuit was done with two points at 77 K and room temperature, with these two values we calculated the parameters of a line $y=ax+b$, such that we could convert from read voltage to temperature. We cut the acquired characteristic curve around zero current, then we fitted the data with a line and the slope gave us the resistance of the SQUID. An example of acquired data with fit is shown in figure (). Finally the curve in fig \ref{92} was produced for temperature measured. We can clearly see a drop in the resistance around 90 K. 
 At 92 K the measured resistance is $11.45 \pm  0.01 \, \Omega$ , while at 89 K $0.76\pm 0.03\, \Omega$ which is two orders of magnitude lower, but still not 0. At 77 K, the resistance is
@@ -330,7 +346,7 @@ $0.01\pm 0.07\, \Omega$, which is essentially 0. We guess that the real critical
 \includegraphics[width = \textwidth]{89K}
 \caption{Characteristic curve of the SQUID at 89 K.}\label{89}
 \end{figure}
-
+\section{Conclusion}
 
 \begin{thebibliography}{99}
 \bibitem{firstsuperconductor} \textsc{H. K. Onnes} \textit{The resistance of pure mercury at helium temperatures}, Commun. Phys. Lab. Univ. Leiden, Vol. 12 (1911), 120 
@@ -350,6 +366,11 @@ STAR Cryoelectronics, \textit{Mr. SQUID Datasheet}. \textsc{R. Cantor}.
 \bibitem{criticaltemperature}
   \textsc{S.S. Tinchev}, \textit{Interface superconductivity {\textendash} Possible origin of high critical temperature in layered superconductors}, Physica C: Superconductivity vol 470 15-16, pag 626-629, Aug 2010
 
+\bibitem{fluxquantization}
+\textsc{S. Gasiorowicz}, \textit{Quantum physics}, 3rd ed., Wiley-VCH, (2003).
+
+\bibitem{magneticfluxquantum}
+\textit{The NIST Reference on Constants, Units, and Uncertainty} US National Institute of Standards and Technology. June 2015. 
 
 \end{thebibliography}
 \end{document}
