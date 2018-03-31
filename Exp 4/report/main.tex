@@ -202,11 +202,11 @@ In the following part the $V$-$\Phi$ characteristics had to be recorded. Continu
 Next, the mode of the control box was changed to $v$-$\Phi$ mode. In this setting the SWEEP OUTPUT does not affect the BIAS but the FLUX OFFSET. One can now increase the SWEEP, which results in a sinusodial curve on the oscilloscope. These curves are saved and again displayed and discussed in the analysis.  
 
 \subsection{Shapiro steps and $e/h$}
-In order to observe Shapiro steps, we inserted an antenna inside the dewar such that we coupled electromagnetic radiation with the squid. The antenna was connected to a function generator with we used to generate a sine wave whit variable amplitude and frequency. With this setup we acquired again the characteristic V-I curve of the SQUID for five different frequencies ranging from 10 to 20 GHz. After setting the desired frequency we changed the power of the wave such that the Shapiro steps were maximized.
+In order to observe Shapiro steps, we inserted an antenna inside the dewar such that we coupled electromagnetic radiation with the SQUID. The antenna was connected to a function generator with we used to generate a sine wave whit variable amplitude and frequency. With this setup we acquired again the characteristic V-I curve of the SQUID for five different frequencies ranging from 10 to 20 GHz. After setting the desired frequency we changed the power of the wave such that the Shapiro steps were maximized.
 \subsection{Critical temperature measurement}
-To measure the critical current of the SQUID we measured the resistance at various temperatures. To measure the temperature we build the circuit in figure \ref{circuit}. The REF02 provides us with a stable voltage of approximately 5V, we chose resistor $R_1 \simeq 40$ k$\Omega$ and $R_2 \simeq 10$ k$\Omega$ such that the voltage at the non inverting input of the opamp is around 1V. For the last resistor  we chose $R_3 \simeq 80$ k$\Omega$, thus the fixed current was approximately 12 mA. The diode was attached to the squid, hence we were able to measure a difference in temperature by measuring the voltage across the diode. To calibrate this circuit we took two points, one at the boiling point of the nitrogen (77 K) and the other one at room temperature, such that we had a direct conversion from voltage to temperature.\\
-To measure the resistance of the SQUID we acquired the characteristic V-I curve whose slope gives the resistance. We proceeded to slowly lower the squid into the liquid nitrogen, such that the gradient of temperature between the liquid nitrogen and the environment would give us different points with different temperatures. During the lowering we stopped several times to take the measurements, every time we waited several minutes until voltage on the multimeter was stable and then we acquired the resistance and wrote down the voltage on the multimeter.
-We took several point with different spacing, more densly near the critical temperature at 90 K and more rarely at higher temperature until the squid was completely inside the liquid nitrogen and therefore at 77 K.
+To measure the critical current of the SQUID we measured the resistance at various temperatures. To measure the temperature we build the circuit in figure \ref{circuit}. The REF02 provides us with a stable voltage of approximately 5V, we chose resistor $R_1 \simeq 40$ k$\Omega$ and $R_2 \simeq 10$ k$\Omega$ such that the voltage at the non inverting input of the opamp is around 1V. For the last resistor  we chose $R_3 \simeq 80$ k$\Omega$, thus the fixed current was approximately 12 mA. The diode was attached to the SQUID, hence we were able to measure a difference in temperature by measuring the voltage across the diode. To calibrate this circuit we took two points, one at the boiling point of the nitrogen (77 K) and the other one at room temperature, such that we had a direct conversion from voltage to temperature.\\
+To measure the resistance of the SQUID we acquired the characteristic V-I curve whose slope gives the resistance. We proceeded to slowly lower the SQUID into the liquid nitrogen, such that the gradient of temperature between the liquid nitrogen and the environment would give us different points with different temperatures. During the lowering we stopped several times to take the measurements, every time we waited several minutes until voltage on the multimeter was stable and then we acquired the resistance and wrote down the voltage on the multimeter.
+We took several point with different spacing, more densly near the critical temperature at 90 K and more rarely at higher temperature until the SQUID was completely inside the liquid nitrogen and therefore at 77 K.
 \begin{figure}[H]
 \centering
 \includegraphics[width = .5\textwidth]{circuit}
@@ -312,6 +312,25 @@ hence, we did a linear regression on the data in figure \ref{eh} to find the slo
 \caption{Step height as a function of frequency, orange line is the linear regression. Errors on the point are too small to be seen}\label{eh}
 \end{figure}
 \subsection{Critical temperature measurement}
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{img/tempR.png}
+\caption{Resistance of the SQUID as a function of temperature, data above 90 K has been fitted with a line: slope: $0.150\pm 0.003$ 1/K, intercept: $-1.5\pm0.4\,\Omega$.}\label{resistance}
+\end{figure}
+The calibration of the circuit was done with two points at 77 K and room temperature, with these two values we calculated the parameters of a line $y=ax+b$, such that we could convert from read voltage to temperature. We cut the acquired characteristic curve around zero current, then we fitted the data with a line and the slope gave us the resistance of the SQUID. An example of acquired data with fit is shown in figure (). Finally the curve in fig \ref{92} was produced for temperature measured. We can clearly see a drop in the resistance around 90 K. 
+At 92 K the measured resistance is $11.45 \pm  0.01 \, \Omega$ , while at 89 K $0.76\pm 0.03\, \Omega$ which is two orders of magnitude lower, but still not 0. At 77 K, the resistance is
+$0.01\pm 0.07\, \Omega$, which is essentially 0. We guess that the real critical temperature is between the point at 89 K and 92 K, even if at 89 K the resistance is not perfectly 0, but as can be seen in figure \ref{89} under 90 K we have a problem of hysteresis in our data. Moreover, small systematic error could easily raise this resistance and bring it off from 0. Therefore, we conclude from our data the the critical temperature is $T_c = 90.5 \pm 1.5$ K, which is the interval between the two aforementioned temperature. This value is in agreement with the measured critical temperature of a pure $\text{YBa}_2\text{Cu}_3\text{0}_7$  ($\approx 90.5$ K) \cite{criticaltemperature}.
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{92K}
+\caption{Characteristic curve of the SQUID at 92 K.}\label{92}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{89K}
+\caption{Characteristic curve of the SQUID at 89 K.}\label{89}
+\end{figure}
+
 
 \begin{thebibliography}{99}
 \bibitem{firstsuperconductor} \textsc{H. K. Onnes} \textit{The resistance of pure mercury at helium temperatures}, Commun. Phys. Lab. Univ. Leiden, Vol. 12 (1911), 120 
@@ -327,6 +346,10 @@ Wikimedia, \textsc{Jan Olaf}. \url{https://upload.wikimedia.org/wikipedia/common
 
 \bibitem{datasheet}
 STAR Cryoelectronics, \textit{Mr. SQUID Datasheet}. \textsc{R. Cantor}. 
+
+\bibitem{criticaltemperature}
+  \textsc{S.S. Tinchev}, \textit{Interface superconductivity {\textendash} Possible origin of high critical temperature in layered superconductors}, Physica C: Superconductivity vol 470 15-16, pag 626-629, Aug 2010
+
 
 \end{thebibliography}
 \end{document}
