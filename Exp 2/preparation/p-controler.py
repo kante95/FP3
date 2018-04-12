@@ -1,16 +1,16 @@
-# p Regler - addiere const Wert zum Diagramm der Strecke
+# p controler - add const value to the graph of the range
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Strecke
+# line
 freq = np.linspace(0, 1e6, 5e5)
 
 f1 = 100
 f2 = 1000
 f3 = 10000
 
-# P-Regler
+# P-controler
 A_p = 19
 A_p = np.ones(500000) * A_p
 
