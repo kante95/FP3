@@ -1,6 +1,6 @@
-\documentclass[a4paper,10pt]{article} 
+\documentclass[a4paper,10pt]{article}
 
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
 
 \usepackage{textcomp}           % Extra Symbole (Grad Celsius etc.)
@@ -20,13 +20,17 @@
 \usepackage{braket}
 \usepackage{caption}
 \usepackage[per-mode=reciprocal,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
-\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref} 
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{physics}
 \usepackage{url}
 \usepackage{subcaption}
 \usepackage{calrsfs}
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
-
+\usepackage{tikz}
+\usetikzlibrary{decorations, positioning, intersections, calc, shapes,arrows, scopes}
+\usepackage{pgfplots}
+\usepackage{bodegraph}
+\usepackage{circuitikz}
 \graphicspath{{./img/}}
 
 \newcommand{\dif}{\mathrm{d}}
@@ -40,38 +44,335 @@
 	\Large{Advanced laboratory course 3}
 	\end{center}
 	\begin{center}
-	 \LARGE{\textbf{FP3 - Laser Stabilization}}
+	 \LARGE{\textbf{FP3 - Electronic Controller}}
 	\end{center}
-	
+
 	\begin{center}
-	
+
 	\large Marco \textsc{Canteri} \\
 	marco.canteri@student.uibk.ac.at\\
 	\large Maximilian \textsc{Münst} \\
 	maximilian.muenst@student.uibk.ac.at
 	\end{center}
-	
+
 	\begin{center}
 	\vspace{1cm}
 	Innsbruck, \today
 	\vspace{1cm}
 	\end{center}
-	
+
 	\begin{abstract}
-    
+
     \end{abstract}
     \vspace{1cm}
-	
+
 	\begin{center}
-	\includegraphics[scale=0.4]{img/uibk} 
+	\includegraphics[scale=0.4]{img/uibk}
 	\end{center}
 
 \end{titlepage}
 
 
 \section{Introduction}
+The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser.
 
 \section{Theoretical Background}
+\subsection{The Control Loop}
+In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system is the difference in intensity in two laser modes in a Fabry Perot interferometer. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
+\begin{figure}[htp!]
+    \centering
+    \tikzstyle{block} = [draw, fill=blue!20, rectangle,
+    minimum height=3em, minimum width=6em]
+    \tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum,
+            node distance=3cm] (system) {System ($A_S$)};
+    \node [sum, right of=system, node distance=3cm, pin={[pinstyle]above:$W$}] (output) {};
+    \node [block, below of=system] (controller) {Controller ($A_R$)};
+
+    \draw [draw,->] (input) -- node {$Z$} (sum);
+    \draw [->] (sum) -- node {$Y + Z$} (system);
+    \draw [->] (system) --  node {$X$}(output);
+    \draw [->] (output) |- node[pos=0.01] {$-$} node {$W - X$} (controller);
+    \draw [->] (controller) -| node[pos=0.99] {$+$}
+        node [near end] {$Y$} (sum);
+\end{tikzpicture}
+\caption{Sketch of a control loop. The output of the system $X$ is compared to the reference $W$. The difference in the signal is fed back into the controller. The output of the controller is the signal $Y$, which is added to the error value $Z$ and fed back into the system. }
+\label{fig_control_loop}
+\end{figure}
+
+\subsection{Stabilizing the Laser}
+The length of the cavity of the He-Ne laser only allows for two modes to reach a notable amount of amplification in the amplification profile. Fig. \ref{fig_profile} shows the profile and the two modes in the desired intensity ratio. These two modes are orthogonally polarized, because of non-linear mode competition in the cavity.\cite{laserfaq} Using a polarizing beam splitter, these modes are split up and are detected on individual photo diodes.
+
+\begin{figure}[htp!]
+  \centering
+  \pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+  }
+  \begin{tikzpicture}
+    \begin{axis}[
+      no markers, domain=0:10, samples=100, axis lines*=left, xlabel=Frequency at \SI{633}{\nano \meter}, ylabel=Amplification,
+      every axis y label/.style={at=(current axis.above origin),anchor=south},
+      every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      height=5cm, width=12cm, xtickmax= 3,
+      xtick=\empty, ytick=\empty, enlargelimits=false, clip=false, axis on top, grid = major
+      ]
+      \addplot [very thick,cyan!50!black] {gauss(5,1)};
+      \draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {FSR} (axis cs:6,0);
+      \draw (axis cs:4,0) -- (axis cs:4,0.24);
+      \draw (axis cs:6,0) -- (axis cs:6,0.24);
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Sketch of the amplification profile including two laser modes. According to \cite{script} the FWHM of the amplifictaion profile is \SI{1.4}{\giga \hertz}, while the Free Spectral Range of the longitudinal modes is \SI{1.1}{\giga \hertz}. The modes are here shown with equal amplification, which is the situation that is to be reached with the controller.}
+  \label{fig_profile}
+\end{figure}
+The aim is to have equal measured intensities on both photo diodes. This is accomplished by stabilizing the temperature of the laser's cavity at a point where the modes have equal intensities.
+
+\subsection{P-Controller}
+As is stated in \cite{script}, there are 3 types of controllers that are important to this experiment. The \textbf{P-Controller} (proportional), the \textbf{PI-Controller} (proportional-integral), and the \textbf{PID-Controller} (proportional-integral-differential). In this section a quick look is taken at the P-controller, the others are examined in the following sections.
+\newline
+To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with breaking point frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
+\newline
+The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
+\begin{figure}[htp!]
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+  \begin{tikzpicture}[>=latex',
+    ref lines/.style={thin, black!60},
+    ref points/.style={circle, black, opacity=0.7, fill, minimum size= 3pt, inner sep=0},
+    every node/.style={font=\small},
+    bode lines/.style={very thick, blue},
+    Gclabel/.style={text=blue},
+    xscale=12/12,
+    gnuplot def/.style={samples=100,id=\arabic{idGnuplot},prefix=gnuplot/\jobname },
+    semilog lines/.style={thin, black!60},
+    semilog lines 2/.style={thin, black!20, dashed},
+    semilog half lines/.style={semilog lines 2, dashed },
+    Black lines/.style={very thick, blue},
+    Black grid/.style={ultra thin,brown},
+    Black abaque mag/.style={gray,ultra thin,dashed,smooth},
+    Black abaque phase/.style={gray,ultra thin,smooth},
+    Black label points/.style={font=\tiny},
+    Black label axes/.style={Black grid, font=\tiny},
+    Nyquist lines/.style={very thick, blue},
+    Nyquist grid/.style={ultra thin,brown},
+    Nyquist label axes/.style={Nyquist grid,font=\tiny},
+    Nyquist label points/.style={font=\tiny},
+    Temp lines/.style={very thick, blue},
+    Temp grid/.style={ultra thin,brown},
+    Temp label axes/.style={Temp grid, font=\tiny},
+    Temp label points/.style={font=\tiny},
+    Abaque grid/.style={ultra thin,brown!80},
+    Abaque lines/.style={thick, blue,smooth},
+    gnuplot def/.append style={prefix={}},
+    ]
+  \begin{scope}[yscale=4/110]
+    \UnitedB
+    \semilog{0}{6}{-70}{80}
+    \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
+    + \KAmp{10}
+    + \POAmp{1}{0.01}
+    + \POAmp{1}{0.001}
+    + \POAmp{1}{0.0001}
+    }
+
+  \end{scope}
+
+  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+\semilog{0}{6}{-270}{0}
+\BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
++ \KArg{10}
++ \POArg{1}{0.01}
++ \POArg{1}{0.001}
++ \POArg{1}{0.0001}
+}
+
+\draw[<->] (2.85,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.85,-120);
+\end{scope}
+\end{tikzpicture}
+\caption{}
+\label{fig_bode_p}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{circuitikz}
+    \draw
+    (0, 0) node[op amp] (opamp) {}
+    (opamp.-) to[generic=$R_{P1}$] (-3, 0.5) to[short, -o] (-3, 0.5) node[anchor=east] {$U_{in}$}
+    (opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+    to[generic=$R_{P2}$] (leftC -| opamp.out)
+    to[short,-*] (opamp.out)
+    (opamp.out) to[short, -o] (2, 0) node[anchor=west] {$U_{out}$}
+    (opamp.+) |- (-1.5,-0.5) node[ground]{}
+  ;\end{circuitikz}
+
+  \begin{circuitikz}
+    \draw
+    (0, 0) node[op amp] (opamp) {}
+    (opamp.-) to[generic=$R_{I}$] (-3, 0.5) to[short, -o] (-3, 0.5) node[anchor=east] {$U_{in}$}
+    (opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+    to[capacitor=$C_{I}$] (leftC -| opamp.out)
+    to[short,-*] (opamp.out)
+    (opamp.out) to[short, -o] (2, 0) node[anchor=west] {$U_{out}$}
+    (opamp.+) |- (-1.5,-0.5) node[ground]{}
+  ;\end{circuitikz}
+
+  \begin{circuitikz}
+    \draw
+    (0, 0) node[op amp] (opamp) {}
+    (opamp.-) to[capacitor=$C_{D}$] (-3, 0.5) to[short, -o] (-3, 0.5) node[anchor=east] {$U_{in}$}
+    (opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+    to[generic=$R_{D}$] (leftC -| opamp.out)
+    to[short,-*] (opamp.out)
+    (opamp.out) to[short, -o] (2, 0) node[anchor=west] {$U_{out}$}
+    (opamp.+) |- (-1.5,-0.5) node[ground]{}
+  ;\end{circuitikz}
+
+  \caption{}
+  \label{fig_circuit_p}
+\end{figure}
+
+\subsection{PI-Controller}
+The bode plot of the PI-controller is shown in Fig. \ref{fig_bode_pi}. As one can see the amplitude rises at low frequencies, thus decreases the deviation from the desired value. The cutoff frequency of the controller should be chosen to be
+\begin{equation}
+  f_I = \frac{1}{2 \pi C_{\mathrm{PI}} R_{\mathrm{PI}}}\approx \frac{1}{10} f_k,
+\end{equation}
+where $f_k$ is the critical frequency of the proportional controller. Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
+\begin{figure}[htp!]
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+  \begin{tikzpicture}[>=latex',
+    ref lines/.style={thin, black!60},
+    ref points/.style={circle, black, opacity=0.7, fill, minimum size= 3pt, inner sep=0},
+    every node/.style={font=\small},
+    bode lines/.style={very thick, blue},
+    Gclabel/.style={text=blue},
+    xscale=12/12,
+    gnuplot def/.style={samples=100,id=\arabic{idGnuplot},prefix=gnuplot/\jobname },
+    semilog lines/.style={thin, black!60},
+    semilog lines 2/.style={thin, black!20, dashed},
+    semilog half lines/.style={semilog lines 2, dashed },
+    Black lines/.style={very thick, blue},
+    Black grid/.style={ultra thin,brown},
+    Black abaque mag/.style={gray,ultra thin,dashed,smooth},
+    Black abaque phase/.style={gray,ultra thin,smooth},
+    Black label points/.style={font=\tiny},
+    Black label axes/.style={Black grid, font=\tiny},
+    Nyquist lines/.style={very thick, blue},
+    Nyquist grid/.style={ultra thin,brown},
+    Nyquist label axes/.style={Nyquist grid,font=\tiny},
+    Nyquist label points/.style={font=\tiny},
+    Temp lines/.style={very thick, blue},
+    Temp grid/.style={ultra thin,brown},
+    Temp label axes/.style={Temp grid, font=\tiny},
+    Temp label points/.style={font=\tiny},
+    Abaque grid/.style={ultra thin,brown!80},
+    Abaque lines/.style={thick, blue,smooth},
+    gnuplot def/.append style={prefix={}},
+    ]
+    \begin{scope}[yscale=4/110]
+      \UnitedB
+      \semilog{0}{6}{-70}{80}
+    \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
+    + \POAmp{1}{0.01}
+    + \POAmp{1}{0.001}
+    + \POAmp{1}{0.0001}
+    + \PIAmp{10}{0.01}
+    }
+
+  \end{scope}
+
+  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+\semilog{0}{6}{-270}{0}
+\BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
++ \POArg{1}{0.01}
++ \POArg{1}{0.001}
++ \POArg{1}{0.0001}
++ \PIArg{10}{0.01}
+}
+
+\draw[<->] (2.75,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.75,-120);
+\end{scope}
+\end{tikzpicture}
+\caption{}
+\label{fig_bode_pi}
+\end{figure}
+
+\subsection{PID-Controller}
+For the final part a differential controller is added. The result can be seen in Fig. \ref{fig_bode_pid}. The rising edge frequency of the differential controller should be set to
+\begin{equation}
+  f_I = \frac{1}{2 \pi C_\mathrm{D} R_\mathrm{D}} \approx f_k,
+\end{equation}
+while the frequency of the integrator stays at a tenth of the critical frequency $f_k$.
+\begin{figure}[htp!]
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+  \begin{tikzpicture}[>=latex',
+    ref lines/.style={thin, black!60},
+    ref points/.style={circle, black, opacity=0.7, fill, minimum size= 3pt, inner sep=0},
+    every node/.style={font=\small},
+    bode lines/.style={very thick, blue},
+    Gclabel/.style={text=blue},
+    xscale=12/12,
+    gnuplot def/.style={samples=100,id=\arabic{idGnuplot},prefix=gnuplot/\jobname },
+    semilog lines/.style={thin, black!60},
+    semilog lines 2/.style={thin, black!20, dashed},
+    semilog half lines/.style={semilog lines 2, dashed },
+    Black lines/.style={very thick, blue},
+    Black grid/.style={ultra thin,brown},
+    Black abaque mag/.style={gray,ultra thin,dashed,smooth},
+    Black abaque phase/.style={gray,ultra thin,smooth},
+    Black label points/.style={font=\tiny},
+    Black label axes/.style={Black grid, font=\tiny},
+    Nyquist lines/.style={very thick, blue},
+    Nyquist grid/.style={ultra thin,brown},
+    Nyquist label axes/.style={Nyquist grid,font=\tiny},
+    Nyquist label points/.style={font=\tiny},
+    Temp lines/.style={very thick, blue},
+    Temp grid/.style={ultra thin,brown},
+    Temp label axes/.style={Temp grid, font=\tiny},
+    Temp label points/.style={font=\tiny},
+    Abaque grid/.style={ultra thin,brown!80},
+    Abaque lines/.style={thick, blue,smooth},
+    gnuplot def/.append style={prefix={}},
+    ]
+    \begin{scope}[yscale=4/110]
+      \UnitedB
+      \semilog{0}{6}{-70}{80}
+    \BodeAmp[bode lines, red, name path=Gomagnitude]{0:5}{
+    + \POAmp{1}{0.01}
+    + \POAmp{1}{0.001}
+    + \POAmp{1}{0.0001}
+    + \PIDAmp{100}{0.01}{0.0007}
+    }
+
+  \end{scope}
+
+  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+\semilog{0}{6}{-270}{0}
+\BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
++ \POArg{1}{0.01}
++ \POArg{1}{0.001}
++ \POArg{1}{0.0001}
++ \PIDArg{10}{0.01}{0.0007}
+}
+
+\draw[<->] (3.7,-180) -- node {$\alpha = \SI{60}{\degree}$}(3.7,-120);
+\end{scope}
+\end{tikzpicture}
+\caption{}
+\label{fig_bode_pid}
+\end{figure}
 
 \section{Experimental Setup}
 
@@ -80,7 +381,14 @@
 \section{Conclusion}
 
 \begin{thebibliography}{99}
+\bibitem{script}
+\textsc{H.C. Nägerl}, \textit{FP3 Versuch: Elektronischer Regler}, Universität Innsbruck
 
+\bibitem{laserfaq}
+\textsc{Samuel M. Goldwasser}, \textit{Sam's Laser FAQ}, \url{http://www.repairfaq.org/sam/laserhen.htm#henpolm}
+
+\bibitem{halbleiter}
+\textsc{U. Tietze, Ch. Schenk}, \textit{Halbleiter-Schaltungstechnik}, (12th edition) Springer-Verlag
 \end{thebibliography}
 
 \end{document}
