@@ -1,0 +1,14 @@
+P controler
+full width = 48 pixels
+division = 50 pixels, 27.2 ms
+
+PI controler
+full width = 19.5 pixels
+division = 50 px, 27.76 ms
+
+PID controler
+full width = 28 pixels
+divison = 50 px, 9.8 ms
+
+time per division = 1ms ? 
+  
