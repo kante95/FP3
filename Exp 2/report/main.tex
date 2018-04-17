@@ -62,8 +62,8 @@
 	\end{center}
 
 	\begin{abstract}
-
-    \end{abstract}
+    The main task of this experiment was to solder a PID-controller to regulate the temperature of a laser cavity to the point where two laser modes have the same measured intensities.
+  \end{abstract}
     \vspace{1cm}
 
 	\begin{center}
@@ -140,6 +140,7 @@ As is stated in \cite{script}, there are 3 types of controllers that are importa
 To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with breaking point frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
 \newline
 The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
+
 \begin{figure}[htp!]
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
@@ -197,7 +198,7 @@ The phase is untouched by the proportional controller and the amplitude of the s
 \draw[<->] (2.85,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.85,-120);
 \end{scope}
 \end{tikzpicture}
-\caption{}
+\caption{Bode plot of a P-controller and a serially attached system consisting of three low-pass filters with cut-off frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$. The arrow in the phase plot shows the phase reserve $\alpha$. }
 \label{fig_bode_p}
 \end{figure}
 
@@ -236,7 +237,7 @@ The phase is untouched by the proportional controller and the amplitude of the s
     (opamp.+) |- (-1.5,-0.5) node[ground]{}
   ;\end{circuitikz}
 
-  \caption{}
+  \caption{Circuit diagrams of a P-controller (first), a I-part (middle), and a D-part (bottom). To get a PID-controller, one has to arrange them in a parallel way. }
   \label{fig_circuit_p}
 \end{figure}
 
@@ -303,7 +304,7 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
 \draw[<->] (2.75,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.75,-120);
 \end{scope}
 \end{tikzpicture}
-\caption{}
+\caption{Bode plots of a PI-controller to which the system is serially connected. Again the parameters were chosen so that the phase reserve is about \SI{60}{\degree}.}
 \label{fig_bode_pi}
 \end{figure}
 
@@ -370,7 +371,7 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 \draw[<->] (3.7,-180) -- node {$\alpha = \SI{60}{\degree}$}(3.7,-120);
 \end{scope}
 \end{tikzpicture}
-\caption{}
+\caption{Bode plots of the series of a PID-controller and the system. As one can see, the phase curve is flatter than in the previous examples. }
 \label{fig_bode_pid}
 \end{figure}
 
