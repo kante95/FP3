@@ -77,6 +77,7 @@
 The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser.
 
 \section{Theoretical Background}
+\label{theory}
 \subsection{The Control Loop}
 In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system is the difference in intensity in two laser modes in a Fabry Perot interferometer. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
 \begin{figure}[htp!]
@@ -376,15 +377,41 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 \end{figure}
 
 \section{Experimental Setup}
-\subsection{The Experimental Setup}
+\subsection{The Optical Setup}
 The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
 \newline
 The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
 \subsection{The Controller}
-
+Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
+\newline
+The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{} and a picture of the soldered circuit is shown in fig. \ref{}.
+%The photo should be easy to insert, drawing the diagram will be work.
 
 \section{Analysis}
+To measure the stability of the controller, we changed the setting of the oscilloscope to persistence mode, which means that the oscilloscope adds a new measurement line per cycle, while still displaying old measurement lines. This way we have a means of comparison for the stability of a P, a PI and a PID-controller. The problem is that the persistence mode does not work for the output files of the oscilloscope, so we are forced to use screenshots. The observed curves are displayed in Fig. \ref{fig_width_pid}. 
+\begin{figure}[htp!]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{Pcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{PIcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{PIDcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  \caption{Screenshot of the persistence measurement of the P-controlled output. }
+  \label{fig_width_pid}
+\end{figure}
 
 \section{Conclusion}
 
@@ -397,6 +424,12 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 
 \bibitem{halbleiter}
 \textsc{U. Tietze, Ch. Schenk}, \textit{Halbleiter-Schaltungstechnik}, (12th edition) Springer-Verlag
+
+\bibitem{ina114}
+\textsc{Burr - Brown},\url{http://www.ti.com/lit/ds/symlink/ina114.pdf}
+
+\bibitem{op27}
+\textsc{Analog Devices}, \url{www.analog.com/media/en/technical-documentation/data-sheets/OP27.pdf}
 \end{thebibliography}
 
 \end{document}
