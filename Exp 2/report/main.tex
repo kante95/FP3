@@ -143,6 +143,7 @@ To put it simply, the P-controller is a inverting linear amplifier. There is no 
 The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
 
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -175,7 +176,7 @@ The phase is untouched by the proportional controller and the amplitude of the s
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-  \begin{scope}[yscale=4/110]
+  \begin{scope}[xscale = 1.7, yscale=2.5/110]
     \UnitedB
     \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
@@ -184,10 +185,10 @@ The phase is untouched by the proportional controller and the amplitude of the s
     + \POAmp{1}{0.001}
     + \POAmp{1}{0.0001}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \KArg{10}
@@ -197,6 +198,8 @@ The phase is untouched by the proportional controller and the amplitude of the s
 }
 
 \draw[<->] (2.85,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.85,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plot of a P-controller and a serially attached system consisting of three low-pass filters with cut-off frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$. The arrow in the phase plot shows the phase reserve $\alpha$. }
@@ -249,6 +252,7 @@ The bode plot of the PI-controller is shown in Fig. \ref{fig_bode_pi}. As one ca
 \end{equation}
 where $f_k$ is the critical frequency of the proportional controller. Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -281,7 +285,7 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-    \begin{scope}[yscale=4/110]
+    \begin{scope}[xscale = 1.7, yscale=2.5/110]
       \UnitedB
       \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
@@ -290,10 +294,10 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
     + \POAmp{1}{0.0001}
     + \PIAmp{10}{0.01}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \POArg{1}{0.01}
@@ -303,6 +307,8 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
 }
 
 \draw[<->] (2.75,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.75,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plots of a PI-controller to which the system is serially connected. Again the parameters were chosen so that the phase reserve is about \SI{60}{\degree}.}
@@ -316,6 +322,7 @@ For the final part a differential controller is added. The result can be seen in
 \end{equation}
 while the frequency of the integrator stays at a tenth of the critical frequency $f_k$.
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -348,7 +355,7 @@ while the frequency of the integrator stays at a tenth of the critical frequency
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-    \begin{scope}[yscale=4/110]
+    \begin{scope}[xscale = 1.7, yscale=2.5/110]
       \UnitedB
       \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:5}{
@@ -357,10 +364,10 @@ while the frequency of the integrator stays at a tenth of the critical frequency
     + \POAmp{1}{0.0001}
     + \PIDAmp{100}{0.01}{0.0007}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \POArg{1}{0.01}
@@ -370,6 +377,8 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 }
 
 \draw[<->] (3.7,-180) -- node {$\alpha = \SI{60}{\degree}$}(3.7,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plots of the series of a PID-controller and the system. As one can see, the phase curve is flatter than in the previous examples. }
@@ -389,7 +398,7 @@ The PID consists of a P-controller, a I-part, and a D-part connected in a parall
 %The photo should be easy to insert, drawing the diagram will be work.
 
 \section{Analysis}
-To measure the stability of the controller, we changed the setting of the oscilloscope to persistence mode, which means that the oscilloscope adds a new measurement line per cycle, while still displaying old measurement lines. This way we have a means of comparison for the stability of a P, a PI and a PID-controller. The problem is that the persistence mode does not work for the output files of the oscilloscope, so we are forced to use screenshots. The observed curves are displayed in Fig. \ref{fig_width_pid}. 
+To measure the stability of the controller, we changed the setting of the oscilloscope to persistence mode, which means that the oscilloscope adds a new measurement line per cycle, while still displaying old measurement lines. This way we have a means of comparison for the stability of a P, a PI and a PID-controller. The problem is that the persistence mode does not work for the output files of the oscilloscope, so we are forced to use screenshots. The observed curves are displayed in Fig. \ref{fig_width_pid}.
 \begin{figure}[htp!]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
