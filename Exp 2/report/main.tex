@@ -445,12 +445,17 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 \subsection{The Controller}
 Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
 \newline
-The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in fig. \ref{}.
+The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in fig. \ref{photocircuit}.
 %The photo should be easy to insert, drawing the diagram will be work.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{circuit}
 \caption{Complete schematic of the circuit, all the operation amplifiers and the instrumental amplifier were powered with +15 V and -15 V, moreover to every power pin we attached a 1 $\mu$F bypass capacitor. The Ref is also set to +15 V.}\label{circuit}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{photocircuit}
+\caption{Photo of the realized circuit}\label{photocircuit}
 \end{figure}
 \section{Analysis}
 \begin{figure}[H]
