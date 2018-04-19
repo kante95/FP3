@@ -391,6 +391,57 @@ The central part of the setup is the He-Ne laser. Beams can exit its cavity on b
 \newline
 The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
+\begin{figure}[htp!]
+    \centering
+    \tikzstyle{laser} = [draw, fill=red!20, rectangle,
+    minimum height=3em, minimum width=6em]
+    \tikzstyle{pbs} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=3em]
+    \tikzstyle{pd} = [draw, fill = gray!20, rectangle, minimum height=0.5em, minimum width=1em]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{interferometer} = [draw, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{controller} = [draw, rectangle, minimum height = 4em, minimum width = 7em]
+    \tikzstyle{mirror} = [draw, rectangle, minimum height = 0.2cm, minimum width = 1cm, thin, fill=black!80]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+  \node [laser, name= laser] {HeNe};
+  \node [pbs, right of = laser, node distance = 3cm] (pbs) {PBS};
+  \draw [-, color = red, thick] (laser) -- (pbs);
+  \node [pd, above of = pbs, node distance = 1.5cm] (pd1) {PD1};
+  \node [pd, right of = pbs, node distance = 2cm, rotate = 270] (pd2) {PD2};
+  \draw [->, color = red, thick] (pbs) -- (pd2);
+  \draw [->, color = red, thick] (pbs) -- (pd1);
+  \node [controller, above of = laser] (controller) {Controller};
+  \draw [->] (pd1) -- (controller);
+  \draw [->] (pd2) |- (controller);
+  \draw [->] (controller) -- node {Heater} (laser);
+  \node [mirror, left of = laser, node distance = 3cm, rotate = 45, name=mirror1] (mirror1) {};
+  %\filldraw [fill=gray!20] (mirror1.north);
+  %\node [right of = mirror1, node distance = 0.06cm] (m1) {};
+  \draw [-, color = red, thick] (laser) -- (mirror1);
+  \node [mirror, below of = mirror1, node distance = 2cm, rotate = 135] (mirror2) {};
+  %\node [right of = mirror2, node distance = 0.06cm] (m2) {};
+  \draw [-, color = red, thick] (mirror1) -- (mirror2);
+  \node [interferometer, below of = laser, node distance = 2cm] (interferometer) {Fabry-Perot};
+  \draw [->, color = red, thick] (mirror2) -- (interferometer);
+  %\draw [->] (interferometer.south) -- +(0,-0.5cm) -| +(-4cm, 4cm) |- (controller); %([xshift=-4cm,yshift=4cm]) (controller); 
+  %  \node [input, name=input] {};
+  %  \node [sum, right of=input] (sum) {};
+  %  \node [block, right of=sum,
+  %          node distance=3cm] (system) {System ($A_S$)};
+  %  \node [sum, right of=system, node distance=3cm, pin={[pinstyle]above:$W$}] (output) {};
+  %  \node [block, below of=system] (controller) {Controller ($A_R$)};
+  %
+  %  \draw [draw,->] (input) -- node {$Z$} (sum);
+  %  \draw [->] (sum) -- node {$Y + Z$} (system);
+  %  \draw [->] (system) --  node {$X$}(output);
+  %  \draw [->] (output) |- node[pos=0.01] {$-$} node {$W - X$} (controller);
+  %  \draw [->] (controller) -| node[pos=0.99] {$+$}
+  %      node [near end] {$Y$} (sum);
+\end{tikzpicture}
+\caption{}
+\label{fig_setup}
+\end{figure}
+
 \subsection{The Controller}
 Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
 \newline
