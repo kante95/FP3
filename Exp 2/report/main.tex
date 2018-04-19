@@ -77,6 +77,7 @@
 The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser.
 
 \section{Theoretical Background}
+\label{theory}
 \subsection{The Control Loop}
 In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system is the difference in intensity in two laser modes in a Fabry Perot interferometer. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
 \begin{figure}[htp!]
@@ -142,6 +143,7 @@ To put it simply, the P-controller is a inverting linear amplifier. There is no 
 The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
 
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -174,7 +176,7 @@ The phase is untouched by the proportional controller and the amplitude of the s
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-  \begin{scope}[yscale=4/110]
+  \begin{scope}[xscale = 1.7, yscale=2.5/110]
     \UnitedB
     \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
@@ -183,10 +185,10 @@ The phase is untouched by the proportional controller and the amplitude of the s
     + \POAmp{1}{0.001}
     + \POAmp{1}{0.0001}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \KArg{10}
@@ -196,6 +198,8 @@ The phase is untouched by the proportional controller and the amplitude of the s
 }
 
 \draw[<->] (2.85,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.85,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plot of a P-controller and a serially attached system consisting of three low-pass filters with cut-off frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$. The arrow in the phase plot shows the phase reserve $\alpha$. }
@@ -248,6 +252,7 @@ The bode plot of the PI-controller is shown in Fig. \ref{fig_bode_pi}. As one ca
 \end{equation}
 where $f_k$ is the critical frequency of the proportional controller. Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -280,7 +285,7 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-    \begin{scope}[yscale=4/110]
+    \begin{scope}[xscale = 1.7, yscale=2.5/110]
       \UnitedB
       \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:4.1}{
@@ -289,10 +294,10 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
     + \POAmp{1}{0.0001}
     + \PIAmp{10}{0.01}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \POArg{1}{0.01}
@@ -302,6 +307,8 @@ where $f_k$ is the critical frequency of the proportional controller. Also, the 
 }
 
 \draw[<->] (2.75,-180) -- node {$\alpha = \SI{60}{\degree}$}(2.75,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plots of a PI-controller to which the system is serially connected. Again the parameters were chosen so that the phase reserve is about \SI{60}{\degree}.}
@@ -315,6 +322,7 @@ For the final part a differential controller is added. The result can be seen in
 \end{equation}
 while the frequency of the integrator stays at a tenth of the critical frequency $f_k$.
 \begin{figure}[htp!]
+  \centering
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
@@ -347,7 +355,7 @@ while the frequency of the integrator stays at a tenth of the critical frequency
     Abaque lines/.style={thick, blue,smooth},
     gnuplot def/.append style={prefix={}},
     ]
-    \begin{scope}[yscale=4/110]
+    \begin{scope}[xscale = 1.7, yscale=2.5/110]
       \UnitedB
       \semilog{0}{6}{-70}{80}
     \BodeAmp[bode lines, red, name path=Gomagnitude]{0:5}{
@@ -356,10 +364,10 @@ while the frequency of the integrator stays at a tenth of the critical frequency
     + \POAmp{1}{0.0001}
     + \PIDAmp{100}{0.01}{0.0007}
     }
-
+    \node [rotate=90] at (-0.6, 5) {$A$ / \si{\decibel}};
   \end{scope}
 
-  \begin{scope}[xshift=10cm,yshift=2.8cm,yscale=2.2/110]
+  \begin{scope}[xshift=0cm,yshift=-2cm, xscale= 1.7, yscale=1.39/110]
 \semilog{0}{6}{-270}{0}
 \BodeArg[bode lines, red, name path=Gomagnitude]{0:6}{
 + \POArg{1}{0.01}
@@ -369,6 +377,8 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 }
 
 \draw[<->] (3.7,-180) -- node {$\alpha = \SI{60}{\degree}$}(3.7,-120);
+\node at (3,-330) {$f$ / \si{\hertz}};
+\node [rotate=90] at (-0.6,-150) {$\varphi$ in \si{\degree}};
 \end{scope}
 \end{tikzpicture}
 \caption{Bode plots of the series of a PID-controller and the system. As one can see, the phase curve is flatter than in the previous examples. }
@@ -376,15 +386,92 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 \end{figure}
 
 \section{Experimental Setup}
-\subsection{The Experimental Setup}
+\subsection{The Optical Setup}
 The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
 \newline
 The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
-\subsection{The Controller}
+\begin{figure}[htp!]
+    \centering
+    \tikzstyle{laser} = [draw, fill=red!20, rectangle,
+    minimum height=3em, minimum width=6em]
+    \tikzstyle{pbs} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=3em]
+    \tikzstyle{pd} = [draw, fill = gray!20, rectangle, minimum height=0.5em, minimum width=1em]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{interferometer} = [draw, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{controller} = [draw, rectangle, minimum height = 4em, minimum width = 7em]
+    \tikzstyle{mirror} = [draw, rectangle, minimum height = 0.2cm, minimum width = 1cm, thin, fill=black!80]
 
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+  \node [laser, name= laser] {HeNe};
+  \node [pbs, right of = laser, node distance = 3cm] (pbs) {PBS};
+  \draw [-, color = red, thick] (laser) -- (pbs);
+  \node [pd, above of = pbs, node distance = 1.5cm] (pd1) {PD1};
+  \node [pd, right of = pbs, node distance = 2cm, rotate = 270] (pd2) {PD2};
+  \draw [->, color = red, thick] (pbs) -- (pd2);
+  \draw [->, color = red, thick] (pbs) -- (pd1);
+  \node [controller, above of = laser] (controller) {Controller};
+  \draw [->] (pd1) -- (controller);
+  \draw [->] (pd2) |- (controller);
+  \draw [->] (controller) -- node {Heater} (laser);
+  \node [mirror, left of = laser, node distance = 3cm, rotate = 45, name=mirror1] (mirror1) {};
+  %\filldraw [fill=gray!20] (mirror1.north);
+  %\node [right of = mirror1, node distance = 0.06cm] (m1) {};
+  \draw [-, color = red, thick] (laser) -- (mirror1);
+  \node [mirror, below of = mirror1, node distance = 2cm, rotate = 135] (mirror2) {};
+  %\node [right of = mirror2, node distance = 0.06cm] (m2) {};
+  \draw [-, color = red, thick] (mirror1) -- (mirror2);
+  \node [interferometer, below of = laser, node distance = 2cm] (interferometer) {Fabry-Perot};
+  \draw [->, color = red, thick] (mirror2) -- (interferometer);
+  %\draw [->] (interferometer.south) -- +(0,-0.5cm) -| +(-4cm, 4cm) |- (controller); %([xshift=-4cm,yshift=4cm]) (controller); 
+  %  \node [input, name=input] {};
+  %  \node [sum, right of=input] (sum) {};
+  %  \node [block, right of=sum,
+  %          node distance=3cm] (system) {System ($A_S$)};
+  %  \node [sum, right of=system, node distance=3cm, pin={[pinstyle]above:$W$}] (output) {};
+  %  \node [block, below of=system] (controller) {Controller ($A_R$)};
+  %
+  %  \draw [draw,->] (input) -- node {$Z$} (sum);
+  %  \draw [->] (sum) -- node {$Y + Z$} (system);
+  %  \draw [->] (system) --  node {$X$}(output);
+  %  \draw [->] (output) |- node[pos=0.01] {$-$} node {$W - X$} (controller);
+  %  \draw [->] (controller) -| node[pos=0.99] {$+$}
+  %      node [near end] {$Y$} (sum);
+\end{tikzpicture}
+\caption{}
+\label{fig_setup}
+\end{figure}
+
+\subsection{The Controller}
+Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
+\newline
+The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{} and a picture of the soldered circuit is shown in fig. \ref{}.
+%The photo should be easy to insert, drawing the diagram will be work.
 
 \section{Analysis}
+To measure the stability of the controller, we changed the setting of the oscilloscope to persistence mode, which means that the oscilloscope adds a new measurement line per cycle, while still displaying old measurement lines. This way we have a means of comparison for the stability of a P, a PI and a PID-controller. The problem is that the persistence mode does not work for the output files of the oscilloscope, so we are forced to use screenshots. The observed curves are displayed in Fig. \ref{fig_width_pid}.
+\begin{figure}[htp!]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{Pcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{PIcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{PIDcontrolerpeak.png}
+    \caption{ }
+  \end{subfigure}
+  \caption{Screenshot of the persistence measurement of the P-controlled output. }
+  \label{fig_width_pid}
+\end{figure}
 
 \section{Conclusion}
 
@@ -397,6 +484,12 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 
 \bibitem{halbleiter}
 \textsc{U. Tietze, Ch. Schenk}, \textit{Halbleiter-Schaltungstechnik}, (12th edition) Springer-Verlag
+
+\bibitem{ina114}
+\textsc{Burr - Brown},\url{http://www.ti.com/lit/ds/symlink/ina114.pdf}
+
+\bibitem{op27}
+\textsc{Analog Devices}, \url{www.analog.com/media/en/technical-documentation/data-sheets/OP27.pdf}
 \end{thebibliography}
 
 \end{document}
