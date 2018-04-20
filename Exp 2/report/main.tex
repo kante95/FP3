@@ -62,7 +62,7 @@
 	\end{center}
 
 	\begin{abstract}
-    The main task of this experiment was to solder a PID-controller to regulate the temperature of a laser cavity in order to improve the stabilization of the laser.
+    The main task of this experiment was to solder a PID-controller to regulate the temperature of a laser cavity in order to improve the stability of the laser.
   \end{abstract}
     \vspace{1cm}
 
@@ -74,12 +74,12 @@
 
 
 \section{Introduction}
-The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser.
+The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser, by controlling the temperature of the lasing cavity.
 
 \section{Theoretical Background}
 \label{theory}
 \subsection{The Control Loop}
-In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system is the difference in intensity in two laser modes in a Fabry Perot interferometer. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
+In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system $X$ is the difference in intensity of two laser modes. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
 \begin{figure}[htp!]
     \centering
     \tikzstyle{block} = [draw, fill=blue!20, rectangle,
@@ -138,7 +138,7 @@ The aim is to have equal measured intensities on both photo diodes. This is acco
 \subsection{P-Controller}
 As is stated in \cite{script}, there are 3 types of controllers that are important to this experiment. The \textbf{P-Controller} (proportional), the \textbf{PI-Controller} (proportional-integral), and the \textbf{PID-Controller} (proportional-integral-differential). In this section a quick look is taken at the P-controller, the others are examined in the following sections.
 \newline
-To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with breaking point frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
+To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with breaking point frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass filter since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
 \newline
 The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
 
@@ -250,7 +250,7 @@ The bode plot of the PI-controller is shown in Fig. \ref{fig_bode_pi}. As one ca
 \begin{equation}
   f_I = \frac{1}{2 \pi C_{\mathrm{PI}} R_{\mathrm{PI}}}\approx \frac{1}{10} f_k,
 \end{equation}
-where $f_k$ is the critical frequency of the proportional controller. Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
+where $f_k$ is the critical frequency of the proportional controller.\cite{halbleiter} Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
 \begin{figure}[htp!]
   \centering
   \pgfdeclarelayer{background}
@@ -389,7 +389,7 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 \subsection{The Optical Setup}
 The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
 \newline
-The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
+The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonally polarized, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
 \begin{figure}[htp!]
     \centering
@@ -423,7 +423,7 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
   \draw [-, color = red, thick] (mirror1) -- (mirror2);
   \node [interferometer, below of = laser, node distance = 2cm] (interferometer) {Fabry-Perot};
   \draw [->, color = red, thick] (mirror2) -- (interferometer);
-  %\draw [->] (interferometer.south) -- +(0,-0.5cm) -| +(-4cm, 4cm) |- (controller); %([xshift=-4cm,yshift=4cm]) (controller); 
+  %\draw [->] (interferometer.south) -- +(0,-0.5cm) -| +(-4cm, 4cm) |- (controller); %([xshift=-4cm,yshift=4cm]) (controller);
   %  \node [input, name=input] {};
   %  \node [sum, right of=input] (sum) {};
   %  \node [block, right of=sum,
@@ -445,7 +445,7 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 \subsection{The Controller}
 Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
 \newline
-The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in fig. \ref{photocircuit}.
+The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in Fig. \ref{photocircuit}.
 %The photo should be easy to insert, drawing the diagram will be work.
 \begin{figure}[H]
 \centering
@@ -455,7 +455,7 @@ The PID consists of a P-controller, a I-part, and a D-part connected in a parall
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{photocircuit}
-\caption{Photo of the realized circuit}\label{photocircuit}
+\caption{Photo of the realized circuit.}\label{photocircuit}
 \end{figure}
 \section{Analysis}
 \begin{figure}[H]
@@ -464,13 +464,12 @@ The PID consists of a P-controller, a I-part, and a D-part connected in a parall
 \caption{Output modes of the laser, not every peak is a mode, to identify the modes we need to look at peaks with approximately the same height, in this case the three highest peaks.}\label{laser}
 \end{figure}
 Before starting the analysis we have to change the time axis of the oscilloscope to frequency, such that we can analyze the frequency behaviour of the laser. This can be done knowing the free spectral range (FSR) of the laser, for the He-Ne laser used in this experiment the distance between two modes is 1.1 GHz \cite{script}. In figure \ref{laser} we can see the output of the He-Ne laser, by taking the distance in time between two modes we can find the factor A of conversion between time $t$ and frequency $f$
-\[f = At, \qquad A = \frac{\text{FSR}_f}{\text{FSR}_t},\] 
+\[f = At, \qquad A = \frac{\text{FSR}_f}{\text{FSR}_t},\]
 where $\text{FSR}_f$ and $\text{FSR}_t$ are respectively the FSR measured in frequency and time. To find the peak we used a simple algorithm, where we took the point with the maximum value in the neighborhood.
 To measure the stability of the laser, we changed the setting of the oscilloscope to persistence mode, which means that the oscilloscope adds a new measurement line per cycle, while still displaying old measurement lines. For every measurement we took a 2 minutes persistence trace of one peak of the laser, so we were able to analyze the laser stabilization over time. We took three measurements: in the first one, only the P controller was connected; in the second one we connected the P and the I controller; and for the last measurement we connected the whole PID controller. In figure \ref{fig_width_pid} the three measurements can be seen. To extract useful data from these images we used a image manipulation software to count the pixels of the FWHM for every peak, then we counted the pixel of one division, and knowing the division value in time is $1$ ms we are able to convert pixel to time. Finally from time we converted the values to frequency as described above. In the following table the results obtained are summarized
 \begin{table}[H]
 \centering
 \begin{tabular}{l|c}
-
                & FWHM  {[}GHz{]} \\ \hline
 P controller   & 0.035           \\ \hline
 PI controller  & 0.014           \\ \hline
@@ -479,13 +478,15 @@ PID controller & 0.020           \\ \hline
 \caption{Results obtained for the FWHM}
 \end{table}
 Unfortunately we do not have any error on these measurements, since the chosen analysis strategy did not allow us to perform a deep and precise analysis. Anyway we can clearly see an improvement from the P controller to the PI controller, but when we connected also the D controller, we apparently had a worse result as can be also seen in figure \ref{PID} where the persistence is broader then the previous case.
+\newline
+If one looks at the line of the PI controller in figure \ref{fig_width_pid}, one notices that the line is less thick than in the measurements for the P or the PID controller. It is possible that we made an error making the screenshot and only saved the image of one cycle instead of the persistence measurement. That would explain why it appears as though the PI controller was a better stabilizer than the PID controller.
 
 \begin{figure}[H]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[height=6cm]{Pcontrolerpeak.png}
-    \caption{With only the P controller }
+    \caption{Persistence measurement with only the P controller }
   \end{subfigure}
   ~
   \begin{subfigure}[t]{0.45 \textwidth}
@@ -497,14 +498,15 @@ Unfortunately we do not have any error on these measurements, since the chosen a
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[height=6cm]{PIDcontrolerpeak.png}
-    \caption{With the PID controller }\label{PID}
+    \caption{PID controller }\label{PID}
   \end{subfigure}
   \caption{Screenshot of the persistence measurements. Red arrows indicate where we measured the FWHM of the peaks.}
   \label{fig_width_pid}
 \end{figure}
 
 \section{Conclusion}
-In this experiment we stabilized a laser using a PID controller, we checked 
+%In this experiment we stabilized a laser using a PID controller, we checked
+The main task of this experiment was to solder a working PID controller, which was done successfully. The stability measurements showed that the PID controller was working more stably than the mere P controller, which was to be expected. The PI controller has an even bigger stability than the PID according to our measurement, but as was explained above, this is likely due to a measurement error.
 
 \begin{thebibliography}{99}
 \bibitem{script}
