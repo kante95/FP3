@@ -74,12 +74,12 @@
 
 
 \section{Introduction}
-The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilized the frequency of a He-Ne laser.
+The ability to control and modulate the output of a system or process in a precise way is of fundamental importance not only in modern day science, but also in engineering and high-tech industry. The PID-controller, which was explored in this experiment, is a comparably simple, yet reliable and useful example for a controller. In this case it was used to stabilize the frequency of a He-Ne laser.
 
 \section{Theoretical Background}
 \label{theory}
 \subsection{The Control Loop}
-In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system is the difference in intensity in two laser modes in a Fabry Perot interferometer. It is compared to the desired value $W$, which is zero in this case. The resulting signal is fed into the controller, which in its output $Y$ drives a heating coil the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
+In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_control_loop}. The output of the system $X$ is the difference in intensity of two laser modes. It is compared to the desired value $W$. Their difference $W-X$, called error signal is fed into the controller, which is composed by three parts: a Proportional controller, a Integral controller, and Differential controller. The output of the controller $Y$ drives an heating coil which heat the He-Ne laser's cavity. The temperature is further influenced by outside influence, which is accounted by the error signal $Z$. The combined change in temperature causes the optical length of the cavity to change, thus changing the ratio in the intensities of the modes. This then leads back to a different output of the system, which closes the loop.
 \begin{figure}[htp!]
     \centering
     \tikzstyle{block} = [draw, fill=blue!20, rectangle,
@@ -109,7 +109,7 @@ In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_c
 \end{figure}
 
 \subsection{Stabilizing the Laser}
-The length of the cavity of the He-Ne laser only allows for two modes to reach a notable amount of amplification in the amplification profile. Fig. \ref{fig_profile} shows the profile and the two modes in the desired intensity ratio. These two modes are orthogonally polarized, because of non-linear mode competition in the cavity.\cite{laserfaq} Using a polarizing beam splitter, these modes are split up and are detected on individual photo diodes.
+The length of the cavity of the He-Ne laser only allows for two modes to reach a notable amount of amplification in the amplification profile. Fig. \ref{fig_profile} shows the profile and the two modes in the desired intensity ratio. These two modes are orthogonally polarized,due to non-linear mode competition in the cavity.\cite{laserfaq} Using a polarizing beam splitter, these modes are split up and are detected on individual photodiodes.
 
 \begin{figure}[htp!]
   \centering
@@ -118,7 +118,7 @@ The length of the cavity of the He-Ne laser only allows for two modes to reach a
   }
   \begin{tikzpicture}
     \begin{axis}[
-      no markers, domain=0:10, samples=100, axis lines*=left, xlabel=Frequency at \SI{633}{\nano \meter}, ylabel=Amplification,
+      no markers, domain=0:10, samples=100, axis lines*=left, xlabel=Frequency at $\approx$\SI{633}{\nano \meter}, ylabel=Amplification,
       every axis y label/.style={at=(current axis.above origin),anchor=south},
       every axis x label/.style={at=(current axis.right of origin),anchor=west},
       height=5cm, width=12cm, xtickmax= 3,
@@ -389,7 +389,7 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 \subsection{The Optical Setup}
 The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
 \newline
-The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photo diodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
+The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonal, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photodiodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
 \begin{figure}[htp!]
     \centering
@@ -443,18 +443,19 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 \end{figure}
 
 \subsection{The Controller}
-Since the controller has to regulate the intensity difference of two laser modes to zero, we at first had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumentation amplifier. The output is then split with one arm going over an inverting amplifier into the output of the monitor. The second arm goes via a trimmer into the PID-controller.
+Since the controller has to regulate the intensity difference of two laser modes to zero, at first we had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumental amplifier. The output is then split with one arm going over an inverting amplifier and then to an oscilloscope to monitor the signal. The second arm goes via a trimmer into the PID-controller.
 \newline
 The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in fig. \ref{photocircuit}.
+For resistance $R_1,R_2,$ and $R_3$ different values were tried, until the monitor signal showed a nice response of the controller, i.e. without overshooting or exponential behaviour. The same startegy has been used to determine the best value for the capacitors $C_1$ and $C_2$.
 %The photo should be easy to insert, drawing the diagram will be work.
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{circuit}
+\includegraphics[width=0.8\textwidth]{circuit}
 \caption{Complete schematic of the circuit, all the operation amplifiers and the instrumental amplifier were powered with +15 V and -15 V, moreover to every power pin we attached a 1 $\mu$F bypass capacitor. The Ref is also set to +15 V.}\label{circuit}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{photocircuit}
+\includegraphics[width=0.4\textwidth]{photocircuit}
 \caption{Photo of the realized circuit}\label{photocircuit}
 \end{figure}
 \section{Analysis}
@@ -504,7 +505,7 @@ Unfortunately we do not have any error on these measurements, since the chosen a
 \end{figure}
 
 \section{Conclusion}
-In this experiment we stabilized a laser using a PID controller, we checked 
+In this experiment we stabilized a laser using a PID controller, we tested the controller with only the proportional part, then using both the proportional and integral part, and finally we tested the whole PID controller. Our expectation was to have an improvement for very part of the controller that we used. However we noticed this behaviour for only the integral part, when we attached also the differential part, the mode of the laser was less stable. This can be due to a wrong choice of the capacitor $C_2$ or maybe some other problems with the circuit, which need further investigation.
 
 \begin{thebibliography}{99}
 \bibitem{script}
