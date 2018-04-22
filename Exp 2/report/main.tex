@@ -105,12 +105,12 @@ In this experiment we used a feedback loop, which is sketched in Fig. \ref{fig_c
     \draw [->] (controller) -| node[pos=0.99] {$+$}
         node [near end] {$Y$} (sum);
 \end{tikzpicture}
-\caption{Sketch of a control loop. The output of the system $X$ is compared to the reference $W$. The difference in the signal is fed back into the controller. The output of the controller is the signal $Y$, which is added to the error value $Z$ and fed back into the system. }
+\caption{Sketch of a control loop. The output of the system $X$ is compared to the reference $W$. The difference in the signal is fed back into the controller. The output of the controller is the signal $Y$, which is added to $Z$ and fed back into the system. }
 \label{fig_control_loop}
 \end{figure}
 
 \subsection{Stabilizing the Laser}
-The length of the cavity of the He-Ne laser only allows for two modes to reach a notable amount of amplification in the amplification profile. Fig. \ref{fig_profile} shows the profile and the two modes in the desired intensity ratio. These two modes are orthogonally polarized,due to non-linear mode competition in the cavity.\cite{laserfaq} Using a polarizing beam splitter, these modes are split up and are detected on individual photodiodes.
+The length of the cavity of the He-Ne laser only allows for two modes to reach a notable amount of amplification in the amplification profile. Fig. \ref{fig_profile} shows the profile and the two modes in the desired intensity ratio. These two modes are orthogonally polarized, due to non-linear mode competition in the cavity \cite{laserfaq}. Using a polarizing beam splitter, these modes are split up and are detected on individual photodiodes.
 
 \begin{figure}[htp!]
   \centering
@@ -134,14 +134,14 @@ The length of the cavity of the He-Ne laser only allows for two modes to reach a
   \caption{Sketch of the amplification profile including two laser modes. According to \cite{script} the FWHM of the amplifictaion profile is \SI{1.4}{\giga \hertz}, while the Free Spectral Range of the longitudinal modes is \SI{1.1}{\giga \hertz}. The modes are here shown with equal amplification, which is the situation that is to be reached with the controller.}
   \label{fig_profile}
 \end{figure}
-The aim is to have equal measured intensities on both photo diodes. This is accomplished by stabilizing the temperature of the laser's cavity at a point where the modes have equal intensities.
+The aim is to have equal measured intensities on both photodiodes. This is accomplished by stabilizing the temperature of the laser's cavity at a point where the modes have equal intensities.
 
 \subsection{P-Controller}
 As is stated in \cite{script}, there are 3 types of controllers that are important to this experiment. The \textbf{P-Controller} (proportional), the \textbf{PI-Controller} (proportional-integral), and the \textbf{PID-Controller} (proportional-integral-differential). In this section a quick look is taken at the P-controller, the others are examined in the following sections.
 \newline
-To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with breaking point frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass filter since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
+To put it simply, the P-controller is a inverting linear amplifier. There is no notable phase change in the system caused by the P-controller. Fig. \ref{fig_bode_p} showcases the bode plot of a system consisting of three low-pass filters with cutoff frequencies at $f_1 = \SI{100}{\hertz}$, $f_2 = \SI{1}{\kilo \hertz}$, and $f_3 = \SI{10}{\kilo\hertz}$, that is connected to a P-controller. Our system is a low-pass filter since we are controlling the temperature, i.e. the system has to thermalize, which takes time.
 \newline
-The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time.\cite{halbleiter} If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
+The phase is untouched by the proportional controller and the amplitude of the system is increased all over the system by a constant factor. At the  critical frequency $f_k$, where the amplitude passes through \SI{0}{\decibel}, the difference between the phase and \SI{180}{\degree} should be around $\alpha = \SI{60}{\degree}$, because at this frequency the overshooting of the function should be only $4\%$ of the original amplitude at minimal equilibration time \cite{halbleiter}. If the phase is bigger than \SI{180}{\degree} at \SI{0}{\decibel}, then the system starts to oscillate. As the P-controller leaves a small deviation from the desired value, we have to add an integrator.
 
 \begin{figure}[htp!]
   \centering
@@ -251,7 +251,7 @@ The bode plot of the PI-controller is shown in Fig. \ref{fig_bode_pi}. As one ca
 \begin{equation}
   f_I = \frac{1}{2 \pi C_{\mathrm{PI}} R_{\mathrm{PI}}}\approx \frac{1}{10} f_k,
 \end{equation}
-where $f_k$ is the critical frequency of the proportional controller.\cite{halbleiter} Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
+where $f_k$ is the critical frequency of the proportional controller \cite{halbleiter}. Also, the phase is hardly changed at the critical temperature, which means that $\alpha$ should remain unchanged. To flatten out the phase at the critical frequency one can add a differential controller.
 \begin{figure}[htp!]
   \centering
   \pgfdeclarelayer{background}
@@ -388,9 +388,8 @@ while the frequency of the integrator stays at a tenth of the critical frequency
 
 \section{Experimental Setup}
 \subsection{The Optical Setup}
-The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
+The central part of the setup is the He-Ne laser. Beams can exit its cavity on both ends, which means there are two beams to be observed. One is lead into a Fabry-Perot etalon in order to examine the frequency difference of the two generated modes, which gives us a gauge for the frequency axis. Also from the movement of the peaks in the output of the Fabry-Perot interferometer, we can determine the stability of the used controller.
 \newline
-<<<<<<< HEAD
 The second beam of the He-Ne laser is split on a polarizing beam splitter. Since the two modes of the laser are orthogonally polarized, it is possible to separate the modes. The intensities of both modes are then analyzed by making use of two individual photodiodes. Their signal is then fed into the controller to determine the appropriate amount of heating necessary to stabilize the two laser modes and thus stabilize the laser.
 
 % we need a sketch of the setup here, should we copy and photoshop the one from the script or make a new one?
@@ -446,9 +445,8 @@ The second beam of the He-Ne laser is split on a polarizing beam splitter. Since
 \end{figure}
 
 \subsection{The Controller}
-Since the controller has to regulate the intensity difference of two laser modes to zero, at first we had to build an entry for both signals from the photo diodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumental amplifier. The output is then split with one arm going over an inverting amplifier and then to an oscilloscope to monitor the signal. The second arm goes via a trimmer into the PID-controller.
+Since the controller has to regulate the intensity difference of two laser modes to zero, at first we had to build an entry for both signals from the photodiodes. The difference of the signals is generated and amplified by an INA 114 \cite{ina114} instrumental amplifier. The output is then split with one arm going over an inverting amplifier and then to an oscilloscope to monitor the signal. The second arm goes via a trimmer into the PID-controller.
 \newline
-<<<<<<< HEAD
 The PID consists of a P-controller, a I-part, and a D-part connected in a parallel way as was already written in Sec. \ref{theory}. The resistances and capacitors are just plugged into the system, which allows us to exchange them to vary the amplification and the cutoff frequencies of the integrator and the differential component. To the output of the controller a  voltage, that can be varied with another trimmer, is added with the adder. Finally the signal is fed into the driving stage, where the output can be connected to the heater of the laser cavity. To complete this setup we used 6 operational amplifiers (OP 27 \cite{op27}) in addition to the INA 114. The circuit diagram can be seen in Fig. \ref{circuit} and a picture of the soldered circuit is shown in fig. \ref{photocircuit}.
 For resistance $R_1,R_2,$ and $R_3$ different values were tried, until the monitor signal showed a nice response of the controller, i.e. without overshooting or exponential behaviour. The same startegy has been used to determine the best value for the capacitors $C_1$ and $C_2$.
 %The photo should be easy to insert, drawing the diagram will be work.
