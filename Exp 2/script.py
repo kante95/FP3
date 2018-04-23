@@ -27,8 +27,14 @@ peaks = np.array([])
 for i in range(len(ch1)-1):
 	if ch1[i]> 0.03:
 		if ch1[i]>ch1[i+1] and ch1[i]>ch1[i-1]:
-			plt.plot(t[i],ch1[i],'ro')
+			#plt.plot(t[i],ch1[i],'ro')
 			peaks = np.append(peaks,t[i])
+
+plt.xlabel("Time [s]")
+plt.ylabel("Voltage [V]")
+plt.grid(True)
+
+
 
 distance = np.abs(peaks[-1] - peaks[-3])
 t2v = 1.1/distance #peaks are separeted by 1.1 Ghz, this factor gives the conversion between time and frequency
@@ -52,7 +58,7 @@ t,ch1 = read_data("data/PID05.CSV")
 #plt.plot(t,ch1)
 print("Division PID: ", (max(t)-min(t))/10 )
 
-#plt.show() 
+plt.show() 
 
 
 division = 1e-3 #1 millisecond

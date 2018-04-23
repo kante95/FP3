@@ -482,7 +482,7 @@ PID controller & 0.020           \\ \hline
 \end{table}
 Unfortunately we do not have any error on these measurements, since the chosen analysis strategy did not allow us to perform a deep and precise analysis. Anyway we can clearly see an improvement from the P controller to the PI controller, but when we connected also the D controller, we apparently had a worse result as can be also seen in figure \ref{PID} where the persistence is broader then the previous case.
 \newline
-%If one looks at the line of the PI controller in figure \ref{fig_width_pid}, one notices that the line is less thick than in the measurements for the P or the PID controller. It is possible that we made an error making the screenshot and only saved the image of one cycle instead of the persistence measurement. That would explain why it appears as though the PI controller was a better stabilizer than the PID controller.
+If one looks at the line of the PI controller in figure \ref{fig_width_pid}, one notices that the line is less thick than in the measurements for the P or the PID controller. It is possible that we made an error making the screenshot and only saved the image of one cycle instead of the persistence measurement. That would explain why it appears as though the PI controller was a better stabilizer than the PID controller.
 
 \begin{figure}[H]
   \centering{}
@@ -509,7 +509,7 @@ Unfortunately we do not have any error on these measurements, since the chosen a
 
 \section{Conclusion}
 
-In this experiment we stabilized a laser using a PID controller, we tested the controller with only the proportional part, then using both the proportional and integral part, and finally we tested the whole PID controller. Our expectation was to have an improvement for very part of the controller that we used. However we noticed this behaviour for only the integral part, when we attached also the differential part, the mode of the laser was less stable. This can be due to a wrong choice of the capacitor $C_2$ or maybe some other problems with the circuit, which need further investigation.
+In this experiment we stabilized a laser using a PID controller, we tested the controller with only the proportional part, then using both the proportional and integral part, and finally we tested the whole PID controller. Our expectation was to have an improvement for very part of the controller that we used. However we noticed this behaviour for only the integral part, when we attached also the differential part, the mode of the laser was less stable. This can be due to a wrong choice of the capacitor $C_2$ or maybe some other problems with the circuit, which need further investigation. Or we maybe just made an error taking the screeshot as already outlined in the analysis.
 
 
 \begin{thebibliography}{99}
