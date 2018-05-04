@@ -1,0 +1,191 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usepackage{textcomp}           % Extra Symbole (Grad Celsius etc.)
+\usepackage{amssymb,amsmath}    % Schöne Formeln (AMS = American Mathematical Society)
+\usepackage{graphicx}           % Bilder und Seitenränder
+\usepackage{subcaption}			% captions for subfigures
+\usepackage{booktabs}           % Schönere Tabellen
+\usepackage{colortbl}           % Farbige Tabellen
+
+%\usepackage{tcolorbox}			% schöne bunte Boxen
+\usepackage{mathtools}			% \mathclap für ordentliche \underbrace-			environments
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}			% Pagelayout mit \newgeometry, \restoregeometry
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{verbatim}
+\usepackage[per-mode=reciprocal,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{physics}
+\usepackage{url}
+\usepackage{subcaption}
+\usepackage{calrsfs}
+\usepackage{tikz}
+\usetikzlibrary{decorations, positioning, intersections, calc, shapes,arrows, scopes}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+\graphicspath{{./img/}}
+
+\newcommand{\dif}{\mathrm{d}}
+
+\bibliographystyle{instant}
+
+\renewcommand{\k}{\mathbf{k}}
+\begin{document}
+\begin{titlepage}
+ \begin{center}
+	\Large{Advanced laboratory class 3}
+	\end{center}
+	\begin{center}
+	 \LARGE{\textbf{FP3 - Supersonic Atomic Beam}}
+	\end{center}
+
+	\begin{center}
+
+	\large Marco \textsc{Canteri} \\
+	marco.canteri@student.uibk.ac.at\\
+	\large Maximilian \textsc{Münst} \\
+	maximilian.muenst@student.uibk.ac.at
+	\end{center}
+
+	\begin{center}
+	\vspace{1cm}
+	Innsbruck, \today
+	\vspace{1cm}
+	\end{center}
+
+	\begin{abstract}
+
+  \end{abstract}
+  \vspace{1cm}
+
+	\begin{center}
+	\includegraphics[scale=0.4]{img/uibk}
+	\end{center}
+
+\end{titlepage}
+
+\section{Introduction}
+Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. For example it is used to perform spectroscopy \cite{demtroeder} or to analyse the pressure ionization behaviour  of a gas as it is done in this experiment. Furthermore, the low temperatures reached by supersonic expansion also allows for the growth of clusters, so there is also applications in cluster physics.
+
+\section{Theoretical Background}
+% I think we should expand this section whenever we use something in the analysis.
+The theory presented in this section is based on the book "Gase, Nanosysteme, Flüssigkeiten".\cite{bergmann}
+
+\subsection{Knudsen Number}
+The Knudsen Number describes the ratio of the mean free path length $l$ of a particle and the characteristic length of the containing vessel $L$.
+\begin{equation}
+  Kn = \frac{l}{\sqrt{2} L} = \frac{k_B T }{\sqrt{2} \pi d^2 p L}
+\end{equation}
+Here, the last term can be applied to Boltzmann gases. $T$ is the temperature, $d$ is the radius of the hard sphere potential of the Argon atoms, $p$ is the pressure inside the vessel and $k_B$ is the Boltzmann constant.
+
+\section{Experimental Setup}
+The experiment consists of a two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously vacuumed by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
+\newline
+The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand first with supersonic speed, which is followed by effusive expansion. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge.\cite{cold_cathode} To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used gas, as different gases have different ionization behaviour.
+\newline
+While the pressure is measured at the top of the setup, a more interesting part is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently by detected with a channeltron detector.
+\\
+The channeltron is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
+\begin{figure}[htp!]
+    \centering
+    \tikzstyle{chamber2} = [draw, rectangle,
+    minimum height=10em, minimum width=20em]
+    \tikzstyle{chamber1} = [draw, rectangle, minimum height = 10em, minimum width = 5em]
+    \tikzstyle{coldcathode} = [draw, rectangle, minimum height = 2em, minimum width = 2em]
+    \tikzstyle{electrode} = [draw, ellipse, minimum height = 5em, minimum width = 2em]
+    \tikzstyle{channeltron} = [draw, rectangle, minimum height = 5em, minimum width = 1em]
+    \tikzstyle{orifice} = [draw, rectangle, fill=black!100, minimum height = 0.5em, minimum width = 0.5em]
+    \tikzstyle{resistor} = [draw, rectangle, minimum height = 1em, minimum width = 2em]
+    \tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+  \node at (0, 0) [chamber2, name = vacuum] {};
+  \node at (-12.5em, 0) [chamber1, name = pressured] {};
+  \node at (0, 6em) [coldcathode, name = pressuremeter] {};
+  \node at (10.5em, 0) [channeltron, name = channeltron] {};
+  \node at (0, 0) [electrode, name = electrode1] {};
+  \node at (4em, 0) [electrode, name = electrode2] {};
+  \node at (-10em, 0) [orifice, name = orifice] {};
+  \node at (-6em, -7em) [resistor, name = resistor] {};
+  \node at (-9em, -7em) [name = voltage] {$V$};
+  \node at (7.5em, 7em) [name = deflect] {$V_\mathrm{Deflect}$};
+
+  \draw  (electrode1) |- (resistor);
+  \draw (resistor) -- (voltage);
+  \draw (electrode2) -- (4em, -7em);
+  \draw (3.5em, -7em) -- node[below] {GND} (4.5em, -7em);
+  \draw (6.5em, 2.5em) -- node[below] {} (8.5em, 2.5em);
+  \draw (7.5em, 2.5em) -- (deflect);
+
+  \node at (-6em, -8em) {$R$};
+  \node at (14em, 0) {Channeltron};
+  \node at (0, 8em) {Ionization gauge};
+  \node[text width = 3cm,align = center] at (-12.5em, -4em) {Pressure \\ chamber};
+  \node at (0, -4.5em) {Vacuum chamber};
+  \node at (-8em, 1em) {Orifice};
+\end{tikzpicture}
+\caption{Sketch of the experimental setup. Gas passes from the pressure chamber into the vacuum chamber in pulses, where the length and the frequency can be varied. The pressure is measured with the cold cathode ionization gauge. A direct voltage can be applied to the two ring electrodes, which causes a plasma discharge when gas is passing through. The discharge can be made visible by measuring the voltage on the resistor $R$. Finally the Channeltron detector can measure the intensity of atoms excited by the plasma discharge. }
+\label{fig_setup}
+\end{figure}
+In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that tuning the deflection voltage did not notably increase the quality of the received signal.
+
+\section{Analysis}
+Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure was measured depending on the frequency and the length of the opening times. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{hertz} and \SI{10}{\hertz}. The results are plotted in Fig. \ref{fig_pressure_characterization}.
+
+\begin{comment}
+\begin{figure}[htp!]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{}
+    \caption{\SI{1}{\hertz}}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{}
+    \caption{\SI{2}{\hertz}}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{}
+    \caption{\SI{5}{\hertz}}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{}
+    \caption{\SI{10}{\hertz}}
+  \end{subfigure}
+  \caption{Depiction of the measured pressure for pulse widths of \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at the displayed frequency. }
+  \label{fig_pressure_characterization}
+\end{figure}
+\end{comment}
+
+\section{Conclusion}
+
+\begin{thebibliography}{99}
+\bibitem{datasheet_pfeiffer}
+\textsc{Pfeiffer Vakuum}, \textit{Compact FullRange Gauge -PKR 251 }, \url{http://www.idealvac.com/files/brochures/Pfeiffer_PKR_251_Pirani_ColdCathode.pdf}
+
+\bibitem{demtroeder}
+\textsc{W. Demtröder, H.-J. Foth}, \textit{Molekülspektren in kalten Düsenstrahlen}, \url{https://onlinelibrary.wiley.com/doi/pdf/10.1002/phbl.19870430104}
+
+\bibitem{bergmann}
+\textsc{Bergmann-Schäfer}, \textit{Gase, Nanosysteme, Flüssigkeiten}, \textit{Band 5} (de Gruyter, 2005)
+
+\bibitem{cold_cathode}
+\textsc{LDS Vacuum Shopper}, \textit{Cold Cathode Gauges}, \url{http://www.ldsvacuumshopper.com/cocaga.html}
+\end{thebibliography}
+\end{document}
