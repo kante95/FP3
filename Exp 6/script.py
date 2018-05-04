@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+from scipy.optimize import curve_fit
+from scipy import signal
 
 plt.rcParams['font.size'] = 16
 
@@ -10,6 +11,8 @@ def read_data(file):
     data = np.genfromtxt(file, delimiter=",",usecols=range(3,5), skip_header=18)
     return data[:,0],data[:,-1]
 
+def exp(t,tau,A,B,C):
+	return A*np.exp(-(t+B)/tau) +C
 
 def V2P(v, gas = "argon"):
 	if gas == "argon":
@@ -97,4 +100,43 @@ for i in range(1,13):
 
 
 
-#plt.show()
+#decay fit
+
+freq = np.array([1,1,1,2,2,2,5,5,5])
+width = np.array([120,190,230,230,190,120,120,190,230])
+
+
+for i in range(1,10):
+	t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
+	p = V2P(v)
+	cut = np.argmax(p)
+	#print(t[cut])
+	cut_lower = t[cut]
+	cut_upper = t[cut]+ 0.5*(1/freq[i-1])
+	p = p[(t>cut_lower)&(t<cut_upper)]
+	t = t[ (t>cut_lower)&(t<cut_upper)]
+	popt, pcov = curve_fit(exp, t, p,method = "trf",p0 = [0.1,1,1,1])
+	plt.figure()
+	plt.plot(t,p)
+	plt.plot(t, exp(t, *popt), 'r')
+	plt.title("width: "+str(width[i-1]) + ", freq: " + str(freq[i-1]))
+	print("width: "+str(width[i-1]) + ", freq: " + str(freq[i-1])+" tau: ", popt[0])
+
+
+#time of flight
+
+plt.figure()
+
+for i in range(21,24):
+	t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
+	#peak_indices = signal.find_peaks_cwt(-1*v,np.arange(1,2))
+	#print(peak_indices)
+	plt.plot(t,v)
+	ind1 = np.argmin(v[t<0.0005])
+	ind2 = np.argmin(v[t>0.0005])
+	plt.plot(t[ind1],v[ind1],'r.')
+	plt.plot(t[ind2 + len(v)-len(v[t>0.0005]) ],v[ind2+ len(v)-len(v[t>0.0005])],'r.')
+
+	tof = t[ind2 + len(v)-len(v[t>0.0005])]-t[ind1]
+	print("time fo flight: ",tof, " Velocity: ",0.35/tof)
+plt.show()
