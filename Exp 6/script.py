@@ -11,8 +11,12 @@ def read_data(file):
     return data[:,0],data[:,-1]
 
 
-def V2P(v):
-	return 10**(1.667*v - 9.333)
+def V2P(v, gas = "argon"):
+	if gas == "argon":
+		k = 0.8
+	elif gas =="helium":
+		k = 5.9
+	return k*10**(1.667*v - 9.333)
 
 
 #pressure for different opening times
@@ -44,6 +48,8 @@ for i in num:
 plt.legend()
 
 
+#knudsen number
+
 def knudsen(p):
 	kb = 1.3806504e-23
 	T = 22 + 273.15
@@ -72,5 +78,23 @@ ax2.tick_params('y', colors='g')
 
 
 
+#gas inlet
+V_final = 4
+gamma = 5/3
+P_initial = 2.9
 
-plt.show()
+
+freq = np.array([1,1,1,2,2,2,5,5,5,10,10,10])
+width = np.array([120,190,230,230,190,120,120,190,230,230,190,120])
+
+
+for i in range(1,13):
+	t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
+	p = V2P(v)
+	P_final = np.amax(p)*1e-5
+	V_intial = V_final*(P_final/P_initial)**(1/gamma)*1e3
+	print("Gas inlet: "+str(V_intial)+" +/- " +str((P_final/P_initial)**(1/gamma)*1e3) + " mBar, Freq: " +str(freq[i-1])+ " Width: " +str(width[i-1]))
+
+
+
+#plt.show()
