@@ -100,7 +100,7 @@ Here, $U$ indicates the voltage signal that the gouge generates, while $K$ is a 
 While the pressure is measured at the top of the setup, a more interesting part is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently by detected with a channeltron detector.
 \\
 The channeltron is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
-\begin{figure}[htp!]
+\begin{figure}[H]
     \centering
     \tikzstyle{chamber2} = [draw, rectangle,
     minimum height=10em, minimum width=20em]
@@ -148,8 +148,11 @@ In this experiment one is mostly interested in the intensity of the excited argo
 
 \section{Analysis}
 \subsection{Pressure Characteristics}
-Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure of did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width.
-\begin{figure}[htp!]
+Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure of did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width. As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
+\\
+% Maybe we should take a look at the behaviour of maximum pressure and decay time \tau depending on frequency/width?
+
+\begin{figure}[H]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
@@ -178,7 +181,7 @@ Starting off, a look was taken at the pressure characteristics of the setup. To 
   \label{fig_pressure_characterization}
 \end{figure}
 
-\begin{figure}[htp!]
+\begin{figure}[H]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
@@ -200,9 +203,6 @@ Starting off, a look was taken at the pressure characteristics of the setup. To 
   \caption{Plots of the pressure behaviour with variable frequency and fixed opening time. The data is the same as in Fig. \ref{fig_pressure_characterization}, but arranged with respect to pulse width instead of frequency. }
   \label{fig_width_characterization}
 \end{figure}
-As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
-\\
-% Maybe we should take a look at the behaviour of maximum pressure and decay time \tau depending on frequency/width?
 
 \subsection{Gas Inlet per Pulse}
 To calculate how much gas gets into the vacuum chamber every time the nuzzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
@@ -210,16 +210,49 @@ To calculate how much gas gets into the vacuum chamber every time the nuzzle is 
 As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still about $50$. % we must use the precise value with error, I just approximated it with the graph
 This means that we are not in the adiabatic regime and must therefore use the equation 
 \begin{equation}
-	\frac{\Delta p}{V} = \frac{p}{\Delta V},
+	\frac{P_i}{V_i} = \frac{P_f}{V_f},
 \end{equation}
-where $\Delta p$ is the difference between minimum and maximum pressure, $V$ is the space inside the vacuum chamber, which we can only guess. Furthermore, $p$ is the pressure inside the pressure chamber and $\Delta V$ is the volume of gas that we want to determine. 
+where $P_i$ and $V_i$ are the initial pressure and initial volume inside the nozzle, while $P_f$ and $V_f$ are the final pressure and volume. We measured $P_i$ and we used $4\pm 1$ L for $V_f$ which is approximately the volume of the vacuum chamber. $P_f$ is extracted from the data as the value of the peak. Therefore is possible to find $V_i$ which is the gas inlet. In the following table the results can be found
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc} \toprule
+    Gas inlet [mL] & Opening time [ms] & Frequency \\ \midrule
+$1.3931\cdot 10^{-7} \pm 3\cdot 10^{-11}$& 120& 1\\
+$5.549\cdot 10^{-6} \pm 1\cdot 10^{-9}$& 190& 1\\
+$9.499\cdot 10^{-6} \pm 2\cdot 10^{-9}$& 230& 1\\\midrule
+$1.0256\cdot 10^{-5} \pm 2\cdot 10^{-9}$& 230& 2\\ 
+$6.471\cdot 10^{-6} \pm 2\cdot 10^{-9}$& 190& 2\\
+$1.8937\cdot 10^{-7} \pm 5\cdot 10^{-11}$& 120& 2\\\midrule
+$2.2080\cdot 10^{-7} \pm 5\cdot 10^{-11}$& 120& 5\\
+$9.499\cdot 10^{-6} \pm 2\cdot 10^{-9}$ & 190& 5\\ 
+$1.7554\cdot 10^{-5} \pm 4\cdot 10^{-9}$ & 230& 5\\\midrule
+$3.2442\cdot 10^{-5} \pm 8\cdot 10^{-9}$ & 230& 10\\
+$2.0467\cdot 10^{-5} \pm 5\cdot 10^{-9}$ & 190& 10\\
+$1.2907\cdot 10^{-6} \pm 3\cdot 10^{-10}$& 120& 10\\  \bottomrule
+\end{tabular}
+\caption{Gas inlet for various opening time and frequency. }
+\end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[H]
 	\centering
-	%\includegraphics[width = 0.6 \textwidth]{}
+	\includegraphics[width = \textwidth]{knudsen}
 	\caption{Depiction of the behaviour of the Knudsen number during a pulse. Even though the number decreases during the pulse, it never comes close to zero but reaches its minimum at about $50$. }
 	\label{fig_knudsennumber}
 \end{figure}
+
+\subsection{Pressure drop}
+After the gas pulse the pressure drop due to the gas been sucked up by the vacuum pump, we studied this drop by fitting an exponential decay of the form
+\[f(t) = Ae^{-(t - t_0)/\tau} + C,\]
+where $\tau$ is the parameter that gives the time scale of the decay, which we are interested in. All other parameters are not important in the analysis.
+
+\subsection{Plasma discharge}
+
+\subsection{CHanneltron characterization}
+
+\subsection{Argon lifetime and time of flight}
+
+\subsection{Helium time of flight}
+
 \section{Conclusion}
 
 \begin{thebibliography}{99}
