@@ -81,15 +81,22 @@ The theory presented in this section is based on the book "Gase, Nanosysteme, Fl
 \subsection{Knudsen Number}
 The Knudsen Number describes the ratio of the mean free path length $l$ of a particle and the characteristic length of the containing vessel $L$.
 \begin{equation}
-  Kn = \frac{l}{\sqrt{2} L} = \frac{k_B T }{\sqrt{2} \pi d^2 p L}
+  K_n = \frac{l}{\sqrt{2} L} = \frac{k_B T }{\sqrt{2} \pi d^2 p L}
 \end{equation}
 Here, the last term can be applied to Boltzmann gases. $T$ is the temperature, $d$ is the radius of the hard sphere potential of the Argon atoms, $p$ is the pressure inside the vessel and $k_B$ is the Boltzmann constant.
 
 \section{Experimental Setup}
-The experiment consists of a two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously vacuumed by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
+The experiment consists of a two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
 \newline
 The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand first with supersonic speed, which is followed by effusive expansion. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge.\cite{cold_cathode} To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used gas, as different gases have different ionization behaviour.
-\newline
+\\
+The output from the ionization gauge is technically speaking a voltage, which is measured with an oscilloscope. To convert the voltage into pressure a formula given in the data sheet \cite{datasheet_pfeiffer} is used. 
+\begin{equation}
+	\label{eq_pressure}
+	p = K \exp(1.667 \times U - 9.333)
+\end{equation}
+Here, $U$ indicates the voltage signal that the gouge generates, while $K$ is a proportionality factor that corrects for the gas in use. The data sheet gives $K= 0.8$ for argon and $K = 5.9$ for helium. Eq. \ref{eq_pressure} takes the voltage in \si{\volt}, the resulting pressure is given in \si{\pascal}.
+\\
 While the pressure is measured at the top of the setup, a more interesting part is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently by detected with a channeltron detector.
 \\
 The channeltron is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
@@ -140,8 +147,8 @@ The channeltron is connected to a oscilloscope to visualize the measured data. F
 In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that tuning the deflection voltage did not notably increase the quality of the received signal.
 
 \section{Analysis}
-Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width.
-
+\subsection{Pressure Characteristics}
+Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure of did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width.
 \begin{figure}[htp!]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
@@ -193,9 +200,19 @@ Starting off, a look was taken at the pressure characteristics of the setup. To 
   \caption{Plots of the pressure behaviour with variable frequency and fixed opening time. The data is the same as in Fig. \ref{fig_pressure_characterization}, but arranged with respect to pulse width instead of frequency. }
   \label{fig_width_characterization}
 \end{figure}
-As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect.
+As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
+\\
+% Maybe we should take a look at the behaviour of maximum pressure and decay time \tau depending on frequency/width?
 
-
+\subsection{Gas Inlet per Pulse}
+To calculate how much gas gets into the vacuum chamber every time the nuzzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
+\\
+As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still about $50$. % we must use the precise value with error, I just approximated it with the graph
+This means that we are not in the adiabatic regime and must therefore use the equation 
+\begin{equation}
+	\frac{\Delta p}{V} = \frac{p}{\Delta V},
+\end{equation}
+where $\Delta p$ is the difference between minimum and maximum pressure, $V$ is the space inside the vacuum chamber, which we can only guess. Furthermore, $p$ is the pressure inside the pressure chamber and $\Delta V$ is the volume of gas that we want to determine. 
 \section{Conclusion}
 
 \begin{thebibliography}{99}
