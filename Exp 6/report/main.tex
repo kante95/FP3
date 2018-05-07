@@ -146,7 +146,7 @@ The channeltron is connected to a oscilloscope to visualize the measured data. F
 \end{figure}
 In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that tuning the deflection voltage did not notably increase the quality of the received signal.
 
-\section{Analysis}
+\section{Procedure and Analysis}
 \subsection{Pressure Characteristics}
 Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure of did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width. As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
 
@@ -216,7 +216,7 @@ where $P_i$ and $V_i$ are the initial pressure and initial volume inside the noz
 \begin{table}[H]
 \centering
 \begin{tabular}{ccc} \toprule
-    Gas inlet [mL] & Opening time [ms] & Frequency \\ \midrule
+    Gas inlet [mL] & Opening time [$\mu$s] & Frequency \\ \midrule
 $1.3931\cdot 10^{-7} \pm 3\cdot 10^{-11}$& 120& 1\\
 $5.549\cdot 10^{-6} \pm 1\cdot 10^{-9}$& 190& 1\\
 $9.499\cdot 10^{-6} \pm 2\cdot 10^{-9}$& 230& 1\\\midrule
@@ -243,7 +243,37 @@ $1.2907\cdot 10^{-6} \pm 3\cdot 10^{-10}$& 120& 10\\  \bottomrule
 \subsection{Pressure drop}
 After the gas pulse the pressure drop due to the gas been sucked up by the vacuum pump, we studied this drop by fitting an exponential decay of the form
 \[f(t) = Ae^{-(t - t_0)/\tau} + C,\]
-where $\tau$ is the parameter that gives the time scale of the decay, which we are interested in. All other parameters are not important in the analysis.
+where $\tau$ is the parameter that gives the time scale of the decay, which we are interested in. All other parameters are not important in the analysis. An example of fit can be seen in figure \ref{expfit}. Below a table with the time scale $\tau$ for every measurement we took
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc} \toprule
+    time scale $\tau$ [s] & Opening time [$\mu$s] & Frequency \\ \midrule
+$0.07028 \pm 0.0005 $& 120& 1\\
+$0.0575 \pm 0.0002$& 190& 1\\
+
+$0.0567 \pm 0.0002$& 230& 1\\\midrule
+$0.0556 \pm 0.0002 $& 230& 2\\ 
+
+$0.0590 \pm 0.0005$& 190& 2\\
+$0.0639 \pm 0.0004$& 120& 2\\\midrule
+$0.116 \pm 0.008$& 120& 5\\
+$0.089 \pm 0.004$ & 190& 5\\ 
+$0.110 \pm  0.006$ & 230& 5\\\midrule
+
+$0.28 \pm 0.05 $ & 230& 10\\
+$0.19 \pm 0.03$ & 190& 10\\
+$0.17 \pm  0.02$& 120& 10\\  \bottomrule
+\end{tabular}
+\caption{Time scale for various opening time and frequency. }
+\end{table}
+
+From the data we can notice that the time scale is larger for bigger frequency and it seems it does not depend on the opening time. More interesting is to see the dependence of the time scale with the gas inlet calculated in the previous section, this relation is shown in figure (). 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{expfit}
+\caption{Exponential fit for the measurement taken with opening time of 190 $\mu S$ and 1 Hz frequency.}\label{expfit}
+\end{figure}
 
 \subsection{Plasma discharge}
 
