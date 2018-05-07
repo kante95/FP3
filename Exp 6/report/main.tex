@@ -270,18 +270,62 @@ $0.28 \pm 0.05 $ & 230& 10\\ \bottomrule
 \caption{Time scale for various opening time and frequency. }
 \end{table}
 
-From the data we can notice that the time scale is larger for bigger frequency and it seems it does not depend on the opening time. More interesting is to see the dependence of the time scale with the gas inlet calculated in the previous section, this relation is shown in figure (). 
+From the data we can notice that the time scale is larger for bigger frequency and it seems it does not depend on the opening time. It is interesting to see the dependence of the time scale with the gas inlet calculated in the previous section. This is plotted in figure \ref{gasinlettimescale}, but as we can see there is apparently no correlation between the two quantities.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width = \textwidth]{expfit}
+\includegraphics[width = 0.8\textwidth]{expfit}
 \caption{Exponential fit for the measurement taken with opening time of 190 $\mu S$ and 1 Hz frequency.}\label{expfit}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\textwidth]{gasinlettimescale}
+\caption{Time scale $\tau$ as a function of the gas quantity of the beam.}\label{gasinlettimescale}
+\end{figure}
+
 \subsection{Plasma discharge}
+After studying the gas pulse, we tried to produce a plasma discharge. A power supply with a voltage of around 1000 V was attached to two rings electrodes as described in the experiment setup section. We fixed the opening time and frequency of the nozzle to 230 $\mu$s and 10 Hz. Then we tried to hit the gas at the right moment with a voltage pulse to produce a plasma discharge, this was done varying the delay of the electric pulse. We took three measurements for three different widths of the pulse, which can be seen in figure \ref{discharge}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{discharge}
+\caption{Voltage on the electrodes, the delay of the pulse was modified every time to hit the gas pulse.}\label{discharge}
+\end{figure}
+
+We can clearly see the plasma discharge by the characteristic bump in the voltage during the pulse. This means that we are able to hit the gas pulse and induce a plasma discharge in the gas.
 
 \subsection{Channeltron characterization}
-
+Before starting the real measurement, we had to characterize the detector. We tried to apply different voltage on the channeltron and analysed its signal. In figures \ref{channeltron}
+we can see the measurements. 
+\begin{figure}[H]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[width= \textwidth]{channeltron1}
+    \caption{Channeltron voltage -1008 V}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{channeltron2}
+    \caption{Channeltron voltage -1105 V}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{channeltron3}
+    \caption{Channeltron voltage -1204 V}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{channeltron5}
+    \caption{Channeltron voltage -1405 V}
+  \end{subfigure}
+  \caption{Green line is the electric pulse for the plasma discharge. The blue line is the signal from the channeltron. }
+  \label{channeltron}
+\end{figure}
 \subsection{Argon lifetime and time of flight}
 %Calculation of the velocity & Mach number
 From the velocity one can now estimate the probability of an excited argon atom to decay before the detector is reached. This can be done with quite a simple integration:
