@@ -179,7 +179,11 @@ Starting off, a look was taken at the pressure characteristics of the setup. To 
   \caption{Depiction of the measured pressure for pulse widths of \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at the displayed frequency. }
   \label{fig_pressure_characterization}
 \end{figure}
-Fig. \ref{fig_width_characterization} shows the same curves, but now curves with the same opening time are grouped up. The first thing one notices is that the higher the frequency is, the higher is the maximum value of the pressure curve. This won would expect because 
+Fig. \ref{fig_width_characterization} shows the same curves, but now curves with the same opening time are grouped up. The first thing one notices is that the higher the frequency is, the higher is the maximum value of the pressure curve. This one would expect because the vacuum pump can simply not sufficiently evacuate the vacuum chamber between the pulses as one can see for the \SI{5}{\hertz} and \SI{10}{\hertz} curves, meaning that there is additionally to the pulse a background pressure, which leads to a higher maximum. 
+\\
+However, one furthermore sees that the difference in the minimum to maximum pressure value also depends on the frequency. This is unexpected, as the opening width is the same in every plot in Fig. \ref{fig_width_characterization}. Apparently there is a systematic error that is connected to the frequency and the time width of the opening. %It was already mentioned that there is likely a delay in the opening. 
+\\
+In Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization} we saw that both the frequency and the opening width influence the pressure span between minimum and maximum. In the script \cite{script} it says that the piezo locks the nozzle by pressing a rubber joint on the opening of the nozzle. It might be that the rubber joint sticks to nozzle, which would explain why there is a slight delay on the opening time. Furthermore, it is plausible that the rubber sticks 
 % Maybe we should take a look at the behaviour of maximum pressure and decay time \tau depending on frequency/width?
 \begin{figure}[H]
   \centering{}
@@ -207,7 +211,7 @@ Fig. \ref{fig_width_characterization} shows the same curves, but now curves with
 \subsection{Gas Inlet per Pulse}
 To calculate how much gas gets into the vacuum chamber every time the nuzzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
 \\
-As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still about $50$. % we must use the precise value with error, I just approximated it with the graph
+As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still $56$. % we must use the precise value with error, I just approximated it with the graph
 This means that we are not in the adiabatic regime and must therefore use the equation 
 \begin{equation}
 	\frac{P_i}{V_i} = \frac{P_f}{V_f},
@@ -220,15 +224,15 @@ where $P_i$ and $V_i$ are the initial pressure and initial volume inside the noz
 $1.3931\cdot 10^{-7} \pm 3\cdot 10^{-11}$& 120& 1\\
 $5.549\cdot 10^{-6} \pm 1\cdot 10^{-9}$& 190& 1\\
 $9.499\cdot 10^{-6} \pm 2\cdot 10^{-9}$& 230& 1\\\midrule
-$1.0256\cdot 10^{-5} \pm 2\cdot 10^{-9}$& 230& 2\\ 
+$1.8937\cdot 10^{-7} \pm 5\cdot 10^{-11}$& 120& 2\\
 $6.471\cdot 10^{-6} \pm 2\cdot 10^{-9}$& 190& 2\\
-$1.8937\cdot 10^{-7} \pm 5\cdot 10^{-11}$& 120& 2\\\midrule
+$1.0256\cdot 10^{-5} \pm 2\cdot 10^{-9}$& 230& 2\\ \midrule
 $2.2080\cdot 10^{-7} \pm 5\cdot 10^{-11}$& 120& 5\\
 $9.499\cdot 10^{-6} \pm 2\cdot 10^{-9}$ & 190& 5\\ 
 $1.7554\cdot 10^{-5} \pm 4\cdot 10^{-9}$ & 230& 5\\\midrule
-$3.2442\cdot 10^{-5} \pm 8\cdot 10^{-9}$ & 230& 10\\
+$1.2907\cdot 10^{-6} \pm 3\cdot 10^{-10}$& 120& 10\\ 
 $2.0467\cdot 10^{-5} \pm 5\cdot 10^{-9}$ & 190& 10\\
-$1.2907\cdot 10^{-6} \pm 3\cdot 10^{-10}$& 120& 10\\  \bottomrule
+$3.2442\cdot 10^{-5} \pm 8\cdot 10^{-9}$ & 230& 10\\ \bottomrule
 \end{tabular}
 \caption{Gas inlet for various opening time and frequency. }
 \end{table}
@@ -236,7 +240,7 @@ $1.2907\cdot 10^{-6} \pm 3\cdot 10^{-10}$& 120& 10\\  \bottomrule
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{knudsen}
-	\caption{Depiction of the behaviour of the Knudsen number during a pulse. Even though the number decreases during the pulse, it never comes close to zero but reaches its minimum at about $50$. }
+	\caption{Depiction of the behaviour of the Knudsen number during a pulse. Even though the number decreases during the pulse, it never comes close to zero but reaches its minimum at $56$. }
 	\label{fig_knudsennumber}
 \end{figure}
 
@@ -271,5 +275,8 @@ From the velocity one can now estimate the probability of an excited argon atom 
 
 \bibitem{cold_cathode}
 \textsc{LDS Vacuum Shopper}, \textit{Cold Cathode Gauges}, \url{http://www.ldsvacuumshopper.com/cocaga.html}
+
+\bibitem{script}
+\textsc{Jennifer Meyer, Roland Wester}, \textit{Versuch im Fortgeschrittenen Praktikum FP3: Supersonische Düsenstrahlen}
 \end{thebibliography}
 \end{document}
