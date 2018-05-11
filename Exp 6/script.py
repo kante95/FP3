@@ -148,27 +148,4 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
-	#time of flight
-
-	plt.figure()
-
-	for i in range(21,24):
-		t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
-		#peak_indices = signal.find_peaks_cwt(-1*v,np.arange(1,2))
-		#print(peak_indices)
-		plt.plot(t,v)
-		ind1 = np.argmin(v[t<0.0005])
-		ind2 = np.argmin(v[t>0.0005])
-		plt.plot(t[ind1],v[ind1],'r.')
-		plt.plot(t[ind2 + len(v)-len(v[t>0.0005]) ],v[ind2+ len(v)-len(v[t>0.0005])],'r.')
-
-		tof = t[ind2 + len(v)-len(v[t>0.0005])]-t[ind1]
-		print("time fo flight: ",tof, " Velocity: ",0.35/tof)
 	plt.show()
