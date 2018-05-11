@@ -303,29 +303,32 @@ we can see the measurements.
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[width= \textwidth]{channeltron1}
-    \caption{Channeltron voltage -1008 V}
+    \caption{Channeltron voltage -1008 V}\label{channeltron1}
   \end{subfigure}
   ~
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{channeltron2}
-    \caption{Channeltron voltage -1105 V}
+    \caption{Channeltron voltage -1105 V}\label{channeltron2}
   \end{subfigure}
   ~
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{channeltron3}
-    \caption{Channeltron voltage -1204 V}
+    \caption{Channeltron voltage -1204 V}\label{channeltron3}
   \end{subfigure}
   ~
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{channeltron5}
-    \caption{Channeltron voltage -1405 V}
+    \caption{Channeltron voltage -1405 V}\label{channeltron4}
   \end{subfigure}
-  \caption{Green line is the electric pulse for the plasma discharge. The blue line is the signal from the channeltron. }
+  \caption{Green line is the electric pulse for the plasma discharge. The blue line is the signal from the channeltron. All measurements were taken with a voltage on the deflector of -5 V. }
   \label{channeltron}
 \end{figure}
+In every plot we can clearly see at least two peaks, the fist peak is due to particles like electron and photons which are very fast, then after a while also the exited Argon arrives and gives the second large peak. In figure \ref{channeltron3} and \ref{channeltron4} a third peak between the two already described appears, it is very low, almost imperceptible, but it can be seen and it is due to ionized Argon, which is lighter then excited Argon and therefore faster. Furthermore, in all plots of figure \ref{channeltron} but the first one, an overshoot can be seen, after the last peak the voltage of the channeltron does not come back to the value before the measurement but it goes higher, we notice also that the overshoot is bigger for lower channeltron voltage. This helped us to choose the correct voltage to use for the channeltron, in fact we should reduce the overshoot as much as possible, but still be able to see all the peaks.  
+
+
 \subsection{Argon lifetime and time of flight}
 %Calculation of the velocity & Mach number
 From the velocity one can now estimate the probability of an excited argon atom to decay before the detector is reached. This can be done with quite a simple integration:

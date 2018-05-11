@@ -93,14 +93,16 @@ if __name__ == "__main__":
 	freq = np.array([1,1,1,2,2,2,5,5,5,10,10,10])
 	width = np.array([120,190,230,230,190,120,120,190,230,230,190,120])
 
+	gasquantity = np.zeros(len(freq))
 	print("Gas inlet")
 
 	for i in range(1,13):
 		t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
 		p = V2P(v)
 		P_final = np.amax(p)*1e-5
-		V_intial = V_final*(P_final/P_initial)*1e3 #milliliters
-		print(str(V_intial)+" +/- " +str((P_final/P_initial)*1e3) + "& " +str(width[i-1])+ "& " +str(freq[i-1]))
+		V_initial = V_final*(P_final/P_initial)*1e3 #milliliters
+		gasquantity[i-1] = V_initial
+		print(str(V_initial)+" +/- " +str((P_final/P_initial)*1e3) + "& " +str(width[i-1])+ "& " +str(freq[i-1]))
 
 
 
@@ -109,6 +111,7 @@ if __name__ == "__main__":
 	freq = np.array([1,1,1,2,2,2,5,5,5])
 	width = np.array([120,190,230,230,190,120,120,190,230])
 
+	tau = np.zeros(len(freq)+3)
 
 	for i in range(1,10):
 		t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
@@ -128,6 +131,27 @@ if __name__ == "__main__":
 		print("width: "+str(width[i-1]) + ", freq: " + str(freq[i-1])+" tau: " +str(popt[0]) + " +/- " + str(perr[0]))
 		plt.xlabel("Time [s]")
 		plt.ylabel("Pressure [Pa]")
+		tau[i-1] = popt[0]
+
+	tau[2] = 0.0567
+	tau[3] = 0.0556
+	tau[-1] = 0.28
+	tau[-2] = 0.19
+	tau[-3] = 0.17
+
+
+	print(gasquantity)
+	plt.figure()
+	plt.plot(gasquantity,tau,'o')
+	plt.xlabel("Gas inlet [mL]")
+	plt.ylabel("Time scale [s]")
+
+
+
+
+
+
+
 
 
 
