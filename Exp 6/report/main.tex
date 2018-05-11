@@ -85,6 +85,16 @@ The Knudsen Number describes the ratio of the mean free path length $l$ of a par
 \end{equation}
 Here, the last term can be applied to Boltzmann gases. $T$ is the temperature, $d$ is the radius of the hard sphere potential of the Argon atoms, $p$ is the pressure inside the vessel and $k_B$ is the Boltzmann constant.
 
+\subsection{Velocity Distribution}
+In the two final parts a look is taken at the distribution of velocities of particles in a gas pulse. According to \cite{bergmann}, the velocity in the gas pulse follows the floating Maxwellian distribution 
+\begin{equation}
+	f(v) = C v^2 \exp(- \frac{m (v - u)^2}{2 k_\mathrm{B} T}) = C v^2 \exp(\mathrm{S}_\parallel (1 - \frac{v}{u})^2),
+\end{equation}
+where $\mathrm{S}_\parallel = \sqrt{\frac{1}{2} m u^2 / (k_{\mathrm{B}} T_\parallel)}$ is the parallel speed ratio and $u$ or is the maximum drift velocity of the gas pulse. Finally $C$ is a normalization factor. The longitudinal temperature can be calculated as 
+\begin{equation}
+	T_\parallel = \frac{m}{2 k_\mathrm{B}} \big(\frac{u}{\mathrm{S}_\parallel} \big)^2.
+\end{equation}
+
 \section{Experimental Setup}
 The experiment consists of a two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
 \newline
