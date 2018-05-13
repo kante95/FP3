@@ -49,7 +49,7 @@ for i in range(len(file)):
 		v = v[velocity>350]
 		velocity =velocity[velocity>350]
 
-	plt.plot(velocity,v, label = width[i]) 
+	plt.plot(velocity,v, label = str(width[i])+r" $\mu$s" ) 
 		
 	popt, pcov = curve_fit(floatmaxwell, velocity, v,method = "trf",p0=(0.01,2,450,0))
 	perr = np.sqrt(np.diag(pcov))
@@ -61,11 +61,77 @@ for i in range(len(file)):
 	plt.xlabel("Velocity [m/s]")
 	plt.ylabel("Voltage [V]")
 
-	plt.title("Pressure" + str(pressure[i]))
+	#print("Pressure" + str(pressure[i]))
 	plt.legend()
 
 	soundspeed = np.sqrt((gamma*Temp)/(mk) )
 	mach = u/soundspeed
-	print("S: ",S," u: ", u, " T: ",(0.5*mk)*(u/S)**2, " mach:",mach)
+	T = (0.5*mk)*(u/S)**2
+
+	#print("Pressure | width | S | u | T | Mach")
+	print(pressure[i],"&",width[i],"&", S,"&", u,"&",T,"&",mach,"\\\\")
+
+#helium pressure 2.5
+
+print("Helium")
+plt.figure()
+t,v = read_data("data/ALL0036/F0036CH1.CSV")
+
+for k in v:
+		if k < 0.0003:
+			start_time = k
+			break
+v = -v
+v = v[t>start_time]
+t = t[t>start_time]
+
+velocity = 0.3/(t - start_time)
+v = v[velocity<2000]
+velocity =velocity[velocity< 2000]
+
+plt.plot(velocity,v,label = r"230 $\mu$s") 
+popt, pcov = curve_fit(floatmaxwell, velocity, v,method = "trf",p0=(0.01,2,600,0))
+perr = np.sqrt(np.diag(pcov))
+
+S = np.abs(popt[1])
+u = popt[2]
+plt.plot(velocity,floatmaxwell(velocity,*popt),color="r")
+plt.xlabel("Velocity [m/s]")
+plt.ylabel("Voltage [V]")
+
+
+soundspeed = np.sqrt((gamma*Temp)/(mk) )
+mach = u/soundspeed
+T = (0.5*mk)*(u/S)**2
+
+print(230, S, u,T,mach)
+
+###################################################à
+t,v = read_data("data/ALL0037/F0037CH1.CSV")
+
+for k in v:
+		if k < 0.0004:
+			start_time = k
+			break
+v = -v
+v = v[t>start_time]
+t = t[t>start_time]
+velocity = 0.3/(t - start_time)
+v = v[velocity<2000]
+velocity =velocity[velocity< 2000]
+plt.plot(velocity,v,label = r"220 $\mu$s") 
+popt, pcov = curve_fit(floatmaxwell, velocity, v,method = "trf",p0=(0.01,2,600,0))
+perr = np.sqrt(np.diag(pcov))
+
+S = np.abs(popt[1])
+u = popt[2]
+plt.plot(velocity,floatmaxwell(velocity,*popt),color="r")
+
+soundspeed = np.sqrt((gamma*Temp)/(mk) )
+mach = u/soundspeed
+T = (0.5*mk)*(u/S)**2
+
+print(220, S, u,T,mach)
+plt.legend()
 
 plt.show()
