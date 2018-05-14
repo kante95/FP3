@@ -73,7 +73,7 @@
 \end{titlepage}
 
 \section{Introduction}
-Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. As the title suggests, small amounts of gas are transferred into vacuum where the atoms are accelerated above the local speed of sound.\cite{illinois} The rapid expansion leads to a steep decline of particle density and with it collision rate. As a result thermal equilibrium is temporarily lost, and different temperatures are needed to describe different degrees of freedom, which is an interesting phenomenon in physics. Furthermore, the adiabatic expansion leads to reduced internal energy, which results in low temperatures, which for example can be used to grow clusters, so there is also applications in cluster physics.
+Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. As the title suggests, small amounts of gas are transferred into vacuum where the atoms are accelerated above the local speed of sound \cite{illinois}. The rapid expansion leads to a steep decline of particle density and with it collision rate. As a result thermal equilibrium is temporarily lost, and different temperatures are needed to describe different degrees of freedom, which is an interesting phenomenon in physics. Furthermore, the adiabatic expansion leads to reduced internal energy, which results in low temperatures, which for example can be used to grow clusters, so there is also applications in cluster physics.
 
 \section{Theoretical Background}
 % I think we should expand this section whenever we use something in the analysis.
@@ -109,8 +109,7 @@ Furthermore the Mach number is defined as
 where $v_s$ is the speed of sound in the gas given by $v_s = \sqrt{\gamma k_\mathrm{B} T/m}$ for an ideal gas. Speeds between $1.3$ and $5.0$ Mach number are said to be in the supersonic regime, which is where we expect our gas pulse to be.
 
 \subsection{Plasma discharge}
-To excite Argon atoms a plasma discharge between to electrodes is used in this experiment. Argon atoms collide with electrons during the discharge and are excited to a metastable state with an energy of almost \SI{12}{\electronvolt} according to \cite{script}. This should then be enough energy to cause the emission of a secondary electron in the electron multiplier, which is used as a detector. \\
-It is not clear which metastable state is excited, however \cite{lifetime} lists values for the lifetimes of two metastable states at \SI{40}{\s} and \SI{50}{\s}. 
+To excite Argon atoms a plasma discharge between to electrodes is used in this experiment. Argon atoms collide with electrons during the discharge and are excited to a metastable state with an energy of almost \SI{12}{\electronvolt} according to \cite{script}. This should then be enough energy to cause the emission of a secondary electron in the electron multiplier, which is used as a detector. In Argon there are two metastable levels, which are in the $3\text{p}^54\text{s}$ shell with $J=0$ and $J = 2$, their lifetimes are \SI{40}{\s} and \SI{50}{\s} \cite{lifetime}. 
 
 \section{Experimental Setup}
 The experiment consists of two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
@@ -367,25 +366,25 @@ therefore the excited Argon will likely reach the channeltron. To better analyze
 
 \begin{figure}[H]
   \centering{}
-  \begin{subfigure}[t]{0.45 \textwidth}
+  \begin{subfigure}[t]{0.49 \textwidth}
     \centering
     \includegraphics[width= \textwidth]{tof21}
     \caption{Pressure 3.1 Bar}\label{tof1}
   \end{subfigure}
   ~
-  \begin{subfigure}[t]{0.45 \textwidth}
+  \begin{subfigure}[t]{0.49 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{tof19}
     \caption{Pressure 2.9 Bar}\label{tof2}
   \end{subfigure}
   ~
-  \begin{subfigure}[t]{0.45 \textwidth}
+  \begin{subfigure}[t]{0.49 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{tof17}
     \caption{Pressure 2.7 Bar}\label{tof3}
   \end{subfigure}
   ~
-  \begin{subfigure}[t]{0.45 \textwidth}
+  \begin{subfigure}[t]{0.49 \textwidth}
     \centering
     \includegraphics[width=\textwidth]{tof15}
     \caption{Pressure 2.5 Bar}\label{tof4}
@@ -416,7 +415,7 @@ Pressure [Bar] & Opening time [$\mu$s] & $S_\parallel$ & $u$ [m/s] & $T_\paralle
 \end{tabular}
 \caption{Results from the Argon velocity distribution.}
 \end{table}
-The errors in the table were estimated with the error on the length $d$, which is the biggest source of uncertainty. Therefore we fitted the data first using the lower bound $d = 27$ cm, then again with the upper bound $d= 33$ cm, and we averaged the two results of the two fits, so we wrote the error as the relative distance divided by two. From the Mach number we can see that we are indeed in the supersonic regime. Moreover, the longitudinal temperature is between 6 and 32 K, as expected 
+The errors in the table were estimated with the error on the length $d$, which is the biggest source of uncertainty. Therefore we fitted the data first using the lower bound $d = 27$ cm, then again with the upper bound $d= 33$ cm, and we averaged the two results of the two fits, so we wrote the error as the relative distance divided by two. From the Mach number we can see that we are indeed in the supersonic regime. Moreover, the longitudinal temperature is between 6 and 32 K which are the expected typical temperatures \cite{illinois}. We also took measurements with an opening time of 200 $\mu$s, but the signal was to low or not existent to be analyzed, therefore they have been left out from this analysis.
 
 \subsection{Helium velocity distribution}
 We repeated the experiment with Helium instead of Argon, which is a lighter atom. Using the same procedure and the same analysis we obtained the velocity distribution in figure \ref{heliumtof}
@@ -434,9 +433,9 @@ Pressure [Bar] & Opening time [$\mu$s] & $S_\parallel$ & $u$ [m/s] & $T_\paralle
 3.5 & 220 & 4.76 $\pm$ 0.05 & 633 $\pm$ 63 & 42 $\pm$ 8 & 1.98 $\pm$ 0.19 \\\bottomrule
 \end{tabular}
 \end{center}
-We notice that we are again in the supersonic regime and the mean velocities and the Mach numbers are greater with respect to the Argon as expected.
+We notice that we are again in the supersonic regime and the mean velocities, the Mach numbers, and the longitudinal temperature are greater with respect to the Argon as expected, since Helium is a lighter and therefore faster atom then Argon.
 \section{Conclusion}
-In this experiment we studied supersonic gas pulses of Argon inside a vacuum chamber. First we analyzed the pressure behaviour of the gas pulses, then we induced a plasma discharge in the pulse in order to create metastable excited Argon that we can detect at the channeltron. We characterized the channeltron detector and finally we measured the time of flight, which we used to study the velocity distribution of the pulse which reveals several features like longitudinal temperature, speed ratio, and Mach number. In addition to Argon, we also repeated the experiment with Helium and compared the results. As we expected the Helium pulse is faster then Argon and also we verified that the pulses travel at supersonic speed.  
+In this experiment we studied supersonic gas pulses of Argon inside a vacuum chamber. First we analyzed the pressure behaviour of the gas pulses, then we induced a plasma discharge in the pulse in order to create metastable excited Argon that we can detect at the channeltron. We characterized the channeltron detector and finally we measured the time of flight, which we used to study the velocity distribution of the pulse which reveals several features like longitudinal temperature, speed ratio, and Mach number. In addition to Argon, we also repeated the experiment with Helium and compared the results. As we expected the Helium pulse is faster then Argon and we also verified that the pulses travel at supersonic speed.  
 
 \begin{thebibliography}{99}
 \bibitem{datasheet_pfeiffer}
