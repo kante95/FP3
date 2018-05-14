@@ -75,7 +75,7 @@
 \section{Introduction}
 Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. As the title suggests, small amounts of gas are transferred into vacuum where the atoms are accelerated above the local speed of sound \cite{illinois}. The rapid expansion leads to a steep decline of particle density and with it collision rate. As a result thermal equilibrium is temporarily lost, and different temperatures are needed to describe different degrees of freedom, which is an interesting phenomenon in physics. Furthermore, the adiabatic expansion leads to reduced internal energy, which results in low temperatures, which for example can be used to grow clusters, so there is also applications in cluster physics.
 
-\section{Theoretical Background}
+\section{Theoretical background}
 % I think we should expand this section whenever we use something in the analysis.
 The theory presented in this section is based on the book "Gase, Nanosysteme, Flüssigkeiten".\cite{bergmann}
 
@@ -88,14 +88,14 @@ where $d$ is the hard sphere potential. The mean free path $l$, which is the len
 \begin{equation}
 	l = \frac{1}{n \sigma}. 
 \end{equation}
-\subsection{Knudsen Number}
+\subsection{Knudsen number}
 The Knudsen Number describes the ratio of the mean free path length $l$ of a particle and the characteristic length of the containing vessel $L$.
 \begin{equation}
   K_n = \frac{l}{\sqrt{2} L} = \frac{k_B T }{\sqrt{2} \pi d^2 p L}
 \end{equation}
 Here, the last term can be applied to Boltzmann gases. $T$ is the temperature, $d$ is the radius of the hard sphere potential of the Argon atoms, $p$ is the pressure inside the vessel and $k_B$ is the Boltzmann constant.
 
-\subsection{Velocity Distribution}\label{theory}
+\subsection{Velocity distribution}\label{theory}
 In the two final parts a look is taken at the distribution of velocities of particles in a gas pulse. According to \cite{bergmann}, the velocity in the gas pulse follows the floating Maxwellian distribution 
 \begin{equation}\label{floatmaxwell}
 	f(v) = C v^2 \exp(- \frac{m (v - u)^2}{2 k_\mathrm{B} T_\parallel}) = C v^2 \exp(\mathrm{S}_\parallel \left(1 - \frac{v}{u}\right)^2),
@@ -111,7 +111,7 @@ where $v_s$ is the speed of sound in the gas given by $v_s = \sqrt{\gamma k_\mat
 \subsection{Plasma discharge}
 To excite Argon atoms a plasma discharge between to electrodes is used in this experiment. Argon atoms collide with electrons during the discharge and are excited to a metastable state with an energy of almost \SI{12}{\electronvolt} according to \cite{script}. This should then be enough energy to cause the emission of a secondary electron in the electron multiplier, which is used as a detector. In Argon there are two metastable levels, which are in the $3\text{p}^54\text{s}$ shell with $J=0$ and $J = 2$, their lifetimes are \SI{40}{\s} and \SI{50}{\s} \cite{lifetime}. 
 
-\section{Experimental Setup}
+\section{Experimental setup}
 The experiment consists of two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
 \newline
 The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand at supersonic speed. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge.\cite{cold_cathode} To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used gas, as different gases have different ionization behaviour.
@@ -173,8 +173,8 @@ The channeltron's signal is connected to a oscilloscope to visualize the measure
 \end{figure}
 In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that varying the deflection voltage did not notably increase the quality of the received signal.
 
-\section{Procedure and Analysis}
-\subsection{Pressure Characteristics}
+\section{Procedure and analysis}
+\subsection{Pressure characteristics}
 Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar} in the pressure chamber. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width. As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
 
 
@@ -236,15 +236,16 @@ In Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characteriza
   \label{fig_width_characterization}
 \end{figure}
 
-\subsection{Gas Inlet per Pulse}
-To calculate how much gas gets into the vacuum chamber every time the nozzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
+\subsection{Gas inlet per pulse}
+Before the gas inlet is determined, we take a brief look the Knudsen number within the used setup. The Knudsen number describes the ratio between the length of the setup and the mean free path of an Argon atom in the vacuum chamber, giving us essentially an average for the amount of collisions one has to expect during the expansion for one atom. 
 \\
-As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still $56$. % we must use the precise value with error, I just approximated it with the graph
-This means that we are not in the adiabatic regime and must therefore use the equation 
+As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is comparably high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still $56$. This means that there should be hardly any collisions between atoms, meaning that the lack of thermalization should allow for a temporal loss of the thermal equilibrium, meaning that temperatures vary along different degrees of freedom. 
+\\
+According to \cite{illinois} the expansion should be adiabatic and therefore one uses the equation 
 \begin{equation}
-	\frac{P_i}{V_i} = \frac{P_f}{V_f},
+	P_i V_i^\gamma = P_f V_f^\gamma,
 \end{equation}
-where $P_i$ and $V_i$ are the initial pressure and initial volume inside the nozzle, while $P_f$ and $V_f$ are the final pressure and volume. We measured $P_i$ and we used $4\pm 1$ L for $V_f$ which is approximately the volume of the vacuum chamber. $P_f$ is extracted from the data as the value of the peak. Therefore is possible to find $V_i$ which is the gas inlet. In the following table the results can be found
+where $P_i$ and $V_i$ are the initial pressure and initial volume inside the nozzle or the pressure chamber, while $P_f$ and $V_f$ are the final pressure and volume. We measured $P_i$ and we used $4\pm 1$ L for $V_f$ which is approximately the volume of the vacuum chamber. $P_f$ is extracted from the data as the value of the peak. Therefore it is possible to find $V_i$ which is the gas inlet. In the following table the results can be found
 \begin{table}[H]
 \centering
 \begin{tabular}{ccc} \toprule
