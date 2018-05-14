@@ -61,7 +61,7 @@
 	\end{center}
 
 	\begin{abstract}
-  In this experiment we studied gas pulse of Argon and Helium in the supersonic regime. A plasma discharge was induced and the time of flight was recorded, such that it was possible to study the velocity distribution of such gases.
+  In this experiment we studied gas pulses of Argon and Helium in the supersonic regime. A plasma discharge was induced and the time of flight was recorded, such that it was possible to study the velocity distribution of the expanding gases.
 
   \end{abstract}
   \vspace{1cm}
@@ -73,7 +73,7 @@
 \end{titlepage}
 
 \section{Introduction}
-Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. For example it is used to perform spectroscopy \cite{demtroeder} or to analyse the pressure ionization behaviour  of a gas as it is done in this experiment. Furthermore, the low temperatures reached by supersonic expansion also allows for the growth of clusters, so there is also applications in cluster physics.
+Supersonic expansion of an atomic or molecular gas is a means often used in chemical or ion physics. For example it is used to perform spectroscopy \cite{demtroeder} or to analyse the pressure ionization behaviour  of a gas as it is done in this experiment. Furthermore, the low temperatures reached by supersonic expansion allow for the growth of clusters, so there is also applications in cluster physics.
 
 \section{Theoretical Background}
 % I think we should expand this section whenever we use something in the analysis.
@@ -89,9 +89,9 @@ Here, the last term can be applied to Boltzmann gases. $T$ is the temperature, $
 \subsection{Velocity Distribution}\label{theory}
 In the two final parts a look is taken at the distribution of velocities of particles in a gas pulse. According to \cite{bergmann}, the velocity in the gas pulse follows the floating Maxwellian distribution 
 \begin{equation}\label{floatmaxwell}
-	f(v) = C v^2 \exp(- \frac{m (v - u)^2}{2 k_\mathrm{B} T}) = C v^2 \exp(\mathrm{S}_\parallel \left(1 - \frac{v}{u}\right)^2),
+	f(v) = C v^2 \exp(- \frac{m (v - u)^2}{2 k_\mathrm{B} T_\parallel}) = C v^2 \exp(\mathrm{S}_\parallel \left(1 - \frac{v}{u}\right)^2),
 \end{equation}
-where $m$ is the mass of an atom, T the longitudinal temperature, $\mathrm{S}_\parallel = \sqrt{\frac{1}{2} m u^2 / (k_{\mathrm{B}} T_\parallel)}$ is the longitudinal speed ratio and $u$ is the mean velocity of the gas pulse. Finally $C$ is a normalization factor. The longitudinal temperature can be calculated from $S_\parallel$  as
+where $m$ is the mass of an atom, $T_\parallel$ the longitudinal temperature, $\mathrm{S}_\parallel = \sqrt{\frac{1}{2} m u^2 / (k_{\mathrm{B}} T_\parallel)}$ is the longitudinal speed ratio and $u$ is the mean velocity of the gas pulse. Finally $C$ is a normalization factor. The longitudinal temperature can be calculated from $S_\parallel$  as
 \begin{equation}
 T_\parallel = \frac{m}{2 k_\mathrm{B}} \left(\frac{u}{\mathrm{S}_\parallel} \right)^2.
 \end{equation}
@@ -99,20 +99,21 @@ Furthermore the Mach number is defined as
 \[ M = \frac{u}{v_s},\]
 where $v_s$ is the speed of sound in the gas given by $v_s = \sqrt{\gamma k_\mathrm{B} T/m}$ for an ideal gas. Speeds between $1.3$ and $5.0$ Mach number are said to be in the supersonic regime, which is where we expect our gas pulse to be.
 \section{Experimental Setup}
-The experiment consists of a two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
+The experiment consists of two main chambers. In the first one the input gas (i.e. Argon and later Helium) is contained. The pressure in the first chamber is not constant but is at a magnitude of a few \si{\bar} throughout the experiment. The second chamber is continuously emptied by a turbo-molecular pump, which is backed by a diaphragm pump. The chambers are connected via an orifice that is opened and closed by a piezo crystal. To vary the frequency and the time period of inlet one just has to accordingly modulate the electrical pulses on the piezo.
 \newline
-The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand first with supersonic speed, which is followed by effusive expansion. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge.\cite{cold_cathode} To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used gas, as different gases have different ionization behaviour.
+The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand at supersonic speed. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge.\cite{cold_cathode} To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used gas, as different gases have different ionization behaviour.
 \\
-The output from the ionization gauge is technically speaking a voltage, which is measured with an oscilloscope. To convert the voltage into pressure a formula given in the data sheet \cite{datasheet_pfeiffer} is used. 
+The output from the ionization gauge is technically speaking a voltage, which is measured with an oscilloscope. To convert the voltage into pressure a formula given in the data sheet of the ion gauge \cite{datasheet_pfeiffer} is used. 
 \begin{equation}
 	\label{eq_pressure}
 	p = K \exp(1.667 \times U - 9.333)
 \end{equation}
-Here, $U$ indicates the voltage signal that the gouge generates, while $K$ is a proportionality factor that corrects for the gas in use. The data sheet gives $K= 0.8$ for argon and $K = 5.9$ for helium. Eq. \ref{eq_pressure} takes the voltage in \si{\volt}, the resulting pressure is given in \si{\pascal}.
+Here, $U$ indicates the voltage signal that the gauge generates, while $K$ is a proportionality factor that corrects for the gas in use. The data sheet gives $K= 0.8$ for argon and $K = 5.9$ for helium. Eq. \ref{eq_pressure} takes the voltage in \si{\volt}, the resulting pressure is given in \si{\pascal}.
 \\
-While the pressure is measured at the top of the setup, a more interesting part is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently by detected with a channeltron detector.
+While the pressure is measured at the top of the setup, another interesting thing is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently by detected with a channeltron detector.\\
+Channeltrons work on the basis of electron multiplication. An atom with enough excitation energy causes a secondary electron to be emitted. The electron is accelerated by a voltage in the detector and causes the emission of several electrons when hitting the next electrode (often called dynode). This process can be repeated over several dynodes. Thus a easily measurable avalanche of electrons can be detected at the last dynode.
 \\
-The channeltron is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
+The channeltron's signal is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
 \begin{figure}[H]
     \centering
     \tikzstyle{chamber2} = [draw, rectangle,
@@ -152,16 +153,16 @@ The channeltron is connected to a oscilloscope to visualize the measured data. F
   \node at (0, 8em) {Ionization gauge};
   \node[text width = 3cm,align = center] at (-12.5em, -4em) {Pressure \\ chamber};
   \node at (0, -4.5em) {Vacuum chamber};
-  \node at (-8em, 1em) {Orifice};
+  \node at (-8em, 1em) {Nozzle};
 \end{tikzpicture}
 \caption{Sketch of the experimental setup. Gas passes from the pressure chamber into the vacuum chamber in pulses, where the length and the frequency can be varied. The pressure is measured with the cold cathode ionization gauge. A direct voltage can be applied to the two ring electrodes, which causes a plasma discharge when gas is passing through. The discharge can be made visible by measuring the voltage on the resistor $R$. Finally the Channeltron detector can measure the intensity of atoms excited by the plasma discharge. }
 \label{fig_setup}
 \end{figure}
-In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that tuning the deflection voltage did not notably increase the quality of the received signal.
+In this experiment one is mostly interested in the intensity of the excited argon atoms which makes the ionized argon atoms a unwanted interference in the detector's signal. Therefore the setup also has a deflection shield to divert the ionized argon atoms. However, in the experiment we found that varying the deflection voltage did not notably increase the quality of the received signal.
 
 \section{Procedure and Analysis}
 \subsection{Pressure Characteristics}
-Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure of did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar}. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width. As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
+Starting off, a look was taken at the pressure characteristics of the setup. To be specific, the pressure in the vacuum chamber was measured depending on the frequency and the width of the opening pulse. Measurements were performed on opening time windows with length \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at frequencies of \SI{1}{\hertz}, \SI{2}{\hertz}, \SI{5}{\hertz} and \SI{10}{\hertz}. To measure the pressure in the pressure chamber a manometer on the inlet pipe was used. The indicated pressure did not notably change throughout this part of the experiment, which leaves a pressure of \SI{2.9(1)}{\bar} in the pressure chamber. The results are plotted in Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characterization}. Both figures show the same data, but in Fig. \ref{fig_pressure_characterization} the data is grouped according to frequency and in Fig. \ref{fig_width_characterization} it is arranged according to pulse width. As one can see in Fig. \ref{fig_pressure_characterization} the length of the pulse positively correlates with height of the pressure peak, i.e. the longer the pulse the higher the peak, which one would expect. However, the values of the ratio of the peak heights is clearly different than the ratio of the pulse length, which would be $1:1.56:1.92$. The ratio of the measured peaks however is approximately $1:40:69$. As the ratio between the second and the third number seems to be way closer to the ratio of the respective pulse widths it is probable that there is a time delay on the opening of the nuzzle, which causes less gas to pass then one would expect. Additionally, it would also explain why the difference shrinks with increasing opening time. 
 
 
 \begin{figure}[H]
@@ -223,7 +224,7 @@ In Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characteriza
 \end{figure}
 
 \subsection{Gas Inlet per Pulse}
-To calculate how much gas gets into the vacuum chamber every time the nuzzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
+To calculate how much gas gets into the vacuum chamber every time the nozzle is opened, we have to first determine the Knudsen number. If $K_n \gg 1$ then there is hardly any collisions between atoms, meaning that the energy distribution on various inner degrees of freedom should be conserved and therefore the temperature should not change. However, if the Knudsen number is small, then we should see an adiabatic expansion, which of course includes a change in temperature. This consideration is relevant because we have to use different formulas for the calculation of the inlet if the Knudsen number is big or small. 
 \\
 As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is very high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even so the value is still $56$. % we must use the precise value with error, I just approximated it with the graph
 This means that we are not in the adiabatic regime and must therefore use the equation 
@@ -259,7 +260,7 @@ $3.2442\cdot 10^{-5} \pm 8\cdot 10^{-9}$ & 230& 10\\ \bottomrule
 \end{figure}
 
 \subsection{Pressure drop}
-After the gas pulse the pressure drop due to the gas been sucked up by the vacuum pump, we studied this drop by fitting an exponential decay of the form
+After the gas pulse the pressure drop due to the gas been sucked up by the vacuum pump is looked at. We studied this drop by fitting an exponential decay of the form
 \[f(t) = Ae^{-(t - t_0)/\tau} + C,\]
 where $\tau$ is the parameter that gives the time scale of the decay, which we are interested in. All other parameters are not important in the analysis. An example of fit can be seen in figure \ref{expfit}. Below a table with the time scale $\tau$ for every measurement we took
 \begin{table}[H]
@@ -283,7 +284,7 @@ $0.28 \pm 0.05 $ & 230& 10\\ \bottomrule
 \caption{Time scale for various opening time and frequency. }
 \end{table}
 
-From the data we can notice that the time scale is larger for bigger frequency and it seems it does not depend on the opening time. It is interesting to see the dependence of the time scale with the gas inlet calculated in the previous section. This is plotted in figure \ref{gasinlettimescale}, but as we can see there is apparently no correlation between the two quantities.
+From the data we can notice that the time scale is larger for bigger frequencies and it seems that it does not depend on the opening time. Furthermore, we wanted to see if there is a dependence of the time scale on the gas inlet calculated in the previous section. This is plotted in figure \ref{gasinlettimescale}, but as we can see there is no apparent correlation between the two quantities.
 
 \begin{figure}[H]
 \centering
@@ -298,7 +299,7 @@ From the data we can notice that the time scale is larger for bigger frequency a
 \end{figure}
 
 \subsection{Plasma discharge}
-After studying the gas pulse, we tried to produce a plasma discharge. A power supply with a voltage of around 1000 V was attached to two rings electrodes as described in the experiment setup section. We fixed the opening time and frequency of the nozzle to 230 $\mu$s and 10 Hz. Then we tried to hit the gas at the right moment with a voltage pulse to produce a plasma discharge, this was done varying the delay of the electric pulse. We took three measurements for three different widths of the pulse, which can be seen in figure \ref{discharge}. 
+After studying the gas pulse, we tried to produce a plasma discharge. A power supply with a voltage of around 1000 V was attached to two ring electrodes as described in the experiment setup section. We fixed the opening time and frequency of the nozzle to 230 $\mu$s and 10 Hz. Then we tried to hit the gas at the right moment with a voltage pulse to produce a plasma discharge, this was done by variation of the delay of the electric pulse. We took three measurements for three different widths of the pulse, which can be seen in figure \ref{discharge}. 
 
 \begin{figure}[H]
 \centering
@@ -309,8 +310,8 @@ After studying the gas pulse, we tried to produce a plasma discharge. A power su
 We can clearly see the plasma discharge by the characteristic bump in the voltage during the pulse. This means that we are able to hit the gas pulse and induce a plasma discharge in the gas.
 
 \subsection{Channeltron characterization}
-Before starting the real measurement, we had to characterize the detector. We tried to apply different voltage on the channeltron and analysed its signal. In figures \ref{channeltron}
-we can see the measurements. 
+Before starting the main measurement, we had to characterize the detector. We tried to apply different voltages on the channeltron and analysed its signal. In figures \ref{channeltron}
+one can see the measurements. 
 \begin{figure}[H]
   \centering{}
   \begin{subfigure}[t]{0.45 \textwidth}
@@ -336,19 +337,19 @@ we can see the measurements.
     \includegraphics[width=\textwidth]{channeltron5}
     \caption{Channeltron voltage -1405 V}\label{channeltron4}
   \end{subfigure}
-  \caption{Green line is the electric pulse for the plasma discharge. The blue line is the signal from the channeltron. All measurements were taken with a voltage on the deflector of -5 V. }
+  \caption{The green line is the electric pulse for the plasma discharge. The blue line is the signal from the channeltron. All measurements were taken with a voltage on the deflector of \SI{-5.00(3)}{\volt}. }
   \label{channeltron}
 \end{figure}
-In every plot we can clearly see at least two peaks, the fist peak is due to particles like electron and photons which are very fast, then after a while also the exited Argon arrives and gives the second large peak. In figure \ref{channeltron3} and \ref{channeltron4} a third peak between the two already described appears, it is very low, almost imperceptible, but it can be seen and it is due to ionized Argon, which is lighter then excited Argon and therefore faster. Furthermore, in all plots of figure \ref{channeltron} but the first one, an overshoot can be seen, after the last peak the voltage of the channeltron does not come back to the value before the measurement but it goes higher, we notice also that the overshoot is bigger for lower channeltron voltage. This helped us to choose the correct voltage to use for the channeltron, in fact we should reduce the overshoot as much as possible, but still be able to see all the peaks. Moreover we also got an idea of the time of flight for the excited Argon, which can be seen from the plot to be around 0.5 ms.
+In every plot we can clearly see at least two peaks, the fist peak is due to particles like electron and photons which are very fast, then after a while also the exited Argon atoms arrive and form the second large peak. In figure \ref{channeltron3} and \ref{channeltron4} a third peak between the two already described peaks appears, it is very low, almost imperceptible, but it can be seen and it is due to ionized Argon, which is accelerated by the electric field and therefore faster. Furthermore, in all plots of figure \ref{channeltron} but the first one, an overshoot can be seen, after the last peak the voltage of the channeltron does not come back to the value before the measurement but it goes higher, we notice also that the overshoot is bigger for lower channeltron voltage. This helped us to choose the correct voltage to use for the channeltron, in fact we should reduce the overshoot as much as possible, but still be able to see all the peaks. Moreover we also got an idea of the time of flight for the excited Argon, which can be seen from the plot to be around 0.5 ms.
 
 \subsection{Argon lifetime and velocity distribution}
 %Calculation of the velocity & Mach number
-In the previous section, we identified the peak in the channeltron as excited Argon, in fact excited Argon is in a metastable state, with a life time of 40 s \cite{lifetime}.
-We can then estimate the probability of an excited argon atom to decay before the detector is reached. This can be done with quite a simple integration:
+In the previous section, we identified the peak in the channeltron as excited Argon, in fact excited Argon is in a metastable state, with a life time of \SI{40}{\s} or \SI{50}{\s}, depending on the state.\cite{lifetime}
+We can then estimate the probability of an excited argon atom to decay before the detector is reached. This can be done with quite a simple integration, where we use the shorter life time:
 \begin{equation}
 	\mathbb{P} = \int_0^{t_f} \frac{1}{\tau} \exp(-\frac{t}{\tau}) \mathrm{d}t = 1 - \exp(-\frac{t_f}{\tau}) \approx 0.0012 \,\,\%
 \end{equation}
-therefore the excited Argon will likely reach the channeltron. To better analyze the excited Argon we isolated the corresponding peak and a floating Maxwell distribution \eqref{floatmaxwell} has been fitted. First the measurement was converted from a time domain to a velocity domain, simply by calculating the velocity as $v = d/(t-t_0)$, where $d = 30\pm 5$ cm is the length of the vacuum chamber, $t$ is the time, and $t_0$ is the initial time of the plasma discharge, so when the excited Argon is created. We took different measurements for different pressure and different opening time of the nozzle. In figure \ref{tof} the measurements with the fit are shown.
+therefore the excited Argon will likely reach the channeltron. To better analyze the excited Argon we isolated the corresponding peak and fitted a floating Maxwell distribution \eqref{floatmaxwell}. First the measurement was converted from a time domain to a velocity domain, simply by calculating the velocity as $v = d/(t-t_0)$, where $d = 30\pm 5$ cm is the estimated length between electrodes and channeltron, $t$ is the time, and $t_0$ is the initial time of the plasma discharge, so when the excited Argon is created. We took different measurements for different pressures and different opening times of the nozzle. In figure \ref{tof} the measurements with the fit are shown.
 
 \begin{figure}[H]
   \centering{}
@@ -375,7 +376,7 @@ therefore the excited Argon will likely reach the channeltron. To better analyze
     \includegraphics[width=\textwidth]{tof15}
     \caption{Pressure 2.5 Bar}\label{tof4}
   \end{subfigure}
-  \caption{Velocity distribution of exited Argon, different curves are for different pulse width, red line is the calculated fit with the floating Maxwell distribution. The data has been multiplied by -1, to flip the peaks, which were actually dips}
+  \caption{Velocity distribution of exited Argon, different curves are for different pulse width, red line is the calculated fit with the floating Maxwell distribution. The data has been multiplied by -1, to flip the peaks, which were actually dips in the measured voltage. }
   \label{tof}
 \end{figure}
 
@@ -407,7 +408,7 @@ We repeated the experiment with Helium instead of Argon, which is a lighter atom
 \begin{figure}[H]
 \centering
 \includegraphics[width= \textwidth]{heliumtof}
-\caption{Velocity distribution for helium,, different curves are for different pulse width, red line is the calculated fit with the floating Maxwell distribution. The data has been multiplied by -1, to flip the peaks, which were actually dips}\label{heliumtof}
+\caption{Velocity distribution for helium, different curves are for different pulse width, red line is the calculated fit with the floating Maxwell distribution. The data has been multiplied by -1, to flip the peaks, which were actually dips in the recorded voltage.}\label{heliumtof}
 \end{figure}
 The results obtained from the fit are the following
 
@@ -418,7 +419,7 @@ Pressure [Bar] & Opening time [$\mu$s] & $S_\parallel$ & $u$ [m/s] & $T_\paralle
 3.5& 220 & 5.016& 636.813& 38.71& 1.99 \\\bottomrule
 \end{tabular}
 \end{center}
-We notice that we are again in the supersonic regime and the mean velocity and the Mach number are greater with respect to the Argon as expected.
+We notice that we are again in the supersonic regime and the mean velocities and the Mach numbers are greater with respect to the Argon as expected.
 \section{Conclusion}
 
 \begin{thebibliography}{99}
