@@ -100,9 +100,9 @@ if __name__ == "__main__":
 		t,v = read_data("data/ALL00"+str(i).zfill(2) +"/F00"+str(i).zfill(2) +"CH1.CSV")
 		p = V2P(v)
 		P_final = np.amax(p)*1e-5
-		V_initial = V_final*(P_final/P_initial)*1e3 #milliliters
+		V_initial = V_final*(P_final/P_initial)**(1/gamma)*1e3 #milliliters
 		gasquantity[i-1] = V_initial
-		print(str(V_initial)+" +/- " +str((P_final/P_initial)*1e3) + "& " +str(width[i-1])+ "& " +str(freq[i-1]))
+		print(str(V_initial)+" +/- " +str((P_final/P_initial)**(1/gamma)*1e3) + "& " +str(width[i-1])+ "& " +str(freq[i-1]))
 
 
 

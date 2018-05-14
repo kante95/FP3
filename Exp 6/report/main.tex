@@ -250,18 +250,18 @@ where $P_i$ and $V_i$ are the initial pressure and initial volume inside the noz
 \centering
 \begin{tabular}{ccc} \toprule
     Gas inlet [mL] & Opening time [$\mu$s] & Frequency \\ \midrule
-$1.4\cdot 10^{-7} \pm 3\cdot 10^{-8}$& 120& 1\\
-$5\cdot 10^{-6} \pm 1\cdot 10^{-6}$& 190& 1\\
-$9\cdot 10^{-6} \pm 2\cdot 10^{-6}$& 230& 1\\\midrule
-$1.9\cdot 10^{-7} \pm 5\cdot 10^{-8}$& 120& 2\\
-$6\cdot 10^{-6} \pm 2\cdot 10^{-6}$& 190& 2\\
-$1.0\cdot 10^{-5} \pm 2\cdot 10^{-6}$& 230& 2\\ \midrule
-$2.2\cdot 10^{-7} \pm 5\cdot 10^{-8}$& 120& 5\\
-$9\cdot 10^{-6} \pm 2\cdot 10^{-6}$ & 190& 5\\ 
-$1.7\cdot 10^{-5} \pm 4\cdot 10^{-6}$ & 230& 5\\\midrule
-$1.3\cdot 10^{-6} \pm 3\cdot 10^{-7}$& 120& 10\\ 
-$2.0\cdot 10^{-5} \pm 5\cdot 10^{-6}$ & 190& 10\\
-$3.2\cdot 10^{-5} \pm 8\cdot 10^{-6}$ & 230& 10\\ \bottomrule
+0.0021 $\pm$ 0.0005 & 120& 1 \\
+0.019 $\pm$ 0.005& 190& 1\\
+0.027 $\pm$ 0.007 & 230& 1\\\midrule
+0.028 $\pm$ 0.007& 230& 2\\
+0.021$\pm$ 0.005& 190& 2\\
+0.0025$\pm$ 0.0006& 120& 2\\\midrule
+0.0028 $\pm$ 0.0007& 120& 5\\
+0.027$\pm$ 0.007 & 190& 5\\
+0.04 $\pm$ 0.01 & 230& 5\\\midrule
+0.05 $\pm$ 0.01& 230& 10\\
+0.04$\pm$ 0.01& 190& 10\\
+0.008$\pm$ 0.002& 120& 10\\\bottomrule
 \end{tabular}
 \caption{Gas inlet for various opening times and frequencies. }
 \end{table}
@@ -416,7 +416,7 @@ Pressure [Bar] & Opening time [$\mu$s] & $S_\parallel$ & $u$ [m/s] & $T_\paralle
 \end{tabular}
 \caption{Results from the Argon velocity distribution.}
 \end{table}
-From the Mach number we can see that we are indeed in the supersonic regime. The errors in the table were estimated with the error on the length $d$, which is the biggest source of uncertainty. Therefore we fitted the data first using the lower bound $d = 27$ cm, then again with the upper bound $d= 33$ cm, and we averaged the two results of the two fits, so we wrote the error as the relative distance divided by two.
+The errors in the table were estimated with the error on the length $d$, which is the biggest source of uncertainty. Therefore we fitted the data first using the lower bound $d = 27$ cm, then again with the upper bound $d= 33$ cm, and we averaged the two results of the two fits, so we wrote the error as the relative distance divided by two. From the Mach number we can see that we are indeed in the supersonic regime. Moreover, the longitudinal temperature is between 6 and 32 K, as expected 
 
 \subsection{Helium velocity distribution}
 We repeated the experiment with Helium instead of Argon, which is a lighter atom. Using the same procedure and the same analysis we obtained the velocity distribution in figure \ref{heliumtof}
@@ -436,6 +436,7 @@ Pressure [Bar] & Opening time [$\mu$s] & $S_\parallel$ & $u$ [m/s] & $T_\paralle
 \end{center}
 We notice that we are again in the supersonic regime and the mean velocities and the Mach numbers are greater with respect to the Argon as expected.
 \section{Conclusion}
+In this experiment we studied supersonic gas pulses of Argon inside a vacuum chamber. First we analyzed the pressure behaviour of the gas pulses, then we induced a plasma discharge in the pulse in order to create metastable excited Argon that we can detect at the channeltron. We characterized the channeltron detector and finally we measured the time of flight, which we used to study the velocity distribution of the pulse which reveals several features like longitudinal temperature, speed ratio, and Mach number. In addition to Argon, we also repeated the experiment with Helium and compared the results. As we expected the Helium pulse is faster then Argon and also we verified that the pulses travel at supersonic speed.  
 
 \begin{thebibliography}{99}
 \bibitem{datasheet_pfeiffer}
