@@ -57,5 +57,6 @@ plt.plot(I_fit, U_fit, color = 'k')
 plt.plot(I_fit, sine_function(I_fit, *params), color = 'r')
 plt.xlabel(r'$I_{Coil}$ / \si{\micro \ampere}', fontsize = 'large')
 plt.ylabel(r'$V$ / \si{\micro \volt}', fontsize = 'large')
+#plt.savefig('v_flux.pdf', format = 'pdf')
 plt.show()
 

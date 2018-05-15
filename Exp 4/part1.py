@@ -61,10 +61,12 @@ dU_fit2= dU[(current < high2) & (current > low2)]
 params, cov = sp.curve_fit(linear_function, I_fit, U_fit, sigma = dU_fit)
 dparams = np.sqrt(np.diag(cov))
 print(params[0], params[1]*100)
+print(dparams[0], dparams[1]*100)
 
 params2, cov2 = sp.curve_fit(linear_function, I_fit2, U_fit2, sigma = dU_fit2)
 dparams2 = np.sqrt(np.diag(cov2))
 print(params2[0], params2[1]*100)
+print(dparams[0], dparams[1]*100)
 
 x = np.linspace(0.5, 0.7)
 
@@ -81,6 +83,7 @@ plt.errorbar(intersection*100, linear_function(intersection, *params)*100, color
 #plt.plot(tI, current)
 plt.ylabel(r'$V$ / \si{\micro \volt}', fontsize = 'large')
 plt.xlabel(r'$I$ / \si{\micro \ampere}', fontsize = 'large')
-#plt.xlim(0.25)
-#plt.ylim(0)
+plt.xlim(0)
+plt.ylim(0)
+#plt.savefig('iv_max.pdf', format = 'pdf')
 plt.show()
