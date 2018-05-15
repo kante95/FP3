@@ -73,7 +73,7 @@
 \end{titlepage}
 
 \section{Introduction}
-As the title suggests, small amounts of Argon and Helium gas are transferred into vacuum where the atoms are accelerated above the local speed of sound \cite{illinois}. The rapid expansion leads to a steep decline of particle density and thus collision rate. As a result thermal equilibrium is temporarily lost, and different temperatures are needed to describe different degrees of freedom, which is an interesting phenomenon in physics. Furthermore, the adiabatic expansion leads to reduced internal energy, which results in low temperatures that has application in for example cluster physics, since it can be used to grow clusters.
+As the title suggests, small amounts of Argon and Helium gas are transferred into vacuum where the expansion accelerates the atoms above the local speed of sound \cite{illinois}. The rapid expansion leads to a steep decline of particle density and therefore also in the collision rate. As a result the thermal equilibrium is temporarily lost, and different temperatures are needed to describe different degrees of freedom, which is an interesting phenomenon in physics. Furthermore, the adiabatic expansion leads to reduced internal energy, which results in low temperatures that has application in for example cluster physics, since it can be used to grow clusters.
 
 \section{Theoretical background}
 % I think we should expand this section whenever we use something in the analysis.
@@ -84,7 +84,7 @@ In classical theory, gases consist of $N$ small, spherical particles  that are d
 \begin{equation}
 	\sigma = 4 r^2 \pi =\pi d^2,
 \end{equation}
-where $d$ is the hard sphere potential radius or van-der-Waals radius. For Argon a value of \SI{3.4}{\angstrom} \cite{bergmann} was used. The mean free path $l$, which is the length an atom or molecule travels on average before colliding with another can finally be written as 
+where $d$ is the hard sphere potential diameter or twice the van-der-Waals radius. For Argon a value of \SI{3.4}{\angstrom} \cite{bergmann} was used. The mean free path $l$, which is the length an atom or molecule travels on average before colliding with another can finally be written as 
 \begin{equation}
 	l = \frac{1}{n \sigma}. 
 \end{equation}
@@ -96,7 +96,7 @@ The Knudsen Number describes the ratio of the mean free path length $l$ of a par
 The last term can be applied to Boltzmann gases. $T$ is the temperature, $d$ is the radius of the hard sphere potential of the Argon atoms, $p$ is the pressure inside the vessel and $k_B$ is the Boltzmann constant.
 
 \subsection{Velocity distribution}\label{theory}
-In the two final parts a look is taken at the distribution of velocities of particles in a gas pulse. According to \cite{bergmann}, the velocity in the gas pulse follows the floating Maxwell distribution 
+In the two final parts a look is taken at the distribution of velocities of particles in a gas pulse. According to \cite{bergmann}, the velocity in the gas pulse follows the floating Maxwellian distribution 
 \begin{equation}\label{floatmaxwell}
 	f(v) = C v^2 \exp(- \frac{m (v - u)^2}{2 k_\mathrm{B} T_\parallel}) = C v^2 \exp(\mathrm{S}_\parallel \left(1 - \frac{v}{u}\right)^2),
 \end{equation}
@@ -106,7 +106,7 @@ T_\parallel = \frac{m}{2 k_\mathrm{B}} \left(\frac{u}{\mathrm{S}_\parallel} \rig
 \end{equation}
 Furthermore the Mach number is defined as 
 \[ M = \frac{u}{v_s},\]
-where $v_s$ is the speed of sound in the gas given by $v_s = \sqrt{\gamma k_\mathrm{B} T/m}$ for an ideal gas, where $\gamma$ is the adiabatic index ($5/3$ for Argon). Speeds between $1.3$ and $5.0$ Mach number are said to be in the supersonic regime, which is where we expect our gas pulse to be.
+where $v_s$ is the speed of sound in the gas given by $v_s = \sqrt{\gamma k_\mathrm{B} T/m}$ for an ideal gas, where $\gamma$ is the adiabatic index ($5/3$ for Argon or Helium). Speeds between $1.3$ and $5.0$ Mach number are said to be in the supersonic regime, which is where we expect our gas pulse to be.
 
 \subsection{Plasma discharge}
 A channeltron detector is used in this experiment, which means we need excited atoms to produce a signal, therefore excited Argon is produced by means of plasma discharge between two electrodes. Argon atoms collide with electrons during the discharge and are excited to a metastable state with an energy of almost \SI{12}{\electronvolt} according to \cite{script}. This should then be enough energy to cause the emission of a secondary electron in the electron multiplier, which is used as a detector. In Argon there are two metastable levels, which are in the $3\text{p}^54\text{s}$ shell with $J=0$ and $J = 2$, their lifetimes are \SI{40}{\s} and \SI{50}{\s} \cite{lifetime}, long enough for the atoms to travel and reach the detector before de-excitation. 
@@ -116,14 +116,14 @@ The experiment consists of two main chambers. In the first one the input gas (i.
 \newline
 The open orifice allows for a small gas pulse to reach the vacuum chamber, where it can expand at supersonic speed. This leads to a change in the measured pressure inside the vacuum chamber, which is measured by a cold cathode ionization gauge \cite{cold_cathode}. To put it into simple terms, a DC voltage excites a discharge between to unheated electrodes (cathode and anode). Positive and negative charge carriers produced by collisions of electrons and gas particles move to their respective electrode and are detected. However, to properly use this method, one has to include a correction for the used medium, as different gases have different ionization behaviour.
 \\
-The output from the ionization gauge is technically speaking a voltage, which is measured with an oscilloscope. To convert the voltage into pressure a formula given in the data sheet of the ion gauge \cite{datasheet_pfeiffer} is used
+The output from the ionization gauge is a voltage, which is measured with an oscilloscope. To convert the voltage into pressure a formula given in the data sheet of the ion gauge \cite{datasheet_pfeiffer} is used
 \begin{equation}
 	\label{eq_pressure}
-	p = K \exp(1.667 \times U - 9.333),
+	p = K \exp(1.667 \times U - 9.333).
 \end{equation}
-here, $U$ indicates the voltage signal that the gauge generates, while $K$ is a proportionality factor that corrects for the gas in use. The data sheet gives $K= 0.8$ for argon and $K = 5.9$ for helium. Eq. \ref{eq_pressure} takes the voltage in \si{\volt}, the resulting pressure is given in \si{\pascal}.
+Here, $U$ indicates the voltage signal that the gauge generates, while $K$ is a proportionality factor that corrects for the gas in use. The data sheet gives $K= 0.8$ for argon and $K = 5.9$ for helium. Eq. \ref{eq_pressure} takes the voltage in \si{\volt}, the resulting pressure is given in \si{\pascal}.
 \\
-While the pressure is measured at the top of the setup, another interesting thing is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently detected with a channeltron detector.\\
+While the pressure is measured at the top of the setup, another interesting thing is happening in the center. The pulse travels through two ring-shaped electrodes that are charged with a DC voltage. When there is enough gas in between the electrodes a plasma discharge is caused. This leaves both ionized and excited argon atoms in the pulse which can subsequently be detected with a channeltron detector.\\
 Channeltrons work on the basis of electron multiplication. An atom with enough excitation energy causes a secondary electron to be emitted. The electron is accelerated by a voltage in the detector and causes the emission of several electrons when hitting the next electrode (often called dynode). This process can be repeated over several dynodes. Thus a easily measurable avalanche of electrons can be detected at the last dynode.
 \\
 The channeltron's signal is connected to a oscilloscope to visualize the measured data. Furthermore, the output of the ionization gauge and the voltage on the resistor on the electrode are fed into the oscilloscope.
@@ -203,7 +203,7 @@ Starting off, a look was taken at the pressure characteristics of the setup. To 
   \end{subfigure}
   \caption{Depiction of the measured pressures for pulse widths of \SI{120}{\micro \s}, \SI{190}{\micro \s} and \SI{230}{\micro \s} at the displayed frequency. }
   \label{fig_pressure_characterization}
-\end{figure}\newpage
+\end{figure}
 Fig. \ref{fig_width_characterization} shows the same curves, but now curves with the same opening time are grouped up. The first thing one notices is that the higher the frequency is, the higher is the maximum value of the pressure curve. This one would expect because the vacuum pump can simply not sufficiently evacuate the vacuum chamber between the pulses as one can see for the \SI{5}{\hertz} and \SI{10}{\hertz} curves, meaning that there is additionally to the pulse a background pressure, which leads to a higher maximum. 
 \\
 However, one furthermore sees that the difference in the minimum to maximum pressure value also depends on the frequency. This is unexpected, as the opening width is the same in every plot in Fig. \ref{fig_width_characterization}. Apparently there is a systematic error that is connected to the frequency and the time width of the opening. %It was already mentioned that there is likely a delay in the opening. 
@@ -235,7 +235,7 @@ In Fig. \ref{fig_pressure_characterization} and Fig. \ref{fig_width_characteriza
 \end{figure}
 
 \subsection{Gas inlet per pulse}
-Before the gas inlet is determined, we take a brief look the Knudsen number within the used setup. The Knudsen number describes the ratio between the length of the setup $L = 30$ cm and the mean free path of an Argon atom in the vacuum chamber, giving us essentially an average for the amount of collisions one has to expect during the expansion for one atom. 
+Before the gas inlet is determined, we take a brief look the Knudsen number within the used setup. The Knudsen number describes the ratio between the length of the setup $L = \SI{30(3)}{\centi \m}$ and the mean free path of an Argon atom in the vacuum chamber, giving us essentially an average for the amount of collisions one has to expect during the expansion for one atom. 
 \\
 As Fig. \ref{fig_knudsennumber} shows, the Knudsen number is comparably high during the pulse. As one would expect, it reaches its minimum when the pressure peaks, but even then the value is still $56$. This means that there should be hardly any collisions between atoms, meaning that the lack of thermalization should allow for a temporal loss of the thermal equilibrium. Therefore temperatures are expected to vary along different degrees of freedom. 
 \\
@@ -295,7 +295,6 @@ $0.28 \pm 0.05 $ & 230& 10\\ \bottomrule
 \end{tabular}
 \caption{Time scale for various opening time and frequency. }
 \end{table}
-
 From the data we can notice that the time scale is larger for bigger frequencies and it seems that it does not depend on the opening time. Furthermore, we wanted to see if there is a dependence of the time scale on the gas inlet calculated in the previous section. This is plotted in figure \ref{gasinlettimescale}, but as we can see there is no apparent correlation between the two quantities.
 
 \begin{figure}[H]
@@ -391,11 +390,12 @@ therefore the excited Argon will likely reach the channeltron. To better analyze
   \caption{Velocity distribution of exited Argon, different curves are for different pulse width, red line is the calculated fit with the floating Maxwell distribution. The data has been multiplied by -1, to flip the peaks, which were actually dips in the measured voltage. }
   \label{tof}
 \end{figure}
-
+\newpage
 From the fit we can extract the parallel speed ratio, the average velocity, the longitudinal temperature, and the mach number as explained in section \ref{theory}. The following table summarizes our results
 
 \begin{table}[H]
 \centering
+\caption{Results from the Argon velocity distribution.}
 \begin{tabular}{cccccc} \toprule
 Pressure (Bar) & Opening time (\si{\micro \s}) & $S_\parallel$ & $u$ (m/s) & $T_\parallel$ (K) & Mach number \\ \midrule
 
@@ -414,7 +414,6 @@ Pressure (Bar) & Opening time (\si{\micro \s}) & $S_\parallel$ & $u$ (m/s) & $T_
 2.5 & 220 & 5.48 $\pm$ 0.01 & 464 $\pm$ 46 & 17 $\pm$ 3 & 1.45 $\pm$ 0.14 \\
 2.5 & 230 & 7.2 $\pm$ 0.3 & 458 $\pm$ 46 & 9 $\pm$ 2 & 1.43 $\pm$ 0.14 \\ \bottomrule
 \end{tabular}
-\caption{Results from the Argon velocity distribution.}
 \end{table}
 The errors in the table were estimated with the error on the length $d$, which is the biggest source of uncertainty. Therefore we fitted the data first using the lower bound $d = 27$ cm, then again with the upper bound $d= 33$ cm, and we averaged the two results of the two fits, so we wrote the error as the relative distance divided by two. From the Mach number we can see that we are indeed in the supersonic regime. Moreover, the longitudinal temperature is between 6 and 32 K which are expected temperatures according to \cite{illinois}. We also took measurements with an opening time of \SI{200}{\micro \s}, but the signal was to low to be analysed or simply not existent, therefore they have been neglected in this analysis.
 
