@@ -18,14 +18,14 @@ z = angio - c
 z = z[::-1]
 
 # print loop
-for i in range(0,8):
-    print("$a_" + str(i+1) + "$ & $" + str(a[i]) + r"$ & $b_" + str(i+1) + "$ & $" + str(b[i]) + "$ & $c_" + str(i+1) + "$ & $" + str(c[i]) + "$ \\\\")
+for i in range(len(a)):
+    print("$a_{" + str(i+1) + "}$ & $" + str(a[i]) + r"$ & $b_{" + str(i+1) + "}$ & $" + str(b[i]) + "$ & $c_{" + str(i+1) + "}$ & $" + (str(c[i]) if i<8 else "") + "$ \\\\")
 
-for i in range(8,10):
-    print("$a_{" + str(i+1) + "}$ & $" + str(a[i]) + r"$ & $b_{" + str(i+1) + "}$ & $" + str(b[i]) + "$ & $c_{" + str(i+1) + "}$ & " + " \\\\")
+for i in range(len(x)):
+    print("$x_{" + str(i+1) + "}$ & $" + str(x[i]) + r"$ & $y_{" + str(i+1) + "}$ & $" + str(y[i]) + "$ & $z_{" + str(i+1) + "}$ & $" + (str(z[i]) if i<8 else "") + "$ \\\\")
 
 # internal fragments
-angio3 = 1299.501 # dreifach geladenes Angio
+angio3 = 1299.501 # triple charged Angio
 for i in range(0,8):
     for j in range(0,10):
         mint = angio3 - c[i] - z[j]
