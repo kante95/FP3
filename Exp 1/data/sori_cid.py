@@ -1,13 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from fragments import identifypeak,mz2fragment
+
+
 data = np.genfromtxt('sori_cid.txt', delimiter = '   ', skip_header = 3)
 x_data = np.linspace(0, 3, 7)
 
 mz = np.genfromtxt('sori_cid.txt', delimiter = '   ', skip_header = 2, skip_footer = 7, usecols = range(1, 29))
 
 for i in range(1, 28):
-    plt.plot(x_data, data[:, i], label = str(mz[i]))
+	fragment = identifypeak(mz[i],margin=1)
+	if(fragment):
+		plt.plot(x_data, data[:, i], label = str(np.around(mz[i],decimals=2)) +" "+ mz2fragment(fragment))
 
 plt.xlabel(r'SORI Energy in %')
 plt.ylabel(r'Intensity')
