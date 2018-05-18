@@ -33,6 +33,7 @@
 \usepackage{circuitikz}
 \usepackage{chemfig}
 \usepackage{chemformula}
+\usepackage[toc,page]{appendix}
 \graphicspath{{./img/}}
 
 \newcommand{\dif}{\mathrm{d}}
@@ -168,7 +169,9 @@ Electrospray is a non-destructive way to ionized even organic molecules. However
 
 \subsection{Vacuum Setup}
 The Angiotensin molecules are now injected from the ESI chamber to the vacuum setup via a capillary. A deflector pushes the ionized molecules towards the first set of ion funnels and a skimmer, which is followed by another funnel and a second skimmer, which focus the ion beam while collecting as many ions as possible to increase intensity. From there, the ions are guided onward with a hexapole into a quadrupole mass filter, which can be used as an ion guide too if one removes the direct voltage from the electrodes in the filter. \\
-Here the ions enter the collision cell, which is another hexapole. A weak argon atmosphere allows for the ions to thermalize. Also, given enough collision energy, the ions can be broken up into fragments. From the collision chamber the ions are guided via ion optics into the ICR cell, where the measurement of the spectrum will be performed. A sketch of the setup is displayed in Fig. \ref{fig_setup}. 
+Here the ions enter the collision cell, which is another hexapole. A weak argon atmosphere allows for the ions to thermalize. 
+%more about cid
+Also, given enough collision energy, the ions can be broken up into fragments. From the collision chamber the ions are guided via ion optics into the ICR cell, where the measurement of the spectrum will be performed. A sketch of the setup is displayed in Fig. \ref{fig_setup}. 
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width= 0.6 \textwidth]{setup.png}
@@ -180,15 +183,14 @@ Here the ions enter the collision cell, which is another hexapole. A weak argon 
 The ideas behind the ICR cell were already briefly laid out in Sec. \ref{sec_theory}, so here the focus is on the experimental implementation. \\
 The cell used is of cylindrical shape and has to sets of electrodes to provide rotating electrical fields. Additionally, there are two more electrodes at the caps of the cylinder that generate an electric field along the direction of the magnetic field. This field has the purpose to keep the ions inside the cell, i.e. slow them down when they enter the cell, so the ion can be kept inside the ICR cell for a longer time. \\
 The magnetic field in the cell is created with a superconducting \SI{9.4}{\tesla} magnet built around the ICR cell, as is shown in Fig. \ref{fig_setup}. 
-
-%\subsection{Laser}
+%something about SORI
 
 \section{Analysis}
 
 \subsection{High resolution mass spectrum}
 At the beginning of the experiment we had to record a high-resolution mass spectrum of Angiotensin with two additional protons attached to it (\ch{C62H93N17O14^{3+}}). According to the Universal Mass Calculator \cite{umc}, this should yield an average $m/z$ ratio of \num{433.167}. This is only an average because in reality one would expect multiple peaks for different isotope combinations as one can see in Fig. \ref{fig_hres_spectroscopy}.
 
-\begin{figure}[htp!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{hires_spectrum.pdf}
 	\caption{Depiction of the measured data for the trice protonized Angiotensin. }
@@ -196,28 +198,40 @@ At the beginning of the experiment we had to record a high-resolution mass spect
 \end{figure}
 
 \subsection{CID fragment mass spectrum}
+In this part of the experiment we produced fragments by means of CID. We analyzed the spectrum produced by the fragments with different collision energy. %1018298
+We changed the collision energy from 0 to 20 eV, with a step of 0.5 eV, for every measurement we took an average of twenty spectra, each one with a resolution of 44440. Then with the software Analyzze we extracted the peaks from every collision energy, and plotted the relative intensity of the peak as a function of the collision energy, this can be seen in figure \ref{cidcollision}.
+Finally we have to identify the peaks with the relative mass, this is done by comparing all the possible $m/z$ ratio of the fragments with the measured peaks. In figure \ref{cidcollisionidentified} the identified peaks are shown with the relative fragment. Comparing figure \ref{cidcollision} and \ref{cidcollisionidentified}, we can see that we were able to identify every significant peaks apart from the orange curve (583.3002 $m/z$) with a bump around 8 eV, this is probably an internal fragmentation.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{cid_collision}
+	\caption{Peaks of the recorded spectrum for the CID collision. The legend indicates the ratio $m/z$}
+	\label{cidcollision}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{identifiedcid}
+	\caption{Peaks of the identified fragments for the CID collision. The legend indicates the ratio $m/z$ and the relative fragments with the nomenclature proposed in \cite{fragmentsnomenclature}}
+	\label{cidcollisionidentified}
+\end{figure}
+From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  
 
 \subsection{SORI-CID fragment mass spectrum}
+For the last part of the experiment, we induced the fragmentation with a different technique, the SORI. The measurements were done with the same procedure and same settings. The analysis was done again with the Analyzze software. In figure \ref{soricollision} the results are shown, here the peaks are represented as a function of the SORI power.
 
-\begin{table}[htp!]
+\begin{figure}[H]
 	\centering
-	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman. The data was gathered with UMC \cite{umc}. }
-	\begin{tabular}{c | c | c | c | c | c}
-		Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) \\ \hline
-		$a_1$ & $88.085$ & $b_1$ & $116.095$ & $c_1$ & $131.11$ \\
-		$a_2$ & $244.271$ & $b_2$ & $272.281$ & $c_2$ & $287.296$ \\
-		$a_3$ & $343.402$ & $b_3$ & $371.412$ & $c_3$ & $286.427$ \\
-		$a_4$ & $506.567$ & $b_4$ & $534.586$ & $c_4$ & $549.6$ \\
-		$a_5$ & $619.733$ & $b_5$ & $647.744$ & $c_5$ & $662.758$ \\
-		$a_6$ & $756.873$ & $b_6$ & $784.883$ & $c_6$ &  \\
-		$a_7$ & $784.883$ & $b_7$ & $881.998$ & $c_7$ & $897.013$ \\
-		$a_8$ & $1001.163$ & $b_8$ & $1029.173$ & $c_8$ & $1044.187$ \\
-		$a_9$ & $1138.301$ & $b_9$ & $1166.312$ & $c_9$ & $1181.327$ \\
-		$a_{10}$ & $1251.46$ & $b_{10}$ & $1279.47$ & $c_{10}$ &  \\
-	\end{tabular}
-	\label{tab_fragments}
-\end{table}
+	\includegraphics[width = \textwidth]{sori_cid.pdf}
+	\caption{Peaks from the SORI collision experiment. The legend indicates the ratio $m/z$.}
+	\label{soricollision}
+\end{figure}
+There are not a lot of meaningful peaks, maybe the SORI power is too low in our measurements. Anyway at 3.0 SORI power we start to see something, and we tried anyway to identify the peaks. In figure \ref{soriidentified} the identified peaks are shown. 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{identifiedsori.png}
+	\caption{Peaks of the identified SORI fragments. The legend indicates the ratio $m/z$ and the relative fragments with the nomenclature proposed in \cite{fragmentsnomenclature}.}
+	\label{soriidentified}
+\end{figure}
 \section{Conclusion}
 
 
@@ -233,6 +247,32 @@ At the beginning of the experiment we had to record a high-resolution mass spect
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
+
+\bibitem{fragmentsnomenclature}
+\textsc{Roepstroff P, Fohlman J}, \textit{Proposal for a common nomenclature for sequence ions in mass spectra of peptides}, Biomed. Maa Spectrom. 11 (11): 601 (1984)
+
+
 \end{thebibliography}
+
+\begin{appendices}
+\begin{table}[htp!]
+	\centering
+	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman. The data was obtained with UMC \cite{umc}. }
+	\begin{tabular}{c | c | c | c | c | c}
+		Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) \\ \hline
+		$a_1$ & $88.085$ & $b_1$ & $116.095$ & $c_1$ & $131.11$ \\
+		$a_2$ & $244.271$ & $b_2$ & $272.281$ & $c_2$ & $287.296$ \\
+		$a_3$ & $343.402$ & $b_3$ & $371.412$ & $c_3$ & $286.427$ \\
+		$a_4$ & $506.567$ & $b_4$ & $534.586$ & $c_4$ & $549.6$ \\
+		$a_5$ & $619.733$ & $b_5$ & $647.744$ & $c_5$ & $662.758$ \\
+		$a_6$ & $756.873$ & $b_6$ & $784.883$ & $c_6$ &  \\
+		$a_7$ & $784.883$ & $b_7$ & $881.998$ & $c_7$ & $897.013$ \\
+		$a_8$ & $1001.163$ & $b_8$ & $1029.173$ & $c_8$ & $1044.187$ \\
+		$a_9$ & $1138.301$ & $b_9$ & $1166.312$ & $c_9$ & $1181.327$ \\
+		$a_{10}$ & $1251.46$ & $b_{10}$ & $1279.47$ & $c_{10}$ &  \\
+	\end{tabular}
+	\label{tab_fragments}
+\end{table}
+\end{appendices}
 
 \end{document}
