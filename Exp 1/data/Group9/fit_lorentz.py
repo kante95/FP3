@@ -17,11 +17,17 @@ intensity = intensity1[(mass1 > 432.92) & (mass1 < 432.93)]
 
 params, pcov = sp.curve_fit(lorentz, mass, intensity, p0 = (2e8, 0.0001, 432.925, 0))
 print("Resolution: " + str(params[2]/(2 * params[1])))
-
+err = np.sqrt(np.diag(pcov))
+print(params, err)
 plt.plot(mass, intensity)
 plt.plot(mass, lorentz(mass, *params))
 plt.xlabel(r'$m/z$ in $\frac{\mathrm{u}}{e}$')
 plt.ylabel(r'Intensity')
 plt.tight_layout()
-#plt.savefig('hires_resolution.pdf', format = 'pdf')
+plt.savefig('fit_hires.pdf', format = 'pdf')
 plt.show()
+
+reso = params[2] / (2 * params[1])
+dreso = np.sqrt((err[2] / (2 * params[1]))**2 + (params[2] * err[1] / (2 * params[1]**2))**2)
+
+print(reso, dreso)

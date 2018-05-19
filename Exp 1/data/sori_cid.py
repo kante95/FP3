@@ -14,7 +14,7 @@ for i in range(1, 28):
 	if(fragment):
 		plt.plot(x_data, data[:, i], label = str(np.around(mz[i],decimals=2)) +" "+ mz2fragment(fragment))
 
-plt.xlabel(r'SORI Energy in %')
+plt.xlabel(r'SORI Power in %')
 plt.ylabel(r'Intensity')
 plt.legend(bbox_to_anchor = (1.1, 1.05), ncol=2)
 plt.tight_layout()

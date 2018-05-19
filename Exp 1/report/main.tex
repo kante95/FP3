@@ -19,7 +19,7 @@
 \usepackage{float}
 \usepackage{braket}
 \usepackage{caption}
-\usepackage[per-mode=reciprocal,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
+\usepackage[per-mode=fraction,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
 \usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{physics}
 \usepackage{url}
@@ -34,6 +34,9 @@
 \usepackage{chemfig}
 \usepackage{chemformula}
 \graphicspath{{./img/}}
+\usepackage{verbatim}
+
+\DeclareSIUnit\elementarycharge{e}
 
 \newcommand{\dif}{\mathrm{d}}
 
@@ -186,13 +189,41 @@ The magnetic field in the cell is created with a superconducting \SI{9.4}{\tesla
 \section{Analysis}
 
 \subsection{High resolution mass spectrum}
-At the beginning of the experiment we had to record a high-resolution mass spectrum of Angiotensin with two additional protons attached to it (\ch{C62H93N17O14^{3+}}). According to the Universal Mass Calculator \cite{umc}, this should yield an average $m/z$ ratio of \num{433.167}. This is only an average because in reality one would expect multiple peaks for different isotope combinations as one can see in Fig. \ref{fig_hres_spectroscopy}.
+At the beginning of the experiment we had to record a high-resolution mass spectrum of Angiotensin with three additional protons attached to it (\ch{C62H92N17O14^{3+}}). In order to measure the spectrum we beforehand varied parameters in the setting, i.e. voltages for example on the ESI capillary, deflector, funnels etc, to maximize the intensity of the output. 
+Then a spectrum was recorded over approximately \SI{40}{\minute}.\\
+According to the Universal Mass Calculator \cite{umc}, this should yield an average $m/z$ ratio of \num{433.167}. This is only an average because in reality one would expect multiple peaks for different isotope combinations. As one can see in Fig. \ref{fig_hres_spectroscopy} there are in fact five peaks visible, although the last one is already hard to see. \\
+Next, one can quickly estimate the resolution of the measured spectrum, so a Lorentzian curve was fitted to the highest peak in Fig. \ref{fig_hres_spectroscopy}, the fit can be seen in Fig. \ref{fig_fit_hires}. This yields a resolution of 
+\begin{equation}
+	\frac{m}{\Delta m_\mathrm{FWHM}} = \num{1.97(3) e6}.
+\end{equation}
+This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres_spectroscopy}. The results we extracted from said figure were \SI{432.925013 \pm 0.00021945}{\atomicmassunit \per \elementarycharge} for the first peak, \SI{433.259529 \pm 0.00021962}{\atomicmassunit \per \elementarycharge} for the second one, and \SI{433.594038 \pm 0.00021979}{\atomicmassunit \per \elementarycharge}, \SI{433.928572 \pm 0.00021996}{\atomicmassunit \per \elementarycharge}, and \SI{434.263066 \pm 0.00022013}{\atomicmassunit \per \elementarycharge} respectively for the third, forth and fifth peak, as Tab. \ref{tab_peaks_spectrum} shows. 
 
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{hires_spectrum.pdf}
 	\caption{Depiction of the measured data for the trice protonized Angiotensin. }
 	\label{fig_hres_spectroscopy}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{List of peak positions in Fig. \ref{fig_hres_spectroscopy}.}
+	\begin{tabular}{c | c }
+		Peak number & $m/z$ (\si{\atomicmassunit \per \elementarycharge})\\ \hline
+		1 & \SI{432.925013 \pm 0.00021945}{ }\\
+		2 & \SI{433.259529 \pm 0.00021962}{ }\\
+		3 & \SI{433.594038 \pm 0.00021979}{ }\\
+		4 & \SI{433.928572 \pm 0.00021996}{ }\\ 		
+		5 & \SI{434.263066 \pm 0.00022013}{ }\\
+	\end{tabular}
+	\label{tab_peaks_spectrum}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.6 \textwidth]{fit_hires.pdf}
+	\caption{Fitting a Lorentzian curve $y = A \frac{\gamma^2}{\gamma^2 + (x - x_0)^2} + b$ to the highest peak in the spectrum. The resulting parameters are $A = \num{2.40483457 \pm 0.0231878620 e8}$, $\gamma = \SI{1.09727221 \pm 0.0152696502 e-04}{\atomicmassunit \per \elementarycharge}$, $x_0 = \SI{432.925009(1)}{\atomicmassunit \per \elementarycharge}$, and $b = -\SI{1.07017512 \pm 0.228979314 e06}{}$. $A$ and $b$ are given in arbitrary units of intensity. }
+	\label{fig_fit_hires}
 \end{figure}
 
 \subsection{CID fragment mass spectrum}
@@ -203,7 +234,7 @@ At the beginning of the experiment we had to record a high-resolution mass spect
 	\centering
 	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman. The data was gathered with UMC \cite{umc}. }
 	\begin{tabular}{c | c | c | c | c | c}
-		Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) \\ \hline
+		Fragment & mass (${\mathrm{u}}/{e}$) & Fragment & mass (${\mathrm{u}}/{e}$) & Fragment & mass (${\mathrm{u}}/{e}$) \\ \hline
 		$a_1$ & $88.085$ & $b_1$ & $116.095$ & $c_1$ & $131.11$ \\
 		$a_2$ & $244.271$ & $b_2$ & $272.281$ & $c_2$ & $287.296$ \\
 		$a_3$ & $343.402$ & $b_3$ & $371.412$ & $c_3$ & $286.427$ \\
