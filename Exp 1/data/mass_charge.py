@@ -16,22 +16,23 @@ y = y[::-1]
 
 z = angio - c
 z = z[::-1]
-
+"""
 # print loop
 for i in range(len(a)):
     print("$a_{" + str(i+1) + "}$ & $" + str(a[i]) + r"$ & $b_{" + str(i+1) + "}$ & $" + str(b[i]) + "$ & $c_{" + str(i+1) + "}$ & $" + (str(c[i]) if i<8 else "") + "$ \\\\")
 
 for i in range(len(x)):
     print("$x_{" + str(i+1) + "}$ & $" + str(x[i]) + r"$ & $y_{" + str(i+1) + "}$ & $" + str(y[i]) + "$ & $z_{" + str(i+1) + "}$ & $" + (str(z[i]) if i<8 else "") + "$ \\\\")
-
+"""
 # internal fragments
-angio3 = 1299.501 # triple charged Angio
-for i in range(0,8):
-    for j in range(0,10):
-        mint = angio3 - c[i] - z[j]
-        if (mint > 100):
-            print(str(mint) + " c_" + str(i+1) + " z_" + str(j+1))
-        else:
-            break
-
+def find(arr1, arr2, aim):
+    angio3 = 1299.501 # triple charged Angio
+    for i in range(0,len(arr1)):
+        for j in range(0,len(arr2)):
+            mint = angio3 - arr1[i] - arr2[j]
+            if (np.abs(mint - aim) < 1):
+                print(str(mint) + " c_" + str(i+1) + " z_" + str(j+1))
 # end
+aim = np.array([110.07, 247.6, 292.08, 297.11, 506.27, 583.3, 619.35, 1056.03, 1099.32])
+for i in aim:
+    find(c, z, i)

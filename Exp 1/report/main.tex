@@ -216,9 +216,18 @@ This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres
 	\label{fig_hres_spectroscopy}
 \end{figure}
 
-\begin{table}
+One will notice immediately that the peaks are separated by about one third \si{\atomicmassunit \per \elementarycharge}. This is because the molecule is triple charged, meaning that the absolute difference in mass would be \SI{1}{\atomicmassunit}. In the sum formula of triple charged Angiotensin \ch{(C62H92N17O14)^{3+}} one sees that Hydrogen and Carbon appear at the highest frequency. Taking a look at Tab. \ref{tab_abundance}, one sees that the probability of having a Deuterium atom in the molecule is negligible compared to the probability of it containing a \ch{^{13}C}. The assumption the isotope spectrum is due to carbon can be backed by a looking at natural abundances and the peak hight in Fig. \ref{fig_hres_spectroscopy}. Using the abundances in Fig. \ref{tab_abundance} and assuming a binomial distribution, we would expect a ratio of 1:0.67:0.22:0.048:0.008, while we measured a ratio in the peak hight of 1:0.69:0.19:0.039:0.007. One can see that the ratios are very close. The slight differences are likely due to isotopes in other elements. 
+
+\begin{figure}[htp!]
 	\centering
-	\caption{List of peak positions in Fig. \ref{fig_hres_spectroscopy}.}
+	\includegraphics[width = 0.6 \textwidth]{fit_hires.pdf}
+	\caption{Fitting a Lorentzian curve $y = A \frac{\gamma^2}{\gamma^2 + (x - x_0)^2} + b$ to the highest peak in the spectrum. The resulting parameters are $A = \num{2.40483457 \pm 0.0231878620 e8}$, $\gamma = \SI{1.09727221 \pm 0.0152696502 e-04}{\atomicmassunit \per \elementarycharge}$, $x_0 = \SI{432.925009(1)}{\atomicmassunit \per \elementarycharge}$, and $b = -\SI{1.07017512 \pm 0.228979314 e06}{}$. $A$ and $b$ are given in arbitrary units of intensity. }
+	\label{fig_fit_hires}
+\end{figure}
+
+\begin{table}[htp!]
+	\centering
+	\caption{List of peak positions in Fig. \ref{fig_hres_spectroscopy}. The error is given as the FWHM of the respective peak.}
 	\begin{tabular}{c | c }
 		Peak number & $m/z$ (\si{\atomicmassunit \per \elementarycharge})\\ \hline
 		1 & \SI{432.925013 \pm 0.00021945}{ }\\
@@ -230,17 +239,28 @@ This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres
 	\label{tab_peaks_spectrum}
 \end{table}
 
-\begin{figure}
+\begin{table}[htp!]
 	\centering
-	\includegraphics[width = 0.6 \textwidth]{fit_hires.pdf}
-	\caption{Fitting a Lorentzian curve $y = A \frac{\gamma^2}{\gamma^2 + (x - x_0)^2} + b$ to the highest peak in the spectrum. The resulting parameters are $A = \num{2.40483457 \pm 0.0231878620 e8}$, $\gamma = \SI{1.09727221 \pm 0.0152696502 e-04}{\atomicmassunit \per \elementarycharge}$, $x_0 = \SI{432.925009(1)}{\atomicmassunit \per \elementarycharge}$, and $b = -\SI{1.07017512 \pm 0.228979314 e06}{}$. $A$ and $b$ are given in arbitrary units of intensity. }
-	\label{fig_fit_hires}
-\end{figure}
+	\caption{List of natural abundance of isotopes of Hydrogen, Carbon, Nitrogen, and Oxygen. The data was taken from \cite{abundance}. }
+	\begin{tabular}{c | c }
+		Isotope & natural abundance in \% \\ \hline
+		\ch{^1H} & 99.9885 \\
+		\ch{^2H} & 0.0115 \\ \hline
+		\ch{^{12}C} & 98.93  \\
+		\ch{^{13}C} & 1.07  \\ \hline
+		\ch{^{14}N} & 99.632 \\
+		\ch{^{15}N} & 0.368 \\ \hline
+		\ch{^{16}O} & 99.757 \\
+		\ch{^{17}O} & 0.038 \\
+		\ch{^{18}O} & 0.205 \\
+	\end{tabular}
+	\label{tab_abundance}
+\end{table}\newpage
 
 \subsection{CID fragment mass spectrum}
-In this part of the experiment we produced fragments by means of CID. We analyzed the spectrum produced by the fragments with different collision energy. %1018298
-We changed the collision energy from 0 to 20 eV, with a step of 0.5 eV, for every measurement we took an average of twenty spectra, each one with a resolution of 44440. Then with the software Analyzze we extracted the peaks from every collision energy, and plotted the relative intensity of the peak as a function of the collision energy, this can be seen in figure \ref{cidcollision}.
-Finally we have to identify the peaks with the relative mass, this is done by comparing all the possible $m/z$ ratio of the fragments with the measured peaks. In figure \ref{cidcollisionidentified} the identified peaks are shown with the relative fragment. Comparing figure \ref{cidcollision} and \ref{cidcollisionidentified}, we can see that we were able to identify every significant peaks apart from the orange curve (583.3002 $m/z$) with a bump around 8 eV, this is probably an internal fragmentation.
+In this part of the experiment we produced fragments by means of CID. We analyzed the spectrum of the fragments for  different collision energy. %1018298
+We changed the collision energy from 0 to 20 eV, with a step of 0.5 eV, for every measurement we took an average of twenty spectra, each one with a resolution of 44440. Then with the software Analyzze we correlated the results from every collision energy, and plotted the relative intensity of the peak as a function of the collision energy, this can be seen in figure \ref{cidcollision}.
+Consequentially we have to identify the peaks which have a given relative mass, this is done by comparing all the possible $m/z$ ratios of the fragments with the measured peaks. In figure \ref{cidcollisionidentified} the identified peaks are shown with the relative fragment. Comparing figure \ref{cidcollision} and \ref{cidcollisionidentified}, we can see that we were able to identify most significant peaks apart from the orange curve (583.3002 $m/z$) with a bump around 8 eV, this is probably an internal fragmentation.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{cid_collision}
@@ -253,29 +273,38 @@ Finally we have to identify the peaks with the relative mass, this is done by co
 	\caption{Peaks of the identified fragments for the CID collision. The legend indicates the ratio $m/z$ and the relative fragments with the nomenclature proposed in \cite{fragmentsnomenclature}}
 	\label{cidcollisionidentified}
 \end{figure}
-From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  
+From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  \\
+Furthermore, Fig. \ref{cidcollision} shows 4 more or less constant lines. We assume these are still intact Angiotensin molecules. Presumably the difference in intensity between those lines is due to the natural abundance in isotopes, as was the case in the discussion of the high-resolution spectrum. \\
+ 
+
+\begin{table}
+	\centering
+	\caption{List of detected $m/z$-ratios and fragmentation candidates.  }
+	\begin{tabular}{c | c }
+		$m / z$ & candidate \\ \hline
+		$247.60$ & c2 + y7\\ 
+		$269.16$ & y3 \\
+		$272.14$ & b2 \\
+		$297.11$ & x3 \\
+		$506.27$ & int4 \\
+		$513.28$ & y6 \\
+		$534.27$ & b4 \\
+		$583.30$ & \\
+		$619.35$ & int5 \\
+		$647.35$ & b5 \\
+		$648.36$ & b5 with isotope \\
+		$756.41$ & a6 \\
+		$784.41$ & b6 \\
+		$785.41$ & b6 with isotope \\
+		$1001.53$ & a8 \\
+		$1028.52$ & b8 \\ 
+		$1029.53$ & b8 with isotope \\
+	\end{tabular}
+\end{table}
 
 \subsection{SORI-CID fragment mass spectrum}
 For the last part of the experiment, we induced the fragmentation with a different technique, the SORI. The measurements were done with the same procedure and same settings. The analysis was done again with the Analyzze software. In figure \ref{soricollision} the results are shown, here the peaks are represented as a function of the SORI power.
 
-\begin{table}[H]
-	\centering
-	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman. The data was gathered with UMC \cite{umc}. }
-	\begin{tabular}{c | c | c | c | c | c}
-		Fragment & mass (${\mathrm{u}}/{e}$) & Fragment & mass (${\mathrm{u}}/{e}$) & Fragment & mass (${\mathrm{u}}/{e}$) \\ \hline
-		$a_1$ & $88.085$ & $b_1$ & $116.095$ & $c_1$ & $131.11$ \\
-		$a_2$ & $244.271$ & $b_2$ & $272.281$ & $c_2$ & $287.296$ \\
-		$a_3$ & $343.402$ & $b_3$ & $371.412$ & $c_3$ & $286.427$ \\
-		$a_4$ & $506.567$ & $b_4$ & $534.586$ & $c_4$ & $549.6$ \\
-		$a_5$ & $619.733$ & $b_5$ & $647.744$ & $c_5$ & $662.758$ \\
-		$a_6$ & $756.873$ & $b_6$ & $784.883$ & $c_6$ &  \\
-		$a_7$ & $784.883$ & $b_7$ & $881.998$ & $c_7$ & $897.013$ \\
-		$a_8$ & $1001.163$ & $b_8$ & $1029.173$ & $c_8$ & $1044.187$ \\
-		$a_9$ & $1138.301$ & $b_9$ & $1166.312$ & $c_9$ & $1181.327$ \\
-		$a_{10}$ & $1251.46$ & $b_{10}$ & $1279.47$ & $c_{10}$ &  \\
-	\end{tabular}
-	\label{tab_fragments}
-\end{table}
 
 \begin{figure}[H]
 	\includegraphics[width = \textwidth]{sori_cid.pdf}
@@ -290,6 +319,21 @@ There are not a lot of meaningful peaks, maybe the SORI power is too low in our 
 	\caption{Peaks of the identified SORI fragments. The legend indicates the ratio $m/z$ and the relative fragments with the nomenclature proposed in \cite{fragmentsnomenclature}.}
 	\label{soriidentified}
 \end{figure}
+
+\begin{table}
+	\centering
+	\begin{tabular}{c | c}
+		$m/z$ & candidate \\ \hline
+		$110.07$ & b5+x5, b8 + x8 \\
+		$292.08$ & \\
+		$297.11$ & \\
+		$371.39$ & b3 \\
+		$432.90$ & Angiotensin \\
+		$1056.03$ & \\
+		$1099.32$ & \\
+	\end{tabular}
+\end{table}
+
 \section{Conclusion}
 
 
@@ -301,13 +345,16 @@ There are not a lot of meaningful peaks, maybe the SORI power is too low in our 
 \textsc{Alan G. Marshall, Christopher L. Hendrickson, George S. Jackson}, \textit{FOURIER TRANSFORM ION CYCLOTRON RESONANCE MASS SPECTROMETRY: A PRIMER}, Center for Interdisciplinary Magnetic Resonance, National High Magnetic Field Laboratory, Florida State University, 1800 East Paul Dirac Dr., Tallahassee
 
 \bibitem{ms_book}
-\textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, 2nd Edition, 2011
+\textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, Springer, 2nd Edition, 2011
 
 \bibitem{fragmentsnomenclature}
 \textsc{Roepstroff P, Fohlman J}, \textit{Proposal for a common nomenclature for sequence ions in mass spectra of peptides}, Biomed. Maa Spectrom. 11 (11): 601 (1984)
 
 \bibitem{script}
 \textsc{Christian van der Linde}, \textit{Skriptum High Resolution Mass Spectrometry}, Universität Innsbruck
+
+\bibitem{abundance}
+\textit{Table of Isotopic Masses and Natural Abundances}, North Carolina State University, \url{https://chemistry.sciences.ncsu.edu/msf/pdf/IsotopicMass_NaturalAbundance.pdf}
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
