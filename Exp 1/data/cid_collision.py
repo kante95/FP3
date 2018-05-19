@@ -22,4 +22,15 @@ plt.legend()
 
 plt.tight_layout()
 #plt.savefig('cid_collision.pdf', format = 'pdf', bbox_inches = 'tight')
+
+
+
+
+plt.figure()
+
+for i in range(1, 42):
+	if(mz[i]==583.3002):
+		plt.plot(x_data, data[:, i], label = str(np.around(mz[i],decimals=2)) +" "+ mz2fragment(fragment))
+
+
 plt.show()
