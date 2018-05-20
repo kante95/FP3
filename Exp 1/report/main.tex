@@ -68,7 +68,7 @@
 	\end{center}
 
 	\begin{abstract}
-		In the course of this experiment a high resolution long time measurement of the mass spectrum of Angiotensin was conducted using a FT-ICR mass spectrometer. Furthermore, fragments of CID collision were recorded over a collision energy range from \num{0} to \SI{20}{\electronvolt}. Finally, mass spectra of SORI-CID fragments were measured for several SORI-power settings. 
+		In the course of this experiment a high resolution long time measurement of the mass spectrum of Angiotensin was conducted using a FT-ICR mass spectrometer. Furthermore, fragments of CID collision were recorded over a collision energy range from \num{0} to \SI{20}{\electronvolt}. Finally, mass spectra of SORI-CID fragments were measured for several SORI-power settings.
     \end{abstract}
     \vspace{1cm}
 
@@ -80,18 +80,18 @@
 
 
 \section{Introduction}
-In this experiment a Fourier-transform ion cyclotron mass spectrometer is used as a means to gather basic experiences on working with high resolution mass spectrometry. The ability to perform high resolution mass spectrometry is of key importance in many fields of research in physics and chemistry. Furthermore, there is a manifold of applications in chemical and pharmaceutical industries. 
+In this experiment a Fourier-transform ion cyclotron mass spectrometer is used as a means to gather basic experiences on working with high resolution mass spectrometry. The ability to perform high resolution mass spectrometry is of key importance in many fields of research in physics and chemistry. Furthermore, there is a manifold of applications in chemical and pharmaceutical industries.
 
 \section{Theoretical Background}
 \label{sec_theory}
-In this section a concise overview is given over the ideas behind the way a Fourier-transform ion cyclotron resonance mass spectrometer works. The setup used is presented in the next section. 
+In this section a concise overview is given over the ideas behind the way a Fourier-transform ion cyclotron resonance mass spectrometer works. The setup used is presented in the next section.
 
 \subsection{Ion Cyclotron Resonance Mass Spectroscopy}
 The principal idea is that the mass-to-charge ratio of a charged ion can be determined by circulation of a group of ions in a magnetic field. This introduction is based on \cite{primer}. One can begin with the centripetal force necessary to maintain a circular movement, which is given by the Lorentz force
 \begin{equation}
 	\frac{m v^2}{r} = q v B,
 \end{equation}
-where $m$ is the mass of the ion, $v$ the velocity in the plain perpendicular to the magnetic field $B$ and $q$ being the charge of the ion. Furthermore, since $\omega = v/r$ we can write 
+where $m$ is the mass of the ion, $v$ the velocity in the plain perpendicular to the magnetic field $B$ and $q$ being the charge of the ion. Furthermore, since $\omega = v/r$ we can write
 \begin{equation}
 	\label{omega}
 	\begin{split}
@@ -99,17 +99,17 @@ where $m$ is the mass of the ion, $v$ the velocity in the plain perpendicular to
 		\omega_C &= \frac{q B}{m}
 	\end{split}
 \end{equation},
-where $r$ is the radius and $\omega_C$ is angular velocity of the circular motion. The radius can now further be connected to the kinetic energy $E_\mathrm{kin} = 1/2 m v^2$ which concludes in 
+where $r$ is the radius and $\omega_C$ is angular velocity of the circular motion. The radius can now further be connected to the kinetic energy $E_\mathrm{kin} = 1/2 m v^2$ which concludes in
 \begin{equation}
-	r = \frac{\sqrt{2 m E_\mathrm{kin}}}{qB} 
+	r = \frac{\sqrt{2 m E_\mathrm{kin}}}{qB}
 \end{equation}
 
 \subsection{Ion Signal Detection}
-For detection it is necessary to increase the radius of the orbit of an ion packet until they motion takes them close to the side walls of the detection chamber. Therefore, the radius is increased by means of oscillating or even rotating electric fields. For instance, a oscillating field 
+For detection it is necessary to increase the radius of the orbit of an ion packet until they motion takes them close to the side walls of the detection chamber. Therefore, the radius is increased by means of oscillating or even rotating electric fields. For instance, a oscillating field
 \begin{equation*}
 	\vec{E} = \vec{e_x} E_0 \cos(\omega_C t)
-\end{equation*} 
-can be split into 
+\end{equation*}
+can be split into
 \begin{equation*}
 	\begin{split}
 		\vec{E_R} &= \frac{1}{2} E_0 (\vec{e_x} \cos(\omega_C t) + \vec{e_y}\sin(\omega_C t)) \\
@@ -118,28 +118,28 @@ can be split into
 \end{equation*}
 where $E_R$ is now continuously pushing the ion into the right direction, while $E_L$ is off resonance, meaning that it sometimes accelerates ions at the right $m/z$-ratio and sometimes slows them down. After several cycles, the impact of $E_L$ should net no influence on the ion. \\
 This is an important point because if one is now able to accelerate at several frequencies, then one can increase the cyclotron radius of ions with an uninteresting $m/z$-ratio above the radius of the detection chamber resulting in collision with the electrodes and thus removing them from the resulting spectrum. \\
-The power accelerating the ion can be written as 
+The power accelerating the ion can be written as
 \begin{equation}
 	P(t) = q \vec{E}(t) \cdot \vec{v}(t).
-\end{equation} 
+\end{equation}
 If $\vec{E}$ and $\vec{v}$ point in the same direction and the starting velocity is zero (or neglegeble), then the total kinetic energy transmitted on the ion is according to \cite{primer}
 \begin{equation}
 	E_\mathrm{kin} = \frac{q^2 T_X^2 E^2}{8m},
 \end{equation}
-where $T_X$ is the excitation time. This results in a radius of 
+where $T_X$ is the excitation time. This results in a radius of
 \begin{equation}
 	r = \frac{E_0 T_X}{2 B} = \frac{V_{p-p} T_X}{2 d B},
 \end{equation}
 where $d$ is the distance between the electrodes used for acceleration and $V_{p-p}$ is the peak to peak voltage in the electrodes. Moreover, this type of acceleration creates a spatially coherent package of ions from originally incoherent ions moving at thermal velocity in the center of the detection chamber.  \\
-Now remains the challenge of measuring the packet of ions. This can be done by means of "azimuthal dipolar single-frequency detection". The trick is that if there is no driving voltage on the electrodes any more, the ion packet induces an image charge that leads to a current between opposing electrodes that can be measured. Using for example the $y$ coordinate, the difference in charge would be 
+Now remains the challenge of measuring the packet of ions. This can be done by means of "azimuthal dipolar single-frequency detection". The trick is that if there is no driving voltage on the electrodes any more, the ion packet induces an image charge that leads to a current between opposing electrodes that can be measured. Using for example the $y$ coordinate, the difference in charge would be
 \begin{equation*}
 	\Delta Q = - \frac{2 q y }{d},
 \end{equation*}
-which leads to and induced current of 
+which leads to and induced current of
 \begin{equation}
-	\mathrm{d}\Delta Q / \mathrm{d}t = - \frac{2 q (\mathrm{d}y / \mathrm{d}t) }{d}. 
+	\mathrm{d}\Delta Q / \mathrm{d}t = - \frac{2 q (\mathrm{d}y / \mathrm{d}t) }{d}.
 \end{equation}
-The induced current is now proportional to the ion intensity. To convert from the time regime to the frequency regime, one now applies a Fourier transformation. This way one can measure the frequency $\omega_C$ and the deviation $d\omega_C$. 
+The induced current is now proportional to the ion intensity. To convert from the time regime to the frequency regime, one now applies a Fourier transformation. This way one can measure the frequency $\omega_C$ and the deviation $d\omega_C$.
 
 \subsection{Frequency Resolution to Mass Resolution}
 Finally, one wants to convert from the frequency regime to the $m/z$-ratio. Starting from the expression of $\omega_C$ in Eq. \ref{omega} one can calculate
@@ -149,11 +149,11 @@ Finally, one wants to convert from the frequency regime to the $m/z$-ratio. Star
 	\Rightarrow \frac{\omega_C}{\mathrm{d} \omega_C} &= - \frac{m}{\mathrm{d}m}.
 	\end{split}
 \end{equation}
-Usually, the resolution is defined via the FWHM meaning $\Delta \omega_C$ or $\Delta m$, the resolving power is defined as $\omega_C / \Delta \omega_C$ and $m / \Delta m$ respectively. 
+Usually, the resolution is defined via the FWHM meaning $\Delta \omega_C$ or $\Delta m$, the resolving power is defined as $\omega_C / \Delta \omega_C$ and $m / \Delta m$ respectively.
 
 \section{Experimental Setup}
 \subsection{Electrospray Ionization}
-In the experiment the peptide Angiotensin is looked at. In the beginning of the experiment we mixed a solution containing the peptide. The ingredients and their amount is listed in Tab. \ref{ingredients}. 
+In the experiment the peptide Angiotensin is looked at. In the beginning of the experiment we mixed a solution containing the peptide. The ingredients and their amount is listed in Tab. \ref{ingredients}.
 \begin{table}[htp]
 	\centering
 	\caption{List of the substances in the solution.}
@@ -168,13 +168,19 @@ In the experiment the peptide Angiotensin is looked at. In the beginning of the 
 The solution was then filled into a syringe from where it was gradually injected into the system using a syringe pump. The solvent goes through a thin tube into the electrospray capillary. To the tip of the capillary positive high-voltage is applied which causes positive charges to surface and draw the solvent out of the capillary, which results in a so-called Taylor cone. \cite{electrospray} If the applied potential exceeds the surface tension then small, positively charged droplets are formed. Some of the droplets produced will contain the analyte, however, some may not. \\
 The droplets consist mostly of solvent, which is now continuously evaporated under atmospheric pressure and high temperatures (above \SI{100}{\celsius}). Once the charge potential overcomes the surface tension (Reyleigh limit) in the droplet, a Coulomb explosion happens, which means that the droplet is split into two smaller droplets. Eventually, this leads to the formation of an ionized analyte molecule, that can contain multiple charges. \\
 The ionized molecules are injected into the vacuum of the setup via a second capillary. The remaining part of the setup is displayed in Fig. \ref{fig_setup}. \\
-Electrospray is a non-destructive way to ionized even organic molecules. However, one has to bear in mind that since the molecule is protonized the fitting number of hydrogen atoms has to be added to the chemical formula. 
+Electrospray is a non-destructive way to ionized even organic molecules. However, one has to bear in mind that since the molecule is protonized the fitting number of hydrogen atoms has to be added to the chemical formula.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6 \textwidth]{angiotensin.png}
+  \caption{Depiction of Angiotensin. The image was taken from Pubchem \cite{pubchem}. }
+\end{figure}
 
 \subsection{Vacuum Setup}
 The Angiotensin molecules are now injected from the ESI chamber to the vacuum setup via a capillary. A deflector pushes the ionized molecules towards the first set of ion funnels and a skimmer, which is followed by another funnel and a second skimmer, which focus the ion beam while collecting as many ions as possible to increase intensity. From there, the ions are guided onward with a hexapole into a quadrupole mass filter, which can be used as an ion guide too if one removes the direct voltage from the electrodes in the filter. \\
-Here the ions enter the collision cell, which is another hexapole. A weak argon atmosphere allows for the ions to thermalize. 
+Here the ions enter the collision cell, which is another hexapole. A weak argon atmosphere allows for the ions to thermalize.
 %more about cid
-Also, given enough collision energy, the ions can be broken up into fragments. From the collision chamber the ions are guided via ion optics into the ICR cell, where the measurement of the spectrum will be performed. A sketch of the setup is displayed in Fig. \ref{fig_setup}. 
+Also, given enough collision energy, the ions can be broken up into fragments. From the collision chamber the ions are guided via ion optics into the ICR cell, where the measurement of the spectrum will be performed. A sketch of the setup is displayed in Fig. \ref{fig_setup}.
 \begin{figure}[htp!]
 	\centering
 	\includegraphics[width= 0.6 \textwidth]{setup.png}
@@ -185,29 +191,29 @@ Also, given enough collision energy, the ions can be broken up into fragments. F
 \subsection{Ion Cyclotron Resonance Cell}
 The ideas behind the ICR cell were already briefly laid out in Sec. \ref{sec_theory}, so here the focus is on the experimental implementation. \\
 The cell used is of cylindrical shape and has to sets of electrodes to provide rotating electrical fields. Additionally, there are two more electrodes at the caps of the cylinder that generate an electric field along the direction of the magnetic field. This field has the purpose to keep the ions inside the cell, i.e. slow them down when they enter the cell, so the ion can be kept inside the ICR cell for a longer time. \\
-The magnetic field in the cell is created with a superconducting \SI{9.4}{\tesla} magnet built around the ICR cell, as is shown in Fig. \ref{fig_setup}. 
+The magnetic field in the cell is created with a superconducting \SI{9.4}{\tesla} magnet built around the ICR cell, as is shown in Fig. \ref{fig_setup}.
 
 \subsection{CID and SORI-CID}
 Collision-induced dissociation is a means to study fragments of  otherwise stable ions \cite{ms_book}. The idea is that ions with low internal energy are accelerated using an electric field before colliding with neutral gas atoms (Argon in this experiment). To maintain the high-vacuum outside the collision chamber the ion beam is guided through narrow slits to enter and exit the cell. A turbomolecular pump removes gas escaping from the collision cell in order to keep the surrounding areas at high-vacuum. \\
 According to \cite{ms_book}, the reaction happening upon collision can be written as
 \begin{equation}
-	\ch{AB+ + Ar -> AB^{+*} + Ar -> A+ + B + Ar}, 
+	\ch{AB+ + Ar -> AB^{+*} + Ar -> A+ + B + Ar},
 \end{equation}
 where in the first step kinetic energy is converted into internal energy, which causes a dissociation of the molecule in the second step. \\
 Sustained off-resonance irradiation is a different method for CID, where the collision gas is introduced into the ICR cell itself. The pressure is still very low ($\sim \SI{7e-9}{\milli \bar}$), however collisions can be seen on sufficiently long timescales. As the name suggest, the frequency in the electric field is slightly off resonance, resulting in acceleration-deceleration cycles according to \cite{ms_book}. As a result the orbit does not exceed the size of the cell which would be the case for resonant excitation. This allows for multiple collisions for single ions in the cell. \\
-As the acceleration is not as strong as in the resonant case the collision energies are usually smaller than \SI{10}{\electronvolt} \cite{ms_book}. Therefore dissociation routes that require little activation energy but long reaction times are usually explored with SORI-CID. 
+As the acceleration is not as strong as in the resonant case the collision energies are usually smaller than \SI{10}{\electronvolt} \cite{ms_book}. Therefore dissociation routes that require little activation energy but long reaction times are usually explored with SORI-CID.
 
 \section{Analysis}
 
 \subsection{High resolution mass spectrum}
-At the beginning of the experiment we had to record a high-resolution mass spectrum of Angiotensin with three additional protons attached to it (\ch{C62H92N17O14^{3+}}). In order to measure the spectrum we beforehand varied parameters in the setting, i.e. voltages for example on the ESI capillary, deflector, funnels etc, to maximize the intensity of the output. 
+At the beginning of the experiment we had to record a high-resolution mass spectrum of Angiotensin with three additional protons attached to it (\ch{C62H92N17O14^{3+}}). In order to measure the spectrum we beforehand varied parameters in the setting, i.e. voltages for example on the ESI capillary, deflector, funnels etc, to maximize the intensity of the output.
 Then a spectrum was recorded over approximately \SI{40}{\minute}.\\
 According to the Universal Mass Calculator \cite{umc}, this should yield an average $m/z$ ratio of \num{433.167}. This is only an average because in reality one would expect multiple peaks for different isotope combinations. As one can see in Fig. \ref{fig_hres_spectroscopy} there are in fact five peaks visible, although the last one is already hard to see. \\
-Next, one can quickly estimate the resolution of the measured spectrum, so a Lorentzian curve was fitted to the highest peak in Fig. \ref{fig_hres_spectroscopy}, the fit can be seen in Fig. \ref{fig_fit_hires}. This yields a resolution of 
+Next, one can quickly estimate the resolution of the measured spectrum, so a Lorentzian curve was fitted to the highest peak in Fig. \ref{fig_hres_spectroscopy}, the fit can be seen in Fig. \ref{fig_fit_hires}. This yields a resolution of
 \begin{equation}
 	\frac{m}{\Delta m_\mathrm{FWHM}} = \num{1.97(3) e6}.
 \end{equation}
-This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres_spectroscopy}. The results we extracted from said figure were \SI{432.925013 \pm 0.00021945}{\atomicmassunit \per \elementarycharge} for the first peak, \SI{433.259529 \pm 0.00021962}{\atomicmassunit \per \elementarycharge} for the second one, and \SI{433.594038 \pm 0.00021979}{\atomicmassunit \per \elementarycharge}, \SI{433.928572 \pm 0.00021996}{\atomicmassunit \per \elementarycharge}, and \SI{434.263066 \pm 0.00022013}{\atomicmassunit \per \elementarycharge} respectively for the third, forth and fifth peak, as Tab. \ref{tab_peaks_spectrum} shows. 
+This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres_spectroscopy}. The results we extracted from said figure were \SI{432.925013 \pm 0.00021945}{\atomicmassunit \per \elementarycharge} for the first peak, \SI{433.259529 \pm 0.00021962}{\atomicmassunit \per \elementarycharge} for the second one, and \SI{433.594038 \pm 0.00021979}{\atomicmassunit \per \elementarycharge}, \SI{433.928572 \pm 0.00021996}{\atomicmassunit \per \elementarycharge}, and \SI{434.263066 \pm 0.00022013}{\atomicmassunit \per \elementarycharge} respectively for the third, forth and fifth peak, as Tab. \ref{tab_peaks_spectrum} shows.
 
 \begin{figure}[H]
 	\centering
@@ -216,7 +222,7 @@ This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres
 	\label{fig_hres_spectroscopy}
 \end{figure}
 
-One will notice immediately that the peaks are separated by about one third \si{\atomicmassunit \per \elementarycharge}. This is because the molecule is triple charged, meaning that the absolute difference in mass would be \SI{1}{\atomicmassunit}. In the sum formula of triple charged Angiotensin \ch{(C62H92N17O14)^{3+}} one sees that Hydrogen and Carbon appear at the highest frequency. Taking a look at Tab. \ref{tab_abundance}, one sees that the probability of having a Deuterium atom in the molecule is negligible compared to the probability of it containing a \ch{^{13}C}. The assumption the isotope spectrum is due to carbon can be backed by a looking at natural abundances and the peak hight in Fig. \ref{fig_hres_spectroscopy}. Using the abundances in Fig. \ref{tab_abundance} and assuming a binomial distribution, we would expect a ratio of 1:0.67:0.22:0.048:0.008, while we measured a ratio in the peak hight of 1:0.69:0.19:0.039:0.007. One can see that the ratios are very close. The slight differences are likely due to isotopes in other elements. 
+One will notice immediately that the peaks are separated by about one third \si{\atomicmassunit \per \elementarycharge}. This is because the molecule is triple charged, meaning that the absolute difference in mass would be \SI{1}{\atomicmassunit}. In the sum formula of triple charged Angiotensin \ch{(C62H92N17O14)^{3+}} one sees that Hydrogen and Carbon appear at the highest frequency. Taking a look at Tab. \ref{tab_abundance}, one sees that the probability of having a Deuterium atom in the molecule is negligible compared to the probability of it containing a \ch{^{13}C}. The assumption the isotope spectrum is due to carbon can be backed by a looking at natural abundances and the peak hight in Fig. \ref{fig_hres_spectroscopy}. Using the abundances in Fig. \ref{tab_abundance} and assuming a binomial distribution, we would expect a ratio of 1:0.67:0.22:0.048:0.008, while we measured a ratio in the peak hight of 1:0.69:0.19:0.039:0.007. One can see that the ratios are very close. The slight differences are likely due to isotopes in other elements.
 
 \begin{figure}[htp!]
 	\centering
@@ -233,7 +239,7 @@ One will notice immediately that the peaks are separated by about one third \si{
 		1 & \SI{432.925013 \pm 0.00021945}{ }\\
 		2 & \SI{433.259529 \pm 0.00021962}{ }\\
 		3 & \SI{433.594038 \pm 0.00021979}{ }\\
-		4 & \SI{433.928572 \pm 0.00021996}{ }\\ 		
+		4 & \SI{433.928572 \pm 0.00021996}{ }\\
 		5 & \SI{434.263066 \pm 0.00022013}{ }\\
 	\end{tabular}
 	\label{tab_peaks_spectrum}
@@ -259,14 +265,14 @@ Consequentially we have to identify the peaks which have a given relative mass, 
 \end{figure}
 From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  \\
 Furthermore, Fig. \ref{cidcollision} shows 4 more or less constant lines. We assume these are still intact Angiotensin molecules. Presumably the difference in intensity between those lines is due to the natural abundance in isotopes, as was the case in the discussion of the high-resolution spectrum. \\
-In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either above $20$ in intensity in Fig. \ref{cidcollisionidentified} or could be assigned to a fragment by a self-built program. As One can see, we were able to identify a fragmentation candidate for most of the peaks, however some remain unassigned. We are not sure whether they are multiply charged fragments, but it would seem unlikely as their actual mass would then be above \SI{1000}{\atomicmassunit} for all the unidentified fragments in Tab. \ref{tab_cid_candidates}. Further if could be the case that a either two fragments reconnected to for a unknown new fragment, but that would probably be unlikely. 
+In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either above $20$ in intensity in Fig. \ref{cidcollisionidentified} or could be assigned to a fragment by a self-built program. As One can see, we were able to identify a fragmentation candidate for most of the peaks, however some remain unassigned. We are not sure whether they are multiply charged fragments, but it would seem unlikely as their actual mass would then be above \SI{1000}{\atomicmassunit} for all the unidentified fragments in Tab. \ref{tab_cid_candidates}. Further if could be the case that a either two fragments reconnected to for a unknown new fragment, but that would probably be unlikely.
 
 \begin{table}
 	\centering
 	\caption{List of detected $m/z$-ratios and fragmentation candidates.  }
 	\begin{tabular}{c | c | c}
 		$m / z$ & candidate & formula \\ \hline
-		$247.60$ & c2 + y6 & \ch{C14H18NO3+} \\ 
+		$247.60$ & c2 + y6 & \ch{C14H18NO3+} \\
 		$269.16$ & y3 & \ch{(C12H21N4O3)+} \\
 		$272.14$ & b2 & \ch{(C10H18N5O4)+} \\
 		$297.11$ & x3 & \ch{(C13H21N4O4)+} \\
@@ -281,7 +287,7 @@ In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either abov
 		$784.41$ & b6 & \ch{(C36H54N11O9)+}\\
 		$785.41$ & b6 with isotope & \\
 		$1001.53$ & a8 & \ch{(C49H70N13O10)+}\\
-		$1028.52$ & b8 & \ch{(C50H70N13O11)+} \\ 
+		$1028.52$ & b8 & \ch{(C50H70N13O11)+} \\
 		$1029.53$ & b8 with isotope & \\
 	\end{tabular}
 	\label{tab_cid_candidates}
@@ -296,7 +302,7 @@ For the last part of the experiment, we induced the fragmentation with a differe
 	\caption{Peaks from the SORI collision experiment. The legend indicates the ratio $m/z$.}
 	\label{soricollision}
 \end{figure}
-There are not a lot of meaningful peaks, probably because the SORI power is too low in our measurements. Anyway at 3.0\% SORI power we start to see increasing intensity at several $m/z$-ratios, and we tried to identify the corresponding fragments. In figure \ref{soriidentified} the peaks we could identify with our program are shown. Other significant $m/z$-ratios were looked at in Tab. \ref{tab_sori}. However, we were not able to identify all fragments, as is shown in the table. The problem might be that since there are multiple collisions in SORI-CID, there should be multiple fragmentations. If the fragmentation does not happen on the main string of the molecule, but on a side group of a amino acid, then there are many different possibilities for fragmentation, which we could not cover by hand. One might be able to brute-force the respective combinations for the $m/z$ ratios by trying all possible combinations of atoms from the original molecule, Angiotensin (\ch{C62H89N17O14}), but that would exceed our programming capabilities. 
+There are not a lot of meaningful peaks, probably because the SORI power is too low in our measurements. Anyway at 3.0\% SORI power we start to see increasing intensity at several $m/z$-ratios, and we tried to identify the corresponding fragments. In figure \ref{soriidentified} the peaks we could identify with our program are shown. Other significant $m/z$-ratios were looked at in Tab. \ref{tab_sori}. However, we were not able to identify all fragments, as is shown in the table. The problem might be that since there are multiple collisions in SORI-CID, there should be multiple fragmentations. If the fragmentation does not happen on the main string of the molecule, but on a side group of a amino acid, then there are many different possibilities for fragmentation, which we could not cover by hand. One might be able to brute-force the respective combinations for the $m/z$ ratios by trying all possible combinations of atoms from the original molecule, Angiotensin (\ch{C62H89N17O14}), but that would exceed our programming capabilities.
 
 \begin{figure}[H]
 	\centering
@@ -338,6 +344,9 @@ In this experiment we performed Fourier Transform Ion Cyclotron Resonance Mass S
 \bibitem{fragmentsnomenclature}
 \textsc{Roepstroff P, Fohlman J}, \textit{Proposal for a common nomenclature for sequence ions in mass spectra of peptides}, Biomed. Maa Spectrom. 11 (11): 601 (1984)
 
+\bibitem{pubchem}
+\textit{Pubchem Open Chemistry Database}, \url{https://pubchem.ncbi.nlm.nih.gov/compound/angiotensin_i#section=Top}
+
 \bibitem{script}
 \textsc{Christian van der Linde}, \textit{Skriptum High Resolution Mass Spectrometry}, Universität Innsbruck
 
@@ -366,15 +375,15 @@ In this experiment we performed Fourier Transform Ion Cyclotron Resonance Mass S
 		$a_9$ & $1138.301$ & $b_9$ & $1166.312$ & $c_9$ & $1181.327$ \\
 		$a_{10}$ & $1251.46$ & $b_{10}$ & $1279.47$ & $c_{10}$ &  \\
 		$x_{1}$ & $47.03$ & $y_{1}$ & $19.023$ & $z_{1}$ & $117.166$ \\
-$x_{2}$ & $160.192$ & $y_{2}$ & $132.181$ & $z_{2}$ & $254.306$ \\
-$x_{3}$ & $297.32$ & $y_{3}$ & $269.31$ & $z_{3}$ & $401.479$ \\
-$x_{4}$ & $513.60$ & $y_{4}$ & $416.49$ & $z_{4}$ & $635.734$ \\
-$x_{5}$ & $541.61$ & $y_{5}$ & $513.60$ & $z_{5}$ & $748.892$ \\
-$x_{6}$ & $678.76$ & $y_{6}$ & $650.74$ & $z_{6}$ & $912.065$ \\
-$x_{7}$ & $791.92$ & $y_{7}$ & $763.90$ & $z_{7}$ & $1011.196$ \\
-$x_{8}$ & $955.09$ & $y_{8}$ & $927.08$ & $z_{8}$ & $1167.382$ \\
-$x_{9}$ & $1054.222$ & $y_{9}$ & $1026.212$ & $z_{9}$ & $$ \\
-$x_{10}$ & $1210.408$ & $y_{10}$ & $1182.398$ & $z_{10}$ & $$ \\
+    $x_{2}$ & $160.192$ & $y_{2}$ & $132.181$ & $z_{2}$ & $254.306$ \\
+    $x_{3}$ & $297.32$ & $y_{3}$ & $269.31$ & $z_{3}$ & $401.479$ \\
+    $x_{4}$ & $513.60$ & $y_{4}$ & $416.49$ & $z_{4}$ &  \\
+    $x_{5}$ & $541.61$ & $y_{5}$ & $513.60$ & $z_{5}$ & $635.734$ \\
+    $x_{6}$ & $678.76$ & $y_{6}$ & $650.74$ & $z_{6}$ & $748.892$ \\
+    $x_{7}$ & $791.92$ & $y_{7}$ & $763.90$ & $z_{7}$ & $912.065$ \\
+    $x_{8}$ & $955.09$ & $y_{8}$ & $927.08$ & $z_{8}$ & $1011.196$ \\
+    $x_{9}$ & $1054.222$ & $y_{9}$ & $1026.212$ & $z_{9}$ & $1167.382$ \\
+    $x_{10}$ & $1210.408$ & $y_{10}$ & $1182.398$ & $z_{10}$ & $$ \\
 	\end{tabular}
 	\label{tab_fragments}
 \end{table}
