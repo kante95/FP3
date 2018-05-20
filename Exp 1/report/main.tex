@@ -275,31 +275,32 @@ Consequentially we have to identify the peaks which have a given relative mass, 
 \end{figure}
 From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  \\
 Furthermore, Fig. \ref{cidcollision} shows 4 more or less constant lines. We assume these are still intact Angiotensin molecules. Presumably the difference in intensity between those lines is due to the natural abundance in isotopes, as was the case in the discussion of the high-resolution spectrum. \\
- 
+In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either above $20$ in intensity in Fig. \ref{cidcollisionidentified} or could be assigned to a fragment by a self-built program. As One can see, we were able to identify a fragmentation candidate for most of the peaks, however some remain unassigned. We are not sure whether they are multiply charged fragments, but it would seem unlikely as their actual mass would then be above \SI{1000}{\atomicmassunit} for all the unidentified fragments in Tab. \ref{tab_cid_candidates}. Further if could be the case that a either two fragments reconnected to for a unknown new fragment, but that would probably be unlikely. 
 
 \begin{table}
 	\centering
 	\caption{List of detected $m/z$-ratios and fragmentation candidates.  }
-	\begin{tabular}{c | c }
-		$m / z$ & candidate \\ \hline
-		$247.60$ & c2 + y7\\ 
-		$269.16$ & y3 \\
-		$272.14$ & b2 \\
-		$297.11$ & x3 \\
-		$506.27$ & int4 \\
-		$513.28$ & y6 \\
-		$534.27$ & b4 \\
-		$583.30$ & \\
-		$619.35$ & int5 \\
-		$647.35$ & b5 \\
-		$648.36$ & b5 with isotope \\
-		$756.41$ & a6 \\
-		$784.41$ & b6 \\
-		$785.41$ & b6 with isotope \\
-		$1001.53$ & a8 \\
-		$1028.52$ & b8 \\ 
-		$1029.53$ & b8 with isotope \\
+	\begin{tabular}{c | c | c}
+		$m / z$ & candidate & formula \\ \hline
+		$247.60$ & c2 + y6 & \ch{C14H18NO3+} \\ 
+		$269.16$ & y3 & \ch{(C12H21N4O3)+} \\
+		$272.14$ & b2 & \ch{(C10H18N5O4)+} \\
+		$297.11$ & x3 & \ch{(C13H21N4O4)+} \\
+		$506.27$ & int4 & \\
+		$513.28$ & y4 & \ch{(C26H37N6O5)+} \\
+		$534.27$ & b4 & \ch{(C24H36N7O7)+} \\
+		$583.30$ & & \\
+		$619.35$ & int5 & \\
+		$647.35$ & b5 & \ch{(C30H47N8O8)+}\\
+		$648.36$ & b5 with isotope & \\
+		$756.41$ & a6 & \ch{(C35H54N11O8)+} \\
+		$784.41$ & b6 & \ch{(C36H54N11O9)+}\\
+		$785.41$ & b6 with isotope & \\
+		$1001.53$ & a8 & \ch{(C49H70N13O10)+}\\
+		$1028.52$ & b8 & \ch{(C50H70N13O11)+} \\ 
+		$1029.53$ & b8 with isotope & \\
 	\end{tabular}
+	\label{tab_cid_candidates}
 \end{table}
 
 \subsection{SORI-CID fragment mass spectrum}
@@ -322,15 +323,15 @@ There are not a lot of meaningful peaks, maybe the SORI power is too low in our 
 
 \begin{table}
 	\centering
-	\begin{tabular}{c | c}
-		$m/z$ & candidate \\ \hline
-		$110.07$ & b5+x5, b8 + x8 \\
-		$292.08$ & \\
-		$297.11$ & \\
-		$371.39$ & b3 \\
-		$432.90$ & Angiotensin \\
-		$1056.03$ & \\
-		$1099.32$ & \\
+	\begin{tabular}{c | c | c}
+		$m/z$ & candidate & formula \\ \hline
+		$110.07$ & b5+x4 & \ch{(C5H7N3)+}\\
+		$292.08$ & & \\
+		$297.11$ & & \\
+		$371.39$ & b3 & \ch{(C15H27N6O5)+} \\
+		$432.90$ & Angiotensin & \ch{(C62H92N17O14)^{3+}}\\
+		$1056.03$ & & \\
+		$1099.32$ & & \\
 	\end{tabular}
 \end{table}
 
