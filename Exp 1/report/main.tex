@@ -312,7 +312,7 @@ For the last part of the experiment, we induced the fragmentation with a differe
 	\caption{Peaks from the SORI collision experiment. The legend indicates the ratio $m/z$.}
 	\label{soricollision}
 \end{figure}
-There are not a lot of meaningful peaks, maybe the SORI power is too low in our measurements. Anyway at 3.0 SORI power we start to see something, and we tried anyway to identify the peaks. In figure \ref{soriidentified} the identified peaks are shown. 
+There are not a lot of meaningful peaks, probably because the SORI power is too low in our measurements. Anyway at 3.0\% SORI power we start to see increasing intensity at several $m/z$-ratios, and we tried to identify the corresponding fragments. In figure \ref{soriidentified} the peaks we could identify with our program are shown. Other significant $m/z$-ratios were looked at in Tab. \ref{tab_sori}. However, we were not able to identify all fragments, as is shown in the table. The problem might be that since there are multiple collisions in SORI-CID, there should be multiple fragmentations. If the fragmentation does not happen on the main string of the molecule, but on a side group of a amino acid, then there are many different possibilities for fragmentation, which we could not cover by hand. One might be able to brute-force the respective combinations for the $m/z$ ratios by trying all possible combinations of atoms from the original molecule, Angiotensin (\ch{C62H89N17O14}), but that would exceed our programming capabilities. 
 
 \begin{figure}[H]
 	\centering
@@ -333,6 +333,7 @@ There are not a lot of meaningful peaks, maybe the SORI power is too low in our 
 		$1056.03$ & & \\
 		$1099.32$ & & \\
 	\end{tabular}
+	\label{tab_sori}
 \end{table}
 
 \section{Conclusion}
