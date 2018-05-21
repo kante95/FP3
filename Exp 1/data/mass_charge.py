@@ -16,13 +16,14 @@ y = y[::-1]
 
 z = angio - c
 z = z[::-1]
-"""
+
 # print loop
 for i in range(len(a)):
     print("$a_{" + str(i+1) + "}$ & $" + str(a[i]) + r"$ & $b_{" + str(i+1) + "}$ & $" + str(b[i]) + "$ & $c_{" + str(i+1) + "}$ & $" + (str(c[i]) if i<8 else "") + "$ \\\\")
 
 for i in range(len(x)):
     print("$x_{" + str(i+1) + "}$ & $" + str(x[i]) + r"$ & $y_{" + str(i+1) + "}$ & $" + str(y[i]) + "$ & $z_{" + str(i+1) + "}$ & $" + (str(z[i]) if i<8 else "") + "$ \\\\")
+
 """
 # internal fragments
 def find(arr1, arr2, aim):
@@ -36,3 +37,4 @@ def find(arr1, arr2, aim):
 aim = np.array([110.07, 247.6, 292.08, 297.11, 506.27, 583.3, 619.35, 1056.03, 1099.32, 594.22, 1012.54, 1238.7, 1166.6])
 for i in aim:
     find(c, z, i)
+"""
