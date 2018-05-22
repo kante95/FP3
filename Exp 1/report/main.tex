@@ -73,7 +73,7 @@
     \vspace{1cm}
 
 	\begin{center}
-	\includegraphics[scale=0.4]{img/uibk}
+	\includegraphics[scale=0.56]{img/uibk}
 	\end{center}
 
 \end{titlepage}
@@ -87,7 +87,7 @@ In this experiment a Fourier-transform ion cyclotron mass spectrometer is used a
 In this section a concise overview is given over the ideas behind the way a Fourier-transform ion cyclotron resonance mass spectrometer works. The setup used is presented in the next section.
 
 \subsection{Ion Cyclotron Resonance Mass Spectroscopy}
-The principal idea is that the mass-to-charge ratio of a charged ion can be determined by circulation of a group of ions in a magnetic field. This introduction is based on \cite{primer}. One can begin with the centripetal force necessary to maintain a circular movement, which is given by the Lorentz force
+This introduction is based on \cite{primer}. The principal idea is that the mass-to-charge ratio of a charged ion can be determined by measuring the circulation time of a group of ions in a magnetic field. One can begin with the centripetal force necessary to maintain a circular movement, which is given by the Lorentz force
 \begin{equation}
 	\frac{m v^2}{r} = q v B,
 \end{equation}
@@ -99,7 +99,7 @@ where $m$ is the mass of the ion, $v$ the velocity in the plain perpendicular to
 		\omega_C &= \frac{q B}{m},
 	\end{split}
 \end{equation}
-where $r$ is the radius and $\omega_C$ is angular velocity of the circular motion. From this equation it is evident that the ratio mass-charge can be inferred from the frequency $\omega_C$ that is measured in the Ion Signal detector, provided that $B$ is known.\\
+where $r$ is the radius and $\omega_C$ is angular velocity of the circular motion. From this equation it is evident that the mass-charge ratio can be inferred from the frequency $\omega_C$ that is measured in the Ion Signal detector, provided that $B$ is known.\\
 The radius can further be connected to the kinetic energy $E_\mathrm{kin} = 1/2 m v^2$ which concludes in
 \begin{equation}
 	r = \frac{\sqrt{2 m E_\mathrm{kin}}}{qB}
@@ -170,7 +170,7 @@ In the experiment the peptide Angiotensin I is examined. In the beginning of the
 The solution was then filled into a syringe from where it was gradually injected into the system using a syringe pump. The solvent goes through a thin tube into the electrospray capillary. To the tip of the capillary, a positive high-voltage is applied which causes positive charges to surface and draw the solvent out of the capillary, which results in a so-called Taylor cone \cite{electrospray}. If the applied potential exceeds the surface tension then small, positively charged droplets are formed. Some of the droplets produced will contain the analyte, however, some may not. \\
 The droplets consist mostly of solvent, which is now continuously evaporated under atmospheric pressure and high temperatures (above \SI{100}{\celsius}). Once the charge potential overcomes the surface tension (Reyleigh limit) in the droplet, a Coulomb explosion happens, which means that the droplet is split into two smaller droplets. Eventually, this leads to the formation of an ionized analyte molecule, that can contain multiple charges. \\
 The ionized molecules are injected into the vacuum of the setup via a second capillary. The remaining part of the setup is displayed in Fig. \ref{fig_setup}. \\
-Electrospray is a non-destructive way to ionized even organic molecules. However, one has to bear in mind that since the molecule is protonized the fitting number of hydrogen atoms has to be added to the chemical formula.
+Electrospray is a non-destructive way to ionized even large molecules. However, one has to bear in mind that since the molecule is protonized the fitting number of hydrogen atoms has to be added to the chemical formula.
 
 \begin{figure}[H]
   \centering
@@ -193,7 +193,7 @@ Also, given enough collision energy, the ions can be broken up into fragments. F
 \subsection{Ion Cyclotron Resonance Cell}
 The ideas behind the ICR cell were already briefly laid out in Sec. \ref{sec_theory}, so here the focus is on the experimental implementation. \\
 The cell used is of cylindrical shape and has two sets of electrodes to provide rotating electrical fields. Additionally, there are two more electrodes at the caps of the cylinder that generate an electric field along the direction of the magnetic field. This field has the purpose to keep the ions inside the cell, i.e. slow them down when they enter the cell, so the ion can be kept inside the ICR cell for a longer time. \\
-The magnetic field in the cell is created with a superconducting \SI{9.4}{\tesla} magnet built around the ICR cell, as shown in Fig. \ref{fig_setup}.
+The magnetic field of \SI{9.4}{\tesla} in the cell is created with a superconducting coil built around the ICR cell, as shown in Fig. \ref{fig_setup}.
 
 \subsection{CID and SORI-CID}
 Collision-induced dissociation is a means to study fragments of  otherwise stable ions \cite{ms_book}. The idea is that ions with low internal energy are accelerated using an electric field before colliding with neutral gas atoms (Argon in this experiment). To maintain the high-vacuum outside the collision chamber the ion beam is guided through narrow slits to enter and exit the cell. A turbomolecular pump removes gas escaping from the collision cell in order to keep the surrounding areas at high-vacuum. \\
@@ -208,7 +208,7 @@ As the acceleration is not as strong as in the resonant case the collision energ
 \section{Analysis}
 
 \subsection{High resolution mass spectrum}
-At the beginning of the experiment we recorder a wide range spectrum of the molecule, this can be seen in figure \ref{fullspectrum}. We can see many peak, the most prominent one is at around 430 u/e, which is the triple protonized molecule, another peak at around 650 u/e appears, this is the double protonized molecule. After the full spectrum we recorded a high-resolution mass spectrum of Angiotensin with three additional protons attached to it (\ch{C62H92N17O14^{3+}}). In order to measure the spectrum we beforehand varied parameters in the setting, i.e. voltages for example on the ESI capillary, deflector, funnels etc, to maximize the intensity of the output.
+At the beginning of the experiment we recorded a wide range spectrum of the molecule, this can be seen in figure \ref{fullspectrum}. We can see many peaks, the most prominent one is around 430 u/e, which is the triple protonized molecule, another peak at around 650 u/e appears, this is the double protonized molecule. After the full spectrum we recorded a high-resolution mass spectrum of Angiotensin with three additional protons attached to it (\ch{C62H92N17O14^{3+}}). In order to measure the spectrum we beforehand varied parameters in the setting, i.e. voltages for example on the ESI capillary, deflector, funnels etc, to maximize the intensity of the output.
 Then a spectrum was recorded over approximately \SI{40}{\minute}.\\
 According to the Universal Mass Calculator \cite{umc}, this should yield an average $m/z$ ratio of \num{433.167}. This is only an average because in reality one would expect multiple peaks for different isotope combinations. As one can see in Fig. \ref{fig_hres_spectroscopy} there are in fact five peaks visible, although the last one is already hard to see. \\
 Next, one can quickly estimate the resolution of the measured spectrum, so a Lorentzian curve was fitted to the highest peak in Fig. \ref{fig_hres_spectroscopy}, the fit can be seen in Fig. \ref{fig_fit_hires}. This yields a resolution of
@@ -217,6 +217,13 @@ Next, one can quickly estimate the resolution of the measured spectrum, so a Lor
 \end{equation}
 This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres_spectroscopy}. The results we extracted from said figure were \SI{432.925013 \pm 0.00021945}{\atomicmassunit \per \elementarycharge} for the first peak, \SI{433.259529 \pm 0.00021962}{\atomicmassunit \per \elementarycharge} for the second one, and \SI{433.594038 \pm 0.00021979}{\atomicmassunit \per \elementarycharge}, \SI{433.928572 \pm 0.00021996}{\atomicmassunit \per \elementarycharge}, and \SI{434.263066 \pm 0.00022013}{\atomicmassunit \per \elementarycharge} respectively for the third, forth and fifth peak, as Tab. \ref{tab_peaks_spectrum} shows.
 
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{humblespectrum.png}
+  \caption{Full pectrum of Angiotensin over a wide $m/z$ range. }
+  \label{fullspectrum}
+\end{figure}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{hires_spectrum.pdf}
@@ -224,7 +231,7 @@ This value is now used to calculate the error of the peaks in Fig. \ref{fig_hres
 	\label{fig_hres_spectroscopy}
 \end{figure}
 
-One will notice immediately that the peaks are separated by about one third \si{\atomicmassunit \per \elementarycharge}. This is because the molecule is triple charged, meaning that the absolute difference in mass would be \SI{1}{\atomicmassunit}. In the sum formula of triple charged Angiotensin \ch{(C62H92N17O14)^{3+}} one sees that Hydrogen and Carbon appear at the highest frequency. Taking a look at Tab. \ref{tab_abundance}, one sees that the probability of having a Deuterium atom in the molecule is negligible compared to the probability of it containing a \ch{^{13}C}. The assumption the isotope spectrum is due to carbon can be backed by looking at natural abundances and the peak height in Fig. \ref{fig_hres_spectroscopy}. Using the abundances in table \ref{tab_abundance} and assuming a binomial distribution, we would expect a ratio of 1:0.67:0.22:0.048:0.008, while we measured a ratio in the peak hight of 1:0.69:0.19:0.039:0.007. One can see that the ratios are very close. The slight differences are likely due to isotopes in other elements.
+One will notice immediately that the peaks are separated by about one third \si{\atomicmassunit \per \elementarycharge}. This is because the molecule is triple charged, meaning that the absolute difference in mass would be \SI{1}{\atomicmassunit}. In the sum formula of triple charged Angiotensin \ch{(C62H92N17O14)^{3+}} one sees that Hydrogen and Carbon are the main components of Angiotensin. Taking a look at Tab. \ref{tab_abundance}, one sees that the probability of having a Deuterium atom in the molecule is negligible compared to the probability of it containing a \ch{^{13}C}. Using the abundances in table \ref{tab_abundance} and assuming a binomial distribution, we would expect a ratio of 1:0.67:0.22:0.048:0.008, while we measured a ratio in the peak hight of 1:0.69:0.19:0.039:0.007. One can see that the ratios are very close. The slight differences might be due to isotopes in other elements.
 
 \begin{figure}[htp!]
 	\centering
@@ -247,18 +254,12 @@ One will notice immediately that the peaks are separated by about one third \si{
 	\label{tab_peaks_spectrum}
 \end{table}
 
-\begin{figure}
-  \centering
-  \includegraphics[width = \textwidth]{humblespectrum.png}
-  \caption{Full pectrum of Angiotensin over a wide $m/z$ range. }\label{fullspectrum}
-\end{figure}
-
 \newpage
 
 \subsection{CID fragment mass spectrum}
 In this part of the experiment we produced fragments by means of CID. We analyzed the spectrum of the fragments for  different collision energy. %1018298
 We changed the collision energy from 0 to 20 eV, with a step of 0.5 eV, for every measurement we took an average of twenty spectra, each one with a resolution of 44440. Then with the software Analyzze we correlated the results from every collision energy, and plotted the relative intensity of the peak as a function of the collision energy, this can be seen in figure \ref{cidcollision}.
-Consequentially we have to identify the peaks which have a given relative mass, this is done by comparing all the possible $m/z$ ratios of the fragments with the measured peaks. In figure \ref{cidcollisionidentified} the identified peaks are shown with the relative fragment. Comparing figure \ref{cidcollision} and \ref{cidcollisionidentified}, we can see that we were able to identify most significant peaks apart from the orange curve (583.3002 $m/z$) with a bump around 8 eV, this is probably an internal fragmentation.
+Consequentially we have to identify the peaks which have a given relative mass. This is done by comparing all the possible $m/z$ ratios of the fragments with the measured peaks. In figure \ref{cidcollisionidentified} the identified peaks are shown with the relative fragment. Comparing figure \ref{cidcollision} and \ref{cidcollisionidentified}, we can see that we were able to identify most significant peaks apart from the orange curve (583.3002 $m/z$) with a bump around 8 eV, this is probably an internal fragmentation.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{cid_collision}
@@ -273,7 +274,7 @@ Consequentially we have to identify the peaks which have a given relative mass, 
 \end{figure}
 From figure \ref{cidcollisionidentified} we can notice several features of the collision. First of all, most fragments appear from 10-12 eV, with a lower collision energy, the fragments are small and not so relevant. The three most prominent peaks are from the fragments b5, a7, and a5, thus the molecule is presumably weak in these points, which we notice are approximately in the center of the molecule.  \\
 Furthermore, Fig. \ref{cidcollision} shows 4 more or less constant lines. We assume these are still intact Angiotensin molecules. Presumably the difference in intensity between those lines is due to the natural abundance in isotopes, as was the case in the discussion of the high-resolution spectrum. \\
-In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either above $20$ in intensity in Fig. \ref{cidcollisionidentified} or could be assigned to a fragment by a self-built program. As one can see, we were able to identify a fragmentation candidate for most of the peaks, however some remain unassigned. We are not sure whether they are multiply charged fragments, but it would seem unlikely as their actual mass would then be above \SI{1000}{\atomicmassunit} for all the unidentified fragments in Tab. \ref{tab_cid_candidates}. Further if could be the case that a either two fragments reconnected to for a unknown new fragment, but that would probably be unlikely.
+In Tab. \ref{tab_cid_candidates} we listed all $m/z$ ratios that are either above $20$ in intensity in Fig. \ref{cidcollisionidentified} or could be assigned to a fragment by a self-built program. As one can see, we were able to identify a fragmentation candidate for most of the peaks, however some remain unassigned. We are not sure whether they are multiply charged fragments, but it would seem unlikely as their actual mass would then be above \SI{1000}{\atomicmassunit} for all the unidentified fragments in Tab. \ref{tab_cid_candidates}. Further it could be the case that fragmentation occurred on the main string and on a side chain of the molecule simultaneously. 
 
 \begin{table}
 	\centering
@@ -337,9 +338,9 @@ There are not a lot of meaningful peaks, probably because the SORI power is too 
 \end{table}
 
 \section{Conclusion}
-In this experiment we performed Fourier Transform Ion Cyclotron Resonance Mass Spectrometry on the molecule Angiotensin I. First we took an high resolution spectrum of the molecule to measure the resolution of the mass spectrometer. We were able to distinguish isotopes, which are probably due to Carbon-13. Then in the last part of the experiment we performed collision experiments with two different techniques, CID and SORI collision. In both cases we studied the fragments for the collision and we identified most of the fragments, but with SORI internal fragmentations are more likely to occur, and they are more difficult to identify. With more time it would be possible to bruteforce every possible combination and perhaps identify the remaining fragments.
+In this experiment we performed Fourier Transform Ion Cyclotron Resonance Mass Spectrometry on the molecule Angiotensin I. First we took a high resolution spectrum of the molecule to measure the resolution of the mass spectrometer. We were able to distinguish isotopes, which are probably due to Carbon-13. Then in the last part of the experiment we performed collision experiments with two different techniques, CID and SORI collision. In both cases we studied the fragments for the collision and we identified some of the fragments, but with SORI internal fragmentations are more likely to occur, and they are therefore more difficult to identify for us. With more time it would probably be possible to bruteforce every possible combination and perhaps identify the remaining fragments.
 
-
+\newpage
 
 \begin{thebibliography}{99}
 \bibitem{electrospray}
@@ -371,7 +372,7 @@ In this experiment we performed Fourier Transform Ion Cyclotron Resonance Mass S
 \begin{appendices}
 \begin{table}[htp!]
 	\centering
-	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman. The data was obtained with UMC \cite{umc}. }
+	\caption{List of possible breaking points in peptide fragmentation notation of Roepstorff and Fohlman \cite{fragmentsnomenclature}. The data was obtained with UMC \cite{umc}. }
 	\begin{tabular}{c | c | c | c | c | c}
 		Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) & Fragment & mass (${\mathrm{u}}/{z}$) \\ \hline
 		$a_1$ & $88.085$ & $b_1$ & $116.095$ & $c_1$ & $131.11$ \\
