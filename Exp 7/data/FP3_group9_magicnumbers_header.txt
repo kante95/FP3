@@ -1,0 +1,14 @@
+SCAN started at: 2018-05-22 12:17:47 by Eugene
+DAC Delay Time: 0
+----------------------------------------
+Measurement type: Mass_Scan with runs: 1
+Scan parameters (Start, Stop, Step, GateTime): 38;330;0.3;1
+Resolution set to 150
+Electron Energy set to 70
+Temperature set manually
+Pressure set manually
+----------------------------------------
+Temperature A not logged
+Temperature B not logged
+XGS-1 logged
+XGS-2 logged

@@ -1,0 +1,14 @@
+SCAN started at: 2018-05-22 14:29:00 by Eugene
+DAC Delay Time: 0
+----------------------------------------
+Measurement type: Elen_Scan with runs: 20
+Mass set to 20.6
+Resolution set to 30
+Scan parameters (Start, Stop, Step, GateTime): 18.1;23.1;0.02;0.5
+Temperature set manually
+Pressure set manually
+----------------------------------------
+Temperature A not logged
+Temperature B not logged
+XGS-1 logged
+XGS-2 logged
