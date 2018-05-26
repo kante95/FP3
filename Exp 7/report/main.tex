@@ -131,7 +131,7 @@ The focused beam of electrons is then guided towards a hemispherical energy sele
 \\
 The energy filter is followed by a second set of electrostatic lenses, which again collect the flux of electrons after the monochromator and focuses the beam into the collision chamber. Positive ions are created upon impact of an electron onto a cluster. These resulting ions are guided into the quadrupole mass filter, which analyses the charge-mass-ratio. Electrons that to not hit a target are collected in a Faraday cup at the back of the collision chamber. 
 
-\begin{figure}[htp!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width = 1 \textwidth]{setup.png}
 	\caption{Layout of the used experimental setup, taken from \cite{script}. Electrons emitted by the filament are collected and guided by a set of electrostatic lenses into the hemispherical energy monochromator. Electrons with the right kinetic energy can pass and are guided via a second set of lenses into the collision chamber. }
@@ -139,9 +139,17 @@ The energy filter is followed by a second set of electrostatic lenses, which aga
 \end{figure}
 
 \subsection{Quadrupole mass filter}
-
 \section{Analysis}
 \subsection{Isotope population}
+In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is most molecular nitrogen \ch{N_2} which has a weight of $\approx 28$ u. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around 40. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, again there are two peaks at 60.5 and 62.5, these are due of \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, the calculated weight for this molecules are 59.98 and 61.98, again we see the same pattern of systematic error.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =\textwidth]{isotopespectrum}
+	\caption{Mass spectrum of Neon clusters.}
+	\label{isotopespectrum}
+\end{figure}
+
 \subsection{Magic numbers}
 \subsection{Appearance energy for Ne and Ne$_2$}
 \subsection{Pick-up}
@@ -151,6 +159,8 @@ The energy filter is followed by a second set of electrostatic lenses, which aga
 \bibitem{script}
 \textsc{Stephan Denifl}, \textit{FP3‐Praktikumsversuch – Edelgascluster/Rare gas clusters (SS 2018)}, 2018
 
+\bibitem{umc}
+\textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
 
 \end{thebibliography}
 
