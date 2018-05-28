@@ -47,7 +47,7 @@ height = np.zeros(15)
 it = (np.linspace(1, 15, 15))
 for i in range(1,16):
 	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])
-    print(y[(atoms>i-0.5)&(atoms<i+0.5)])
+	print(y[(atoms>i-0.5)&(atoms<i+0.5)])
 
 
 
