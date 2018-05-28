@@ -23,7 +23,7 @@ mz, y = read_data("data/FP3_group9_isotopeneon1_I007_70.txt")
 plt.plot(mz,y)
 plt.ylabel("Signal [Hz]")
 plt.xlabel("M/z")
-plt.xlim(38,44)
+#plt.xlim(38,44)
 
 
 #Magic numbers

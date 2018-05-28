@@ -181,7 +181,7 @@ Usually quadrupole filters operate at unit resolution, as is also the case in th
 
 \section{Analysis}
 \subsection{Isotope population}
-In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is most molecular nitrogen \ch{N_2} which has a weight of $\approx 28$ u. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around 40. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, again there are two peaks at 60.5 and 62.5, these are due of \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, the calculated weight for this molecules are 59.98 and 61.98, again we see the same pattern of systematic error.
+In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is most molecular nitrogen \ch{N_2} which has a weight of $\approx 28$ u. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around 40. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, here we can see three peaks at 60.5, 62.5 and 64.5, these are due to \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, and one \ch{^{20}Ne} and two \ch{^{22}Ne}. The calculated weight for this molecules are 59.98, 61.98, and 63.98, again we see the same pattern of systematic error. This is also confirmed for the two peaks around 80, we measured 80.6 and 82.6, which are for \ch{Ne4+} without isotopes and \ch{Ne4+} with one \ch{^{22}Ne} isotope, their theoretical values should be 79.97 and 81.97. For the cluster \ch{Ne5+} we have a peak at 100.7, another one at 102.6 and a small peak at 104.7, these are for \ch{Ne5+} without isotopes, \ch{Ne5+} with one \ch{^{22}Ne} isotope, and \ch{Ne5+} with two \ch{^{22}Ne} isotopes, their calculated values are 99.96, 101.96, and 103.96 respectively. For the last cluster \ch{Ne6+} we are able to see again three peaks at 120.7, 122.7, and 124.7 which correspond to \ch{Ne6+} without isotopes, \ch{Ne6+} with one \ch{^{22}Ne} isotope, and \ch{Ne6+} with two \ch{^{22}Ne} isotopes, their calculated values are 119.95, 121.95, and 123.95 respectively. In table \ref{isotopesresults} these results are summarized
 
 \begin{figure}[H]
 	\centering
@@ -189,6 +189,30 @@ In the first part of the experiment, we took a look at the isotope distribution 
 	\caption{Mass spectrum of Neon clusters.}
 	\label{isotopespectrum}
 \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Results for the Neon cluster spectrum. All theoretical calculations are made with the software \cite{umc}}\label{isotopesresults}
+\begin{tabular}{ccc} \toprule
+Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
+40.5 & 39.98 & \ch{^{20}Ne2}\\
+42.5 & 41.98 & \ch{(^{20}Ne)(^{22}Ne)}\\\midrule
+60.5 & 59.98 & \ch{^{20}Ne3}\\
+62.5 & 61.98 & \ch{(^{20}Ne)2(^{22}Ne)}\\
+64.5 & 63.98 & \ch{(^{20}Ne)(^{22}Ne)2}\\\midrule
+80.6& 79.97 & \ch{^{20}Ne4}\\
+82.6& 81.97 & \ch{(^{20}Ne)3(^{22}Ne)}\\\midrule
+100.7 & 99.96 & \ch{^{20}Ne5}\\
+102.7 & 101.96 & \ch{(^{20}Ne)4(^{22}Ne)}\\
+104.7 & 103.96 & \ch{(^{20}Ne)3(^{22}Ne)2}\\\midrule
+120.7 & 119.95 & \ch{^{20}Ne6}\\
+122.7 & 121.95 & \ch{(^{20}Ne)5(^{22}Ne)}\\
+124.7 & 123.95 & \ch{(^{20}Ne)4(^{22}Ne)2}\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \subsection{Magic numbers}
 \subsection{Appearance energy for Ne and Ne$_2$}
