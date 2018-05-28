@@ -19,7 +19,7 @@
 \usepackage{float}
 \usepackage{braket}
 \usepackage{caption}
-\usepackage[per-mode=fraction,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
+\usepackage[per-mode=reciprocal,output-decimal-marker={.},binary-units=true,separate-uncertainty=true]{siunitx}
 \usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{physics}
 \usepackage{url}
@@ -241,7 +241,7 @@ We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassuni
   \label{fig_magic_simple}
 \end{figure}
 As can be seen in fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum, although they are not really prominent peaks. \\
-This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape, but these numbers are not very prominent in the mass spectrum. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_simple}.<
+This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape, but these numbers are not very prominent in the mass spectrum. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_simple}.
 
 \subsection{Appearance energy for Ne and Ne$_2$}
 In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be estimated. To measure this property the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The result for the monomer is shown in fig. \ref{fig_energy_monomer}.
@@ -259,7 +259,8 @@ The analysis from the dimer is done in an analogous way. The mass selector is se
 	\caption{Depiction of the appearance energy for a Neon dimer. The parameters determined through the fit were $c = \SI{1.18(5)}{\hertz}$ for the constant function, $a = \SI{9(1)}{\hertz \per \electronvolt}$ as the slope and $b = \SI{-190(20)}{\hertz}$ as the offset of the linear function. The intersection is found at \SI{20(3)}{\electronvolt}. Note that the intensity scale is different than in fig. \ref{fig_energy_monomer}. }
 	\label{fig_energy_dimer}
 \end{figure}
-The intersection in fig. \ref{fig_energy_dimer} is located at \SI{20(3)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by a factor of $10$. 
+The intersection in fig. \ref{fig_energy_dimer} is located at \SI{20(3)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by a factor of $15$. \\
+We assume this is simply because there is more monomers in the gas that is ionized than there are dimers. Looking at fig. \ref{isotopespectrum}, one can see that the intensity is increasing the smaller the cluster is. Therefore is plausible that the monomer is actually the most abundant component of the gas that is ionized.
 
 \subsection{Pick-up}
 In the last part of the experiment we studied the impact of a pickup gas in our cluster. We used simple air as pick up. The mass spectrum obtained is shown in figure \ref{pickup}. We can immediately notice two peaks on the left at 28.3 and 32.3, these are from the pickup gas, i.e. air which is manly \ch{N2} and \ch{O2} which are the peaks we see. In figure \ref{pickupzoom} a close up of the other peaks can be seen. Those peaks are one-two order of magnitude lower than the pickup peaks, but they present interesting features. First of all we recognize the same isotopes peaks of section \ref{section:isotopes}, but this time there are also more peaks in between them, which are clusters with the pickup gas nitrogen, oxygen, or both. In table \ref{pickupresults} we summarize all peaks, and our best guess of what they could be. We also observe the same systematic error of section \ref{section:isotopes}.
@@ -313,6 +314,9 @@ Measured peak (u/e) & Theoretical (u/e) & Cluster composition (charge +) \\ \mid
 
 \bibitem{script}
 \textsc{Stephan Denifl}, \textit{FP3‐Praktikumsversuch – Edelgascluster/Rare gas clusters (SS 2018)}, 2018
+
+\bibitem{bergmann}
+\textsc{Bergmann-Schäfer}, \textit{Gase, Nanosysteme, Flüssigkeiten}, \textit{Band 5} (de Gruyter, 2005)
 
 \bibitem{ms_book}
 \textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, Springer, 2nd Edition, 2011
