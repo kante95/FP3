@@ -215,6 +215,34 @@ Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 
 
 \subsection{Magic numbers}
+In the next part of the experiment a measurement was conducted to look at magic numbers in the mass spectrum. Magic numbers are defined as a number of atoms where a cluster shows extraordinary behaviour, i.e. the there is a sudden change in the amplitude of a peak or the slope between the peaks changes suddenly. \\
+We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. However, since it is difficult for us to directly see the magic number peaks, we integrated the area beneath each peak and compared them to each other. This is shown in Fig. \ref{fig_magic_simple}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8 \textwidth]{magic_peaks.pdf}
+	\caption{Depiction of the $m/z$ spectrum of \ch{Ne}-clusters from \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}.}
+	\label{fig_magic_peak}
+\end{figure}
+
+\begin{figure}[H]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{magic_area.pdf}
+    \caption{Area of peaks.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{magic_height.pdf}
+    \caption{Height of Peaks. }
+  \end{subfigure}
+  \caption{Plot of the area beneath the peaks and the height of the peaks in Fig. \ref{fig_magic_peak}}
+  \label{fig_magic_simple}
+\end{figure}
+As can be seen in Fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum. \\
+This seems to be in accordance with \cite{paper_scheier}, where it is stated that 
 \subsection{Appearance energy for Ne and Ne$_2$}
 \subsection{Pick-up}
 \section{Conclusion}
@@ -232,8 +260,6 @@ Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
-
-
 \end{thebibliography}
 
 \end{document}

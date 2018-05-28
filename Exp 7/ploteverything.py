@@ -16,7 +16,7 @@ m21 = 20.99384668
 m22 = 21.991385114
 
 
-#Isotope spectrum
+#Isotope 8spectrum
 
 mz, y = read_data("data/FP3_group9_isotopeneon1_I007_70.txt")
 
@@ -30,14 +30,15 @@ plt.xlabel("M/z")
 
 mz, y = read_data("data/FP3_group9_magicnumbers_I007_70.txt")
 
-plt.figure()
-plt.plot(mz/20,y)
+plt.figure(figsize=(12, 6))
+plt.plot(mz/19.99,y)
 
 
 
-plt.ylabel("Signa [Hz]")
-plt.xlabel("Neon atoms #")
-
+plt.ylabel(r"Intensity / Hz")
+plt.xlabel("Number of Neon atoms in cluster")
+plt.tight_layout()
+#plt.savefig('magic_peaks.pdf', format = 'pdf')
 
 plt.figure()
 
@@ -45,22 +46,23 @@ atoms = mz/19.99
 area = np.zeros(15)
 height = np.zeros(15)
 it = (np.linspace(1, 15, 15))
-for i in range(1,16):
-	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])
-	print(y[(atoms>i-0.5)&(atoms<i+0.5)])
-
-
-
-plt.plot(it,area)
-#plt.yscale('log')
-"""
-for i in range(1,16):
+for i in range(2,16):
+	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])	
 	height[i-1] = np.amax(y[(atoms>i-0.5) & (atoms<i+0.5)])
 
 
+
+#print(area)
+plt.plot(it,area, 'x')
+plt.xlabel(r'Number of Neon atoms')
+plt.ylabel(r'Area / [Hz]')
+plt.tight_layout()
+#plt.savefig('magic_area.pdf', format = 'pdf')
+
+'''
 plt.figure()
 plt.plot(it, height)
-"""
+'''
 #Appearence energy Ne
 
 
