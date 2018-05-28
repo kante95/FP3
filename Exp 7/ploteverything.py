@@ -1,5 +1,5 @@
-import numpy as np 
-import matplotlib.pyplot as plt 
+import numpy as np
+import matplotlib.pyplot as plt
 from scipy.signal import argrelextrema
 
 
@@ -41,12 +41,26 @@ plt.xlabel("Neon atoms #")
 
 plt.figure()
 
-atoms = mz/20.1797
+atoms = mz/19.99
+area = np.zeros(15)
+height = np.zeros(15)
+it = (np.linspace(1, 15, 15))
 for i in range(1,16):
-	area = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])
-	#print(area)
-	plt.plot(i,area)
+	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])
+    print(y[(atoms>i-0.5)&(atoms<i+0.5)])
 
+
+
+plt.plot(it,area)
+#plt.yscale('log')
+"""
+for i in range(1,16):
+	height[i-1] = np.amax(y[(atoms>i-0.5) & (atoms<i+0.5)])
+
+
+plt.figure()
+plt.plot(it, height)
+"""
 #Appearence energy Ne
 
 
@@ -77,4 +91,4 @@ plt.plot(mz,y)
 plt.ylabel("Signal [Hz]")
 plt.xlabel("Energy (eV)")
 
-plt.show() 
+plt.show()

@@ -68,7 +68,7 @@
 	\end{center}
 
 	\begin{abstract}
-	We created neon clusters via superbeam expansion technique, we then studied the isotope population of the clusters, magic numbers, and energy appearance. Moreover, we studied the 
+	We created neon clusters via superbeam expansion technique, we then studied the isotope population of the clusters, magic numbers, and energy appearance. Moreover, we studied the
 	impact of air as pick-up gas in the neon clusters.
     \end{abstract}
     \vspace{1cm}
@@ -84,9 +84,9 @@
 In this experiment we explored the world of clusters, which are an aggregate of atoms with no particular structure. Cluster are the missing link between molecules and condensed matter, their wide applications are fundamental in nanotechnology, where clusters are the building blocks of the technology.
 
 \section{Theoretical Background}
-In this experiment one produces Neon clusters by expanding Neon gas. According to \cite{script}, Neon has an average mass of \SI{20.18}{\atomicmassunit}, with an isotope abundance of \ch{^{20}Ne}:$90.92\%$, \ch{^{21}Ne}:$0.26\%$ and \ch{^{22}Ne}:$8.82\%$. 
+In this experiment one produces Neon clusters by expanding Neon gas. According to \cite{script}, Neon has an average mass of \SI{20.18}{\atomicmassunit}, with an isotope abundance of \ch{^{20}Ne}:$90.92\%$, \ch{^{21}Ne}:$0.26\%$ and \ch{^{22}Ne}:$8.82\%$.
 %What's neon? And what's the meaning of a neon cluster? Can we reach god with it? Can we finally understand the meaning of life?\\
-%These and more questions will be answered in this section. You will be surprised that the answer is $42$. 
+%These and more questions will be answered in this section. You will be surprised that the answer is $42$.
 
 \subsection{Gas expansion}
 There are different ways to produce clusters, however, usually those methods are built on 4 steps:
@@ -94,55 +94,55 @@ There are different ways to produce clusters, however, usually those methods are
 	\item Vaporization (producing sufficiently cold particles in the gas phase)
 	\item Nucleation (Condensation of gaseous atoms to form a cluster nucleus)
 	\item Growth (adding particles to existing nuclei)
-	\item Coalescence (Merging of small clusters) 
+	\item Coalescence (Merging of small clusters)
 \end{itemize}
 To start the formation of clusters the thermal energy has to be smaller than the binding energy of the cluster. To achieve sufficiently low temperatures, the gas is first stored at a low temperature while being at a very high pressure. The gas can escape from this high pressure environment via a nozzle into a vacuum chamber. The rapid expansion changes the velocity distribution from a Maxwell-Boltzmann distribution to a floating Maxwellian distribution, meaning that the distribution gets narrower and more symmetrical around the mean velocity. \\
-As one is dealing with adiabatic expansion the enthalpy is conserved, meaning that one can write 
+As one is dealing with adiabatic expansion the enthalpy is conserved, meaning that one can write
 \begin{equation}
 	c_\mathrm{p} T_0 = c_\mathrm{p} T + \frac{m u^2}{2},
 \end{equation}
-where $c_\mathrm{p}$ is the heat capacity at constant pressure, $m$ is the mass of the atom, $u$ is the drift velocity of the gas and $T$ and $T_0$ are the temperatures at and before expansion. From here it is possible to derive a set of equations. 
+where $c_\mathrm{p}$ is the heat capacity at constant pressure, $m$ is the mass of the atom, $u$ is the drift velocity of the gas and $T$ and $T_0$ are the temperatures at and before expansion. From here it is possible to derive a set of equations.
 \begin{equation}
 	\begin{split}
 	T &= T_0 \left[1 + \frac{\gamma - 1}{2} M^2 \right]^{-1} \\
 	p &= p_0 \left[1 + \frac{\gamma - 1}{2} M^2 \right]^{\frac{1}{1 - \gamma}} \\
-	\rho &= \rho_0 \left[1 + \frac{\gamma - 1}{2} M^2 \right]^{\frac{\gamma}{1-\gamma}} \\	
+	\rho &= \rho_0 \left[1 + \frac{\gamma - 1}{2} M^2 \right]^{\frac{\gamma}{1-\gamma}} \\
 	\end{split}
 \end{equation}
-Here, $\gamma$ represents the adiabatic exponent and $M = u/v_s$ is the Mach number. As one can imagine, all these parameters decrease steeply during the expansion. 
+Here, $\gamma$ represents the adiabatic exponent and $M = u/v_s$ is the Mach number. As one can imagine, all these parameters decrease steeply during the expansion.
 
 \subsection{Cluster formation}
-To generate a dimer, i.e. a two atom cluster, a three body collision is necessary in order to conserve energy and momentum. 
+To generate a dimer, i.e. a two atom cluster, a three body collision is necessary in order to conserve energy and momentum.
 \begin{equation}
 	\ch{A} + \ch{A} + \ch{A} \rightarrow \ch{2 A} + \ch{A}
 \end{equation}
 As the cluster grows condensation heat builds up in the cluster and can only be emitted by release of a monomer, i.e. a single atom. \\
-Growth can be described by classical fluid-gas phase transitions. The vapour pressure line divides said states as is shown in Fig. \ref{fig_formation}. However growth only occurs once supersaturation appears. This is due to surface tension of the cluster. According to \cite{script} the critical radius for cluster growth is 
+Growth can be described by classical fluid-gas phase transitions. The vapour pressure line divides said states as is shown in Fig. \ref{fig_formation}. However growth only occurs once supersaturation appears. This is due to surface tension of the cluster. According to \cite{script} the critical radius for cluster growth is
 \begin{equation}
 	r^\ast = \frac{2 \sigma m}{k_\mathrm{B} T \rho} \frac{1}{\ln(\phi_\mathrm{k})},
 \end{equation}
-where $\sigma$ describes the surface tension, $T$ the temperature, $\rho$ the density and $\phi_\mathrm{k} = p_\mathrm{k} / p_\infty$ is the supersaturation condition. Clusters above their critical radius will accumulate more atoms, while those below evaporate monomers until the condition is fulfilled. 
+where $\sigma$ describes the surface tension, $T$ the temperature, $\rho$ the density and $\phi_\mathrm{k} = p_\mathrm{k} / p_\infty$ is the supersaturation condition. Clusters above their critical radius will accumulate more atoms, while those below evaporate monomers until the condition is fulfilled.
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.5 \textwidth]{formation.png}
 	\caption{Phase diagram containing a growth line of a cluster. The image was taken from \cite{script}. }
 	\label{fig_formation}
-\end{figure}  
+\end{figure}
 Fig. \ref{fig_formation} shows the growth of a cluster. The cluster state follows an adiabatic line from the gaseous into the fluid state. But only when the supersaturation condition is fulfilled, the cluster acquires an additional component. The release of the condensation heat brings the cluster back to the equilibrium between liquid and gaseous state. \\
-Empirically, the mean cluster size is determined as 
+Empirically, the mean cluster size is determined as
 \begin{equation}
-	\bar{N} = \frac{p_0 D^{1.5}}{T_0^{2.4}}. 
+	\bar{N} = \frac{p_0 D^{1.5}}{T_0^{2.4}}.
 \end{equation}
-Again, $T_0$ and $p_0$ describe the temperature and pressure in the stagnation chamber. $D = d / \tan \theta$ represents the reduced diameter of the nozzle, where $\theta$ is half the opening angle of the nozzle. As one can see, reducing the temperature in the stagnation chamber has the highest impact on the mean size of the clusters. 
+Again, $T_0$ and $p_0$ describe the temperature and pressure in the stagnation chamber. $D = d / \tan \theta$ represents the reduced diameter of the nozzle, where $\theta$ is half the opening angle of the nozzle. As one can see, reducing the temperature in the stagnation chamber has the highest impact on the mean size of the clusters.
 
 \section{Experimental Setup}
-Basically, the setup in this experiment has to first produce and grow clusters of Neon atoms and in a second step ionize said clusters. Finally the ionized clusters have to be detected. 
+Basically, the setup in this experiment has to first produce and grow clusters of Neon atoms and in a second step ionize said clusters. Finally the ionized clusters have to be detected.
 
-\subsection{Cluster source} 
+\subsection{Cluster source}
 In this setup cluster nuclei are generated by means of supersonic expansion of the source gas. Neon gas is stored in a stagnation chamber at roughly \SI{13}{\bar} and low temperature. It is then released into a vacuum chamber where the gas adiabatically expands at supersonic speed. It is noteworthy that the gas velocity is approximately constant during the expansion, but the quickly decreasing speed of sound gradually increases the local Mach number. \\
-Fig. \ref{fig_expansion} shows a sketch of the expansion cone generated by the Neon gas. As there is a low but finite background pressure in the expansion chamber, two shock zones develop: a barrel shock, which is formed symmetrically around the central axis of the expansion zone and a termination shock at the end of the expansion region, referred to as the Mach disk. Together, these shock fronts shield what is called the zone of silence from the background gas, which means that in the zone of silence there is hardly any collisions with the background gas to be expected. According to \cite{script} the position of the Mach disk can be calculated as 
+Fig. \ref{fig_expansion} shows a sketch of the expansion cone generated by the Neon gas. As there is a low but finite background pressure in the expansion chamber, two shock zones develop: a barrel shock, which is formed symmetrically around the central axis of the expansion zone and a termination shock at the end of the expansion region, referred to as the Mach disk. Together, these shock fronts shield what is called the zone of silence from the background gas, which means that in the zone of silence there is hardly any collisions with the background gas to be expected. According to \cite{script} the position of the Mach disk can be calculated as
 \begin{equation}
-	\frac{x_\mathrm{M}}{d} = 0.67 \sqrt{\frac{p_0}{p_\mathrm{b}}}, 
+	\frac{x_\mathrm{M}}{d} = 0.67 \sqrt{\frac{p_0}{p_\mathrm{b}}},
 \end{equation}
 where $d$ is the diameter of the nozzle, $p_0$ and $p_\mathrm{b}$ represent the stagnation pressure and the background pressure respectively. In Fig. \ref{fig_expansion} the Mach disk is depicted once for an undistorted case as a dash-dotted line and once as a solid line which is distorted by a skimmer. \\
 The skimmer collects only the central component of the gas jet and guides it into the cluster chamber, where the clusters are formed by nucleation. It has to be positioned with care, as if it is placed to close to the nozzle, one will see turbulences in the expansion, while placing it behind the Mach disk results in considerable loss in intensity, as the collisions with the background gas are to be expected. The formed clusters are subsequently collided with an electron beam, such that the neutral clusters are positively ionized via electron ionization. The ions now can be analyzed with a mass spectrometer, for this experiment we used a linear quadrupole mass spectrometer.%\\
@@ -157,13 +157,13 @@ The skimmer collects only the central component of the gas jet and guides it int
 
 \subsection{Electron monochromator}
 
-As the setup used in this experiment is also used for research, we could not install or set up any components ourselves. All could be done was tune the voltages on several electrostatic lenses. 
+As the setup used in this experiment is also used for research, we could not install or set up any components ourselves. All could be done was tune the voltages on several electrostatic lenses.
 \\
-A hairpin filament serves as electron source in this setup. A current of roughly \SI{2.35}{\ampere} is passed through the filament which leads to an emitted current of several \SI{10}{\micro \ampere}. As these electrons are emitted roughly isotropically in all directions with their kinetic energies following a Boltzmann distribution, a field generated by an anode collects the electrons of the source chamber and guides them into an array of 3-element lenses, which collimate and focus the electron beam. A depiction of the setup is shown in Fig. \ref{setup}. 
+A hairpin filament serves as electron source in this setup. A current of roughly \SI{2.35}{\ampere} is passed through the filament which leads to an emitted current of several \SI{10}{\micro \ampere}. As these electrons are emitted roughly isotropically in all directions with their kinetic energies following a Boltzmann distribution, a field generated by an anode collects the electrons of the source chamber and guides them into an array of 3-element lenses, which collimate and focus the electron beam. A depiction of the setup is shown in Fig. \ref{setup}.
 \\
-The focused beam of electrons is then guided towards a hemispherical energy selector. As Fig. \ref{setup} indicates. This component consists of two concentric hemispherical surfaces which are kept at different but constant voltages, which leads to a constant spherically symmetry field in the monochromator. This way an energy filter is created, as electrons which are too fast will collide with the outer surface, while electrons that are too slow will be absorbed by the inner element. Variation of these two voltages allows for a variation of the energy of the electron beam, while the energy resolution is maintained. 
+The focused beam of electrons is then guided towards a hemispherical energy selector. As Fig. \ref{setup} indicates. This component consists of two concentric hemispherical surfaces which are kept at different but constant voltages, which leads to a constant spherically symmetry field in the monochromator. This way an energy filter is created, as electrons which are too fast will collide with the outer surface, while electrons that are too slow will be absorbed by the inner element. Variation of these two voltages allows for a variation of the energy of the electron beam, while the energy resolution is maintained.
 \\
-The energy filter is followed by a second set of electrostatic lenses, which again collect the flux of electrons after the monochromator and focuses the beam into the collision chamber. Positive ions are created upon impact of an electron onto a cluster. These resulting ions are guided into the quadrupole mass filter, which analyses the charge-mass-ratio. Electrons that to not hit a target are collected in a Faraday cup at the back of the collision chamber. 
+The energy filter is followed by a second set of electrostatic lenses, which again collect the flux of electrons after the monochromator and focuses the beam into the collision chamber. Positive ions are created upon impact of an electron onto a cluster. These resulting ions are guided into the quadrupole mass filter, which analyses the charge-mass-ratio. Electrons that to not hit a target are collected in a Faraday cup at the back of the collision chamber.
 
 \begin{figure}[H]
 	\centering
@@ -177,7 +177,7 @@ The mass of the charged cluster is measured with a combination of a linear quadr
 Quadrupole filters are remarkably simple in terms of their structure. They consist of four metal rods of either cylindrical or hyperbolic shape that are placed in a square configuration \cite{ms_book}. The voltages applied to the rods have a AC and a DC component. Opposite rods are generally on the same voltage, while the rods next to a specified rod would have an opposite sign on the applied voltage. \\
 If an ion is moving along in the direction of the rods it will be influenced by the electric field generated by the rods. Depending on the mass of the ion, the magnitude and frequency of the voltages and the radius of the configuration the ion will either pass through the quadrupole or collide with one of the rods and be filtered. \\
 However, the resolution of a quadrupole cannot be indefinitely increased by tuning parameters, because ultimately the accuracy in the machining of the filter is the limiting factor. \\
-Usually quadrupole filters operate at unit resolution, as is also the case in this experiment. Unit resolution means that the resolution inaccuracy is one unit mass (as in atomic mass unit) independent of the $m/z$-ratio at which the quadrupole is currently operating \cite{ms_book}.   
+Usually quadrupole filters operate at unit resolution, as is also the case in this experiment. Unit resolution means that the resolution inaccuracy is one unit mass (as in atomic mass unit) independent of the $m/z$-ratio at which the quadrupole is currently operating \cite{ms_book}.
 
 \section{Analysis}
 \subsection{Isotope population}
@@ -226,6 +226,9 @@ Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 
 \bibitem{ms_book}
 \textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, Springer, 2nd Edition, 2011
+
+\bibitem{paper_scheier}
+\textsc{T.D. Märk, P. Scheier}, \textit{PRODUCTION AND STABILITY OF NEON CLUSTER IONS UP TO \ch{Ne^{+}_{90}}}, Chemical Physics Letters Vol. 137, Number 3, 12 June 1987
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
