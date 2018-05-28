@@ -216,7 +216,7 @@ Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 
 \subsection{Magic numbers}
 In the next part of the experiment a measurement was conducted to look at magic numbers in the mass spectrum. Magic numbers are defined as a number of atoms where a cluster shows extraordinary behaviour, i.e. the there is a sudden change in the amplitude of a peak or the slope between the peaks changes suddenly. \\
-We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. However, since it is difficult for us to directly see the magic number peaks, we integrated the area beneath each peak and compared them to each other. This is shown in Fig. \ref{fig_magic_simple}
+We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. However, since it is difficult for us to directly see the magic number peaks, we integrated the area beneath each peak and compared them to each other. This is shown in fig. \ref{fig_magic_simple}
 
 \begin{figure}[H]
 	\centering
@@ -241,10 +241,35 @@ We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassuni
   \caption{Plot of the area beneath the peaks and the height of the peaks in Fig. \ref{fig_magic_peak}}
   \label{fig_magic_simple}
 \end{figure}
-As can be seen in Fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum. \\
-This seems to be in accordance with \cite{paper_scheier}, where it is stated that 
+As can be seen in fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum, although they are not really prominent peaks. \\
+This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape, but these numbers are not very prominent in the mass spectrum. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_simple}.<
+
 \subsection{Appearance energy for Ne and Ne$_2$}
+In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be estimated. To measure this property the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The result for the monomer is shown in fig. \ref{fig_energy_monomer}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8 \textwidth]{energy_ne.pdf}
+	\caption{Plot of the detected signal depending on the electron energy. The intersection of the lines is \SI{20}{\electronvolt}. The displacement of the constant function is $c=\SI{1.21(4)}{\hertz}$, while the parameters of the linear function are $a = \SI{165(3)}{\hertz \per \electronvolt}$ and $b = \SI{-3400(60)}{\hertz}$. This yields an intersection at \SI{20.5(5)}{\electronvolt}. }
+	\label{fig_energy_monomer}
+\end{figure}
+The intersection of the constant and the linear function, which corresponds to the appearance energy, is found to be at \SI{20.5(5)}{\electronvolt} in fig. \ref{fig_energy_monomer}. \\
+The analysis from the dimer is done in an analogous way. The mass selector is set to \SI{40.6}{\atomicmassunit}, then the energy range is scanned. The result is shown in fig. \ref{fig_energy_dimer}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8 \textwidth]{energy_ne2.pdf}
+	\caption{Depiction of the appearance energy for a Neon dimer. The parameters determined through the fit were $c = \SI{1.18(5)}{\hertz}$ for the constant function, $a = \SI{9(1)}{\hertz \per \electronvolt}$ as the slope and $b = \SI{-190(20)}{\hertz}$ as the offset of the linear function. The intersection is found at \SI{20(3)}{\electronvolt}. Note that the intensity scale is different than in fig. \ref{fig_energy_monomer}. }
+	\label{fig_energy_dimer}
+\end{figure}
+The intersection in fig. \ref{fig_energy_dimer} is located at \SI{20(3)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by a factor of $10$. 
+
 \subsection{Pick-up}
+In the last part of the experiment we studied the impact of a pickup gas in our cluster. We used simple air as pick up. The mass spectrum obtained is shown in figure \ref{pickup}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =\textwidth]{pickup}
+	\caption{Mass spectrum of Neon clusters with air as pickup.}
+	\label{pickup}
+\end{figure}
 \section{Conclusion}
 
 \begin{thebibliography}{99}
@@ -256,7 +281,7 @@ This seems to be in accordance with \cite{paper_scheier}, where it is stated tha
 \textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, Springer, 2nd Edition, 2011
 
 \bibitem{paper_scheier}
-\textsc{T.D. Märk, P. Scheier}, \textit{PRODUCTION AND STABILITY OF NEON CLUSTER IONS UP TO \ch{Ne^{+}_{90}}}, Chemical Physics Letters Vol. 137, Number 3, 12 June 1987
+\textsc{T.D. Märk, P. Scheier}, \textit{PRODUCTION AND STABILITY OF NEON CLUSTER IONS UP TO } \ch{Ne90+}, Chemical Physics Letters Vol. 137, Number 3, 12 June 1987
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
