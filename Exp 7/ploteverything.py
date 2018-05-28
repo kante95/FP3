@@ -40,7 +40,7 @@ plt.xlabel("Number of Neon atoms in cluster")
 plt.tight_layout()
 #plt.savefig('magic_peaks.pdf', format = 'pdf')
 
-plt.figure()
+
 
 atoms = mz/19.99
 area = np.zeros(15)
@@ -49,9 +49,9 @@ it = (np.linspace(1, 15, 15))
 for i in range(2,16):
 	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])	
 	height[i-1] = np.amax(y[(atoms>i-0.5) & (atoms<i+0.5)])
+	
 
-
-
+plt.figure()
 #print(area)
 plt.plot(it,area, 'x')
 plt.xlabel(r'Number of Neon atoms')
@@ -91,6 +91,6 @@ mz, y = read_data("data/FP3_MS2_Ne13bar_air_pickup_100K_I001_70.txt")
 plt.figure()
 plt.plot(mz,y)
 plt.ylabel("Signal [Hz]")
-plt.xlabel("Energy (eV)")
+plt.xlabel("M/z ")
 
 plt.show()
