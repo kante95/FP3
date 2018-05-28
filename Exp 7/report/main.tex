@@ -181,7 +181,7 @@ Usually quadrupole filters operate at unit resolution, as is also the case in th
 
 \section{Analysis}
 \subsection{Isotope population}
-In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is most molecular nitrogen \ch{N_2} which has a weight of $\approx 28$ u. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around 40. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, again there are two peaks at 60.5 and 62.5, these are due of \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, the calculated weight for this molecules are 59.98 and 61.98, again we see the same pattern of systematic error.
+In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is mostly molecular nitrogen (\ch{N_2}) which has a weight of approximately $\SI{28}{\atomicmassunit}$. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around \IS{40}{\atomicmassunit}. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not exactly match the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, again there are two peaks at 60.5 and 62.5, these are due of \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, the calculated weight for this molecules are 59.98 and 61.98, again we see the same pattern of systematic error.
 
 \begin{figure}[H]
 	\centering
@@ -191,6 +191,34 @@ In the first part of the experiment, we took a look at the isotope distribution 
 \end{figure}
 
 \subsection{Magic numbers}
+In the next part of the experiment a measurement was conducted to look at magic numbers in the mass spectrum. Magic numbers are defined as a number of atoms where a cluster shows extraordinary behaviour, i.e. the there is a sudden change in the amplitude of a peak or the slope between the peaks changes suddenly. \\
+We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. However, since it is difficult for us to directly see the magic number peaks, we integrated the area beneath each peak and compared them to each other. This is shown in Fig. \ref{fig_magic_simple}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8 \textwidth]{magic_peaks.pdf}
+	\caption{Depiction of the $m/z$ spectrum of \ch{Ne}-clusters from \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}.}
+	\label{fig_magic_peak}
+\end{figure}
+
+\begin{figure}[H]
+  \centering{}
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{magic_area.pdf}
+    \caption{Area of peaks.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45 \textwidth}
+    \centering
+    \includegraphics[height=6cm]{magic_height.pdf}
+    \caption{Height of Peaks. }
+  \end{subfigure}
+  \caption{Plot of the area beneath the peaks and the height of the peaks in Fig. \ref{fig_magic_peak}}
+  \label{fig_magic_simple}
+\end{figure}
+As can be seen in Fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum. \\
+This seems to be in accordance with \cite{paper_scheier}, where it is stated that 
 \subsection{Appearance energy for Ne and Ne$_2$}
 \subsection{Pick-up}
 \section{Conclusion}
@@ -208,8 +236,6 @@ In the first part of the experiment, we took a look at the isotope distribution 
 
 \bibitem{umc}
 \textsc{Matthias Letzel}, \textit{Universal Mass Calculator - Student Edition}, Universität Münster, \url{https://www.uni-muenster.de/Chemie.oc/ms/downloads.html}
-
-
 \end{thebibliography}
 
 \end{document}
