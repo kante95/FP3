@@ -38,31 +38,35 @@ plt.plot(mz/19.99,y)
 plt.ylabel(r"Intensity / Hz")
 plt.xlabel("Number of Neon atoms in cluster")
 plt.tight_layout()
-#plt.savefig('magic_peaks.pdf', format = 'pdf')
+plt.savefig('magic_peaks.pdf', format = 'pdf')
 
 plt.figure()
 
 atoms = mz/19.99
-area = np.zeros(15)
-height = np.zeros(15)
-it = (np.linspace(1, 15, 15))
+area = np.zeros(14)
+height = np.zeros(14)
+it = (np.linspace(2, 15, 14))
 for i in range(2,16):
-	area[i-1] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])	
-	height[i-1] = np.amax(y[(atoms>i-0.5) & (atoms<i+0.5)])
+	area[i-2] = np.trapz(y[(atoms>i-0.5)&(atoms<i+0.5)] , x = atoms[(atoms>i-0.5) &(atoms<i+0.5)])
+	height[i-2] = np.amax(y[(atoms>i-0.5) & (atoms<i+0.5)])
 
 
 
 #print(area)
-plt.plot(it,area, 'x')
+plt.plot(it,area, 'gx')
 plt.xlabel(r'Number of Neon atoms')
-plt.ylabel(r'Area / [Hz]')
+plt.ylabel(r'Area / Hz')
 plt.tight_layout()
-#plt.savefig('magic_area.pdf', format = 'pdf')
+plt.savefig('magic_area.pdf', format = 'pdf')
 
-'''
+
 plt.figure()
-plt.plot(it, height)
-'''
+plt.plot(it, height, 'bx')
+plt.xlabel(r'Number of Neon atoms')
+plt.ylabel(r'Area / Hz')
+plt.tight_layout()
+plt.savefig('magic_height.pdf', format = 'pdf')
+
 #Appearence energy Ne
 
 
