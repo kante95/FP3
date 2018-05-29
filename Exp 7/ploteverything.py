@@ -88,7 +88,7 @@ print(params2[0], params2[1])
 print(dparams2[0], dparams2[1])
 
 intersection = (params[0] - params2[1]) / (params2[0])
-dintersection= 1/(params2[0]) * np.sqrt(dparams2[1]**2 + dparams[0]**2 + ( (dparams2[0]**2 * (params[0] - params2[1])**2) / (params2[0])**2))
+dintersection= 1/(params2[0]) * np.sqrt(dparams2[1]**2 + dparams[0]**2 + ( (dparams2[0]**2 * (params[0] - params2[1])**2) / (params2[0])**2) + 2 * (params[0] - params2[1]) / (params2[0]) * cov2[1][0])
 print(intersection, dintersection)
 
 x1 = np.linspace(19,21,2)
@@ -107,19 +107,23 @@ plt.tight_layout()
 #Appearence energy Ne2
 
 energy, y = read_data("data/FP3_group9_ne2_I01F_40p6.txt")
+a = - intersection + 21.56454
+energy = energy + a
 
-params, cov = sp.curve_fit(constant_function, energy[energy<20.3], y[energy<20.3])
+params, cov = sp.curve_fit(constant_function, energy[energy<20.3+a], y[energy<20.3+a])
 dparams = np.sqrt(np.diag(cov))
 print(params[0])
 print(dparams[0])
 
-params2, cov2 = sp.curve_fit(linear_function, energy[(energy>20.6) & (energy<21.2)], y[(energy>20.6) & (energy<21.2)])
+params2, cov2 = sp.curve_fit(linear_function, energy[(energy>20.6+a) & (energy<21.2+a)], y[(energy>20.6+a) & (energy<21.2+a)])
+print(cov2)
 dparams2 = np.sqrt(np.diag(cov2))
 print(params2[0], params2[1])
 print(dparams2[0], dparams2[1])
 
+
 intersection = (params[0] - params2[1]) / (params2[0])
-dintersection= 1/(params2[0]) * np.sqrt(dparams2[1]**2 + dparams[0]**2 + ( (dparams2[0]**2 * (params[0] - params2[1])**2) / (params2[0])**2))
+dintersection= 1/(params2[0]) * np.sqrt(dparams2[1]**2 + dparams[0]**2 + ( (dparams2[0]**2 * (params[0] - params2[1])**2) / (params2[0])**2) + 2 * (params[0] - params2[1]) / (params2[0]) * cov2[1][0])
 print(intersection, dintersection)
 
 x1 = np.linspace(19,21,2)
@@ -127,8 +131,8 @@ x2 = np.linspace(20.2,22,2)
 
 plt.figure(figsize = (10, 6))
 plt.plot(energy,y)
-plt.plot(x1, constant_function(x1, *params))
-plt.plot(x2, linear_function(x2, *params2))
+plt.plot(x1+a, constant_function(x1+a, *params))
+plt.plot(x2+a, linear_function(x2+a, *params2))
 plt.ylabel("Intensity / Hz")
 plt.xlabel("Electron energy / eV")
 plt.tight_layout()

@@ -244,22 +244,22 @@ As can be seen in fig. \ref{fig_magic_simple} there is a plateau in the size of 
 This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape, but these numbers are not very prominent in the mass spectrum. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_simple}.
 
 \subsection{Appearance energy for Ne and Ne$_2$}
-In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be estimated. To measure this property the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The result for the monomer is shown in fig. \ref{fig_energy_monomer}.
+In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be measured. To measure the ionization energy of the Neon atom the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The result for the monomer is shown in fig. \ref{fig_energy_monomer}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{energy_ne.pdf}
-	\caption{Plot of the detected signal depending on the electron energy. The intersection of the lines is \SI{20}{\electronvolt}. The displacement of the constant function is $c=\SI{1.21(4)}{\hertz}$, while the parameters of the linear function are $a = \SI{165(3)}{\hertz \per \electronvolt}$ and $b = \SI{-3400(60)}{\hertz}$. This yields an intersection at \SI{20.5(5)}{\electronvolt}. }
+	\caption{Plot of the detected signal depending on the electron energy. The intersection of the lines is \SI{20}{\electronvolt}. The displacement of the constant function is $c=\SI{1.21(4)}{\hertz}$, while the parameters of the linear function are $a = \SI{165(3)}{\hertz \per \electronvolt}$ and $b = \SI{-3400(60)}{\hertz}$. This yields an intersection at \SI{20.53(1)}{\electronvolt}. }
 	\label{fig_energy_monomer}
 \end{figure}
-The intersection of the constant and the linear function, which corresponds to the appearance energy, is found to be at \SI{20.5(5)}{\electronvolt} in fig. \ref{fig_energy_monomer}. \\
-The analysis from the dimer is done in an analogous way. The mass selector is set to \SI{40.6}{\atomicmassunit}, then the energy range is scanned. The result is shown in fig. \ref{fig_energy_dimer}.
+The intersection of the constant and the linear function, which corresponds to the appearance energy, is found to be at \SI{20.53(1)}{\electronvolt} in fig. \ref{fig_energy_monomer}. According to \cite{neon_nist} the ionization energy is \SI{21.56454}{\electronvolt}. This result allows us to calibrate the energy axis for the appearance energy of the Neon dimer. \\
+The calculation of the appearance energy of the dimer is done in an analogous way to the monomer. The mass selector is set to \SI{40.6}{\atomicmassunit}, then the energy range is again scanned in the range depicted in fig. \ref{fig_energy_dimer}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{energy_ne2.pdf}
-	\caption{Depiction of the appearance energy for a Neon dimer. The parameters determined through the fit were $c = \SI{1.18(5)}{\hertz}$ for the constant function, $a = \SI{9(1)}{\hertz \per \electronvolt}$ as the slope and $b = \SI{-190(20)}{\hertz}$ as the offset of the linear function. The intersection is found at \SI{20(3)}{\electronvolt}. Note that the intensity scale is different than in fig. \ref{fig_energy_monomer}. }
+	\caption{Depiction of the appearance energy for a Neon dimer. The energy axis was calibrated with the result of the monomer. The parameters determined through the fit were $c = \SI{1.18(5)}{\hertz}$ for the constant function, $a = \SI{9(1)}{\hertz \per \electronvolt}$ as the slope and $b = \SI{-200(20)}{\hertz}$ as the offset of the linear function. The intersection is found at \SI{21.32(7)}{\electronvolt}. Note that the intensity scale is different than in fig. \ref{fig_energy_monomer}. }
 	\label{fig_energy_dimer}
 \end{figure}
-The intersection in fig. \ref{fig_energy_dimer} is located at \SI{20(3)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by a factor of $15$. \\
+The intersection in fig. \ref{fig_energy_dimer} is located at \SI{21.32(7)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by about a factor of $15$. \\
 We assume this is simply because there is more monomers in the gas that is ionized than there are dimers. Looking at fig. \ref{isotopespectrum}, one can see that the intensity is increasing the smaller the cluster is. Therefore is plausible that the monomer is actually the most abundant component of the gas that is ionized.
 
 \subsection{Pick-up}
@@ -320,6 +320,9 @@ Measured peak (u/e) & Theoretical (u/e) & Cluster composition (charge +) \\ \mid
 
 \bibitem{ms_book}
 \textsc{Jürgen H. Gross}, \textit{Mass Spectrometry}, Springer, 2nd Edition, 2011
+
+\bibitem{neon_nist}
+\textsc{Nist}, \textit{Basic Atomic Spectroscopic Data - Neon (Ne)}, \url{https://www.physics.nist.gov/PhysRefData/Handbook/Tables/neontable1.htm}
 
 \bibitem{paper_scheier}
 \textsc{T.D. Märk, P. Scheier}, \textit{PRODUCTION AND STABILITY OF NEON CLUSTER IONS UP TO } \ch{Ne90+}, Chemical Physics Letters Vol. 137, Number 3, 12 June 1987
