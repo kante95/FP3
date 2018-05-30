@@ -37,6 +37,7 @@ plt.plot(mz/19.99,y)
 
 plt.ylabel(r"Intensity / Hz")
 plt.xlabel("Number of Neon atoms in cluster")
+plt.yscale('log')
 plt.tight_layout()
 #plt.savefig('magic_peaks.pdf', format = 'pdf')
 
@@ -54,16 +55,18 @@ plt.figure()
 plt.plot(it,area, 'gx')
 plt.xlabel(r'Number of Neon atoms')
 plt.ylabel(r'Area / Hz')
+plt.yscale('log')
 plt.tight_layout()
-#plt.savefig('magic_area.pdf', format = 'pdf')
+plt.savefig('magic_area.pdf', format = 'pdf')
 
 
 plt.figure()
 plt.plot(it, height, 'bx')
 plt.xlabel(r'Number of Neon atoms')
 plt.ylabel(r'Area / Hz')
+plt.yscale('log')
 plt.tight_layout()
-#plt.savefig('magic_height.pdf', format = 'pdf')
+plt.savefig('magic_height.pdf', format = 'pdf')
 
 #Appearence energy Ne
 

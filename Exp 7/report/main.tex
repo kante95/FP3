@@ -68,8 +68,7 @@
 	\end{center}
 
 	\begin{abstract}
-	We created neon clusters via superbeam expansion technique, we then studied the isotope population of the clusters, magic numbers, and energy appearance. Moreover, we studied the
-	impact of air as pick-up gas in the neon clusters.
+	In this experiment Neon clusters were created using the supersonic expansion technique. The isotope population of the clusters was analyzed, in addition to magic numbers in the Neon spectrum, and appearance energy of \ch{Ne+} and \ch{Ne2+}. Moreover, we studied the	impact of air as pick-up gas in Neon cluster growth.
     \end{abstract}
     \vspace{1cm}
 
@@ -81,27 +80,27 @@
 
 
 \section{Introduction}
-In this experiment we explored the world of clusters, which are an aggregate of atoms with no particular structure. Cluster are the missing link between molecules and condensed matter, their wide applications are fundamental in nanotechnology, where clusters are the building blocks of the technology.
+There are several reasons as to why the research of clusters is important in modern day science. For one, cluster are the link between molecules and bulk matter, meaning that clusters show, depending on parameters like size, composition etc., properties typical for either molecules or solid matter. An example would be the transition from discrete energy levels in molecules to energy bands known from solid body physics. Furthermore, knowledge of clusters is fundamental in the nanotechnology, where clusters are the building blocks used in the industry \cite{script}.
 
 \section{Theoretical Background}
-In this experiment one produces Neon clusters by expanding Neon gas. According to \cite{script}, Neon has an average mass of \SI{20.18}{\atomicmassunit}, with an isotope abundance of \ch{^{20}Ne}: $90.92\%$, \ch{^{21}Ne}: $0.26\%$ and \ch{^{22}Ne}: $8.82\%$.
+In this experiment one produces Neon clusters by means of expanding Neon gas. According to \cite{script}, Neon is a rare gas with an average mass of \SI{20.18}{\atomicmassunit}, with an isotope abundance of \ch{^{20}Ne}: $90.92\%$, \ch{^{21}Ne}: $0.26\%$ and \ch{^{22}Ne}: $8.82\%$.
 %What's neon? And what's the meaning of a neon cluster? Can we reach god with it? Can we finally understand the meaning of life?\\
 %These and more questions will be answered in this section. You will be surprised that the answer is $42$.
 
 \subsection{Gas expansion}
-There are different ways to produce clusters, however, usually those methods are built on 4 steps:
+There are different ways to produce clusters, however, usually those methods utilize 4 steps of cluster generation:
 \begin{itemize}
 	\item Vaporization (producing sufficiently cold particles in the gas phase)
 	\item Nucleation (Condensation of gaseous atoms to form a cluster nucleus)
 	\item Growth (adding particles to existing nuclei)
 	\item Coalescence (Merging of small clusters)
 \end{itemize}
-To start the formation of clusters the thermal energy has to be smaller than the binding energy of the cluster. To achieve sufficiently low temperatures, the gas is first stored at a low temperature while being at a very high pressure. The gas can escape from this high pressure environment via a nozzle into a vacuum chamber. The rapid expansion changes the velocity distribution from a Maxwell-Boltzmann distribution to a floating Maxwellian distribution, meaning that the distribution gets narrower and more symmetrical around the mean velocity. \\
+To start the formation of clusters the thermal energy has to be smaller than the binding energy of the cluster. To reach sufficiently low temperatures, the gas is first stored at a low temperature while being at a very high pressure. The gas can escape from this high pressure environment via a nozzle into a vacuum chamber. The rapid expansion changes the velocity distribution of the gas from a Maxwell-Boltzmann distribution to a floating Maxwellian distribution, meaning that the distribution gets narrower and more symmetrical around the mean velocity. \\
 As one is dealing with adiabatic expansion the enthalpy is conserved, meaning that one can write
 \begin{equation}
 	c_\mathrm{p} T_0 = c_\mathrm{p} T + \frac{m u^2}{2},
 \end{equation}
-where $c_\mathrm{p}$ is the heat capacity at constant pressure, $m$ is the mass of the atom, $u$ is the drift velocity of the gas and $T$ and $T_0$ are the temperatures at and before expansion. From here it is possible to derive a set of equations.
+where $c_\mathrm{p}$ is the heat capacity at constant pressure, $m$ is the mass of the atom, $u$ is the drift velocity of the gas and $T$ and $T_0$ are the temperatures at and before expansion \cite{script}. From here it is possible to derive a set of equations for the behaviour of the temperature $T$, the pressure $p$ and the density $\rho$.
 \begin{equation}
 	\begin{split}
 	T &= T_0 \left[1 + \frac{\gamma - 1}{2} M^2 \right]^{-1} \\
@@ -116,19 +115,19 @@ To generate a dimer, i.e. a two atom cluster, a three body collision is necessar
 \begin{equation}
 	\ch{A} + \ch{A} + \ch{A} \rightarrow \ch{2 A} + \ch{A}
 \end{equation}
-As the cluster grows condensation heat builds up in the cluster and can only be emitted by release of a monomer, i.e. a single atom. \\
-Growth can be described by classical fluid-gas phase transitions. The vapour pressure line divides said states as is shown in Fig. \ref{fig_formation}. However growth only occurs once supersaturation appears. This is due to surface tension of the cluster. According to \cite{script} the critical radius for cluster growth is
+As the cluster grows, condensation heat is accumulated in the cluster and can only be emitted by release of a monomer, i.e. a single Neon atom. \\ \\ \\ \\
+Growth can be described by classical gas to fluid phase transitions. The vapour pressure line divides said states as is shown in Fig. \ref{fig_formation}. However growth only occurs once supersaturation appears. This is due to the surface tension of the cluster. According to \cite{script} the critical radius for cluster growth is
 \begin{equation}
 	r^\ast = \frac{2 \sigma m}{k_\mathrm{B} T \rho} \frac{1}{\ln(\phi_\mathrm{k})},
 \end{equation}
-where $\sigma$ describes the surface tension, $T$ the temperature, $\rho$ the density and $\phi_\mathrm{k} = p_\mathrm{k} / p_\infty$ is the supersaturation condition. Clusters above their critical radius will accumulate more atoms, while those below evaporate monomers until the condition is fulfilled.
+where $\sigma$ describes the surface tension, $T$ the temperature, $\rho$ the density and $\phi_\mathrm{k} = p_\mathrm{k} / p_\infty$ is the supersaturation condition. Clusters bigger than their critical radius will accumulate more atoms, while those below evaporate monomers until the condition is fulfilled again.
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.5 \textwidth]{formation.png}
 	\caption{Phase diagram containing a growth line of a cluster. The image was taken from \cite{script}. }
 	\label{fig_formation}
 \end{figure}
-Fig. \ref{fig_formation} shows the growth of a cluster. The cluster state follows an adiabatic line from the gaseous into the fluid state. But only when the supersaturation condition is fulfilled, the cluster acquires an additional component. The release of the condensation heat brings the cluster back to the equilibrium between liquid and gaseous state. \\
+Fig. \ref{fig_formation} shows the growth path of a cluster. The cluster state follows an adiabatic line from the gaseous into the fluid state. But only when the supersaturation condition is fulfilled, the cluster acquires an additional atom. The resulting condensation heat brings the cluster back to the equilibrium between liquid and gaseous state. \\
 Empirically, the mean cluster size is determined as
 \begin{equation}
 	\bar{N} = \frac{p_0 D^{1.5}}{T_0^{2.4}}.
@@ -144,8 +143,8 @@ Fig. \ref{fig_expansion} shows a sketch of the expansion cone generated by the N
 \begin{equation}
 	\frac{x_\mathrm{M}}{d} = 0.67 \sqrt{\frac{p_0}{p_\mathrm{b}}},
 \end{equation}
-where $d$ is the diameter of the nozzle, $p_0$ and $p_\mathrm{b}$ represent the stagnation pressure and the background pressure respectively. In Fig. \ref{fig_expansion} the Mach disk is depicted once for an undistorted case as a dash-dotted line and once as a solid line which is distorted by a skimmer. \\
-The skimmer collects only the central component of the gas jet and guides it into the cluster chamber, where the clusters are formed by nucleation. It has to be positioned with care, as if it is placed to close to the nozzle, one will see turbulences in the expansion, while placing it behind the Mach disk results in considerable loss in intensity, as the collisions with the background gas are to be expected. The formed clusters are subsequently collided with an electron beam, such that the neutral clusters are positively ionized via electron ionization. The ions now can be analyzed with a mass spectrometer, for this experiment we used a linear quadrupole mass spectrometer.%\\
+where $d$ is the diameter of the nozzle, $p_0$ and $p_\mathrm{b}$ represent the stagnation pressure and the background pressure respectively. In fig. \ref{fig_expansion} the Mach disk is depicted once for an undistorted case as a dash-dotted line and once as a solid line which is distorted by a skimmer. \\
+The skimmer collects only the central component of the gas jet and guides it into the cluster chamber, where the clusters are formed by nucleation. It has to be positioned with care, as if it is placed too close to the nozzle, one will see turbulences in the expansion, while placing it behind the Mach disk results in considerable loss in intensity, as the collisions with the background gas are to be expected. The formed clusters are subsequently collided with an electron beam, such that the neutral clusters are positively ionized via electron ionization. The ions now can be analyzed with a mass spectrometer, for this experiment we used a linear quadrupole mass filter and a channeltron detector.%\\
 %The electron beam is created by evaporation from a filament, the beam is focused with a set of electron lenses and filtered by energy with an hemispherical electron monochromator.
 
 \begin{figure}[htp!]
@@ -156,14 +155,13 @@ The skimmer collects only the central component of the gas jet and guides it int
 \end{figure}
 
 \subsection{Electron monochromator}
-
-As the setup used in this experiment is also used for research, we could not install or set up any components ourselves. All could be done was tune the voltages on several electrostatic lenses.
+As the setup used in this experiment is also used for research, we could not install or set up any components ourselves. All that could be done was tune the voltages on several electrostatic lenses.
 \\
-A hairpin filament serves as electron source in this setup. A current of roughly \SI{2.35}{\ampere} is passed through the filament which leads to an emitted current of several \SI{10}{\micro \ampere}. As these electrons are emitted roughly isotropically in all directions with their kinetic energies following a Boltzmann distribution, a field generated by an anode collects the electrons of the source chamber and guides them into an array of 3-element lenses, which collimate and focus the electron beam. A depiction of the setup is shown in Fig. \ref{setup}.
+A hairpin filament serves as electron source in this setup. A current of roughly \SI{2.35}{\ampere} is passed through the filament which leads to an emitted current of several \SI{10}{\micro \ampere}. As these electrons are emitted roughly isotropically in all directions with their kinetic energies following a Boltzmann distribution, a field generated by an anode collects the electrons of the source chamber and guides them into an array of 3-element lenses, which collimate and focus the electron beam. A depiction of the setup is shown in fig. \ref{setup}.
 \\
-The focused beam of electrons is then guided towards a hemispherical energy selector. As Fig. \ref{setup} indicates. This component consists of two concentric hemispherical surfaces which are kept at different but constant voltages, which leads to a constant spherically symmetry field in the monochromator. This way an energy filter is created, as electrons which are too fast will collide with the outer surface, while electrons that are too slow will be absorbed by the inner element. Variation of these two voltages allows for a variation of the energy of the electron beam, while the energy resolution is maintained.
+The focused beam of electrons is then guided towards a hemispherical energy selector. As fig. \ref{setup} indicates, this component consists of two concentric hemispherical surfaces which are kept at different constant voltages, which leads to a constant spherically symmetric field in the monochromator. This way an energy filter is created, as electrons which are too fast will collide with the outer surface, while electrons that are too slow will be absorbed by the inner element. Variation of these two voltages allows for a variation of the energy of the electron beam, while the energy resolution is maintained.
 \\
-The energy filter is followed by a second set of electrostatic lenses, which again collect the flux of electrons after the monochromator and focuses the beam into the collision chamber. Positive ions are created upon impact of an electron onto a cluster. These resulting ions are guided into the quadrupole mass filter, which analyses the charge-mass-ratio. Electrons that to not hit a target are collected in a Faraday cup at the back of the collision chamber.
+The energy filter is followed by a second set of electrostatic lenses, which again collect the flux of electrons after the monochromator and focuses the beam into the collision chamber. Positive ions are created upon impact of an electron onto a cluster. These resulting ions are guided into the quadrupole mass filter, which filters the charge-mass-ratio. Electrons that do not hit a target are collected in a Faraday cup at the back of the collision chamber.
 
 \begin{figure}[H]
 	\centering
@@ -173,26 +171,26 @@ The energy filter is followed by a second set of electrostatic lenses, which aga
 \end{figure}
 
 \subsection{Quadrupole mass filter}
-The mass of the charged cluster is measured with a combination of a linear quadrupole mass filter and a channeltron detector. The channeltron can detect only the intensity of incoming ions, but not the $m/z$-ratio. Therefore a quadrupole filter is used select the ratio at which the intensity is of interest. In the experiment a program allows for automated scanning over a range of different masses. \\
+The mass of the charged cluster is measured with a combination of a linear quadrupole mass filter and a channeltron detector. The channeltron can detect only the intensity of incoming ions, but not the $m/z$-ratio. Therefore a quadrupole filter is used to select the ratio at which the intensity is of interest. In the experiment a program allows for automated scanning over a range of different masses. \\
 Quadrupole filters are remarkably simple in terms of their structure. They consist of four metal rods of either cylindrical or hyperbolic shape that are placed in a square configuration \cite{ms_book}. The voltages applied to the rods have a AC and a DC component. Opposite rods are generally on the same voltage, while the rods next to a specified rod would have an opposite sign on the applied voltage. \\
-If an ion is moving along in the direction of the rods it will be influenced by the electric field generated by the rods. Depending on the mass of the ion, the magnitude and frequency of the voltages and the radius of the configuration the ion will either pass through the quadrupole or collide with one of the rods and be filtered. \\
+If an ion is moving along in the direction of the rods it will be influenced by the electric field generated by the rods. Depending on the mass of the ion, the amplitude and frequency of the voltages and the radius of the configuration the ion will either pass through the quadrupole or collide with one of the rods and be filtered. \\
 However, the resolution of a quadrupole cannot be indefinitely increased by tuning parameters, because ultimately the accuracy in the machining of the filter is the limiting factor. \\
 Usually quadrupole filters operate at unit resolution, as is also the case in this experiment. Unit resolution means that the resolution inaccuracy is one unit mass (as in atomic mass unit) independent of the $m/z$-ratio at which the quadrupole is currently operating \cite{ms_book}.
 
 \section{Analysis}
 \subsection{Isotope population}\label{section:isotopes}
-In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around 130 mass charge ratio, this should be enough to look for cluster with size up to \ch{Ne6+}. In figure \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28, this is not due Neon clusters, but from residual air in the setup, in fact air is most molecular nitrogen \ch{N_2} which has a weight of $\approx 28$ u. The other peaks are at 40, 60, 80, 100 and 120 which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around 40. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of our linear quadrupole mass spectrometer. To further investigate this problem we can take a look at the measurement around 60, here we can see three peaks at 60.5, 62.5 and 64.5, these are due to \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, and one \ch{^{20}Ne} and two \ch{^{22}Ne}. The calculated weight for this molecules are 59.98, 61.98, and 63.98, again we see the same pattern of systematic error. This is also confirmed for the two peaks around 80, we measured 80.6 and 82.6, which are for \ch{Ne4+} without isotopes and \ch{Ne4+} with one \ch{^{22}Ne} isotope, their theoretical values should be 79.97 and 81.97. For the cluster \ch{Ne5+} we have a peak at 100.7, another one at 102.6 and a small peak at 104.7, these are for \ch{Ne5+} without isotopes, \ch{Ne5+} with one \ch{^{22}Ne} isotope, and \ch{Ne5+} with two \ch{^{22}Ne} isotopes, their calculated values are 99.96, 101.96, and 103.96 respectively. For the last cluster \ch{Ne6+} we are able to see again three peaks at 120.7, 122.7, and 124.7 which correspond to \ch{Ne6+} without isotopes, \ch{Ne6+} with one \ch{^{22}Ne} isotope, and \ch{Ne6+} with two \ch{^{22}Ne} isotopes, their calculated values are 119.95, 121.95, and 123.95 respectively. In table \ref{isotopesresults} these results are summarized.  Furthermore we analyzed the height of the peaks to check whether is proportional to the relative abundance of the isotopes as we expect. For instance we took the peaks around 40, the proportion between the two peaks is 4.16:1 , which is not exactly as the expected 4.9:1 ratio, nevertheless is pretty close and confirm our hypothesis on the isotopes. For all the other peaks we have the same situation. The slightly disagreement could be explained in several ways, probably our source has a difference abundance, or it could be that the probability for \ch{^{20}Ne} and an isotopes to form a dimer, or a cluster are different due to different structure and binding energy.
+In the first part of the experiment, we took a look at the isotope distribution of neon clusters. We analyzed the mass spectrum from 25 up to around \SI{130}{\atomicmassunit \per \elementarycharge}, this should be enough to look for clusters with size up to \ch{Ne6+}. In fig. \ref{isotopespectrum} the full spectrum can be seen. The first peak appears at around 28. This peak is not due to Neon clusters, but stems from residual air in the setup, in fact air is mostly molecular nitrogen \ch{N_2} which has a weight of $\approx \SI{28}{\atomicmassunit}$. The other peaks are at 40, 60, 80, 100 and \SI{120}{\atomicmassunit} which are respectively \ch{Ne_2+}, \ch{Ne_3+}, \ch{Ne_4+}, \ch{Ne_5+}, and \ch{Ne_6+}. For the isotope population we can take at look at the peak around \SI{40}{\atomicmassunit}. We can see two peaks at 40.5 and 42.5. The neon abundance is 90.92\% for \ch{^{20}Ne}, 8.82\% for \ch{^{22}Ne}, and 0.26\% for \ch{^{21}Ne} \cite{script}, therefore we expect the first peak to correspond to a neon dimer of two \ch{^{20}Ne}, and the second peak corresponding to a neon dimer made of one \ch{^{20}Ne} and one \ch{^{22}Ne}. However the values do not match exactly the theoretical prediction of respectively 39.98 and 41.98 \cite{umc}. Apparently there is a systematic error of 0.5, maybe due to the calibration of the linear quadrupole mass filter. To further investigate this problem we can take a look at the measurement around \SI{60}{\atomicmassunit}, here we can see three peaks at 60.5, 62.5 and 64.5, these are due to \ch{Ne3+} first made of three \ch{^{20}Ne}, and then made of two \ch{^{20}Ne} and one \ch{^{22}Ne}, and one \ch{^{20}Ne} and two \ch{^{22}Ne} respectively. The calculated weight for this molecules are 59.98, 61.98, and 63.98, again we see the same pattern of systematic error. This is also confirmed by the two peaks around 80. We measured 80.6 and 82.6, which are for \ch{Ne4+} without isotopes and \ch{Ne4+} with one \ch{^{22}Ne} isotope, their theoretical values should be 79.97 and 81.97. For the cluster \ch{Ne5+} we have a peak at 100.7, another one at 102.6 and a small peak at 104.7, these are for \ch{Ne5+} without isotopes, \ch{Ne5+} with one \ch{^{22}Ne} isotope, and \ch{Ne5+} with two \ch{^{22}Ne} isotopes, their calculated values are 99.96, 101.96, and 103.96 respectively. For the last cluster \ch{Ne6+} we are able to see again three peaks at 120.7, 122.7, and 124.7 which correspond to \ch{Ne6+} without isotopes, \ch{Ne6+} with one \ch{^{22}Ne} isotope, and \ch{Ne6+} with two \ch{^{22}Ne} isotopes, their calculated values are 119.95, 121.95, and 123.95 respectively. In table \ref{isotopesresults} these results are summarized.  Furthermore we analyzed the height of the peaks to check whether it is proportional to the relative abundance of the isotopes as we expect. For instance we took the peaks around 40, the proportion between the two peaks is 4.16:1 , which is not exactly as the expected 4.9:1 ratio, nevertheless is pretty close and confirm our hypothesis on the isotopes. For all the other peaks we have the same situation. The slightly disagreement could be explained in several ways, maybe our source has a different abundance in isotopes or it could be that the probabilities for \ch{^{20}Ne} and \ch{^{22}Ne} to form a dimer or a bigger cluster are different due to slightly different structure, binding energy or other chemical property.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width =\textwidth]{isotopespectrum}
-	\caption{Mass spectrum of Neon clusters.}
+	\caption{Recorded mass spectrum of Neon clusters.}
 	\label{isotopespectrum}
 \end{figure}
 
 \begin{table}[H]
 \centering
-\caption{Results for the Neon cluster spectrum. All theoretical calculations are made with the software \cite{umc}}\label{isotopesresults}
+\caption{Results for the Neon cluster spectrum. All theoretical calculations are made with the software `Universal Mass Calculator' \cite{umc}. }\label{isotopesresults}
 \begin{tabular}{ccc} \toprule
 Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 40.5 & 39.98 & \ch{^{20}Ne2}\\
@@ -214,8 +212,8 @@ Measured peak (u/e) & Theoretical (u/e) & Isotope (charge +) \\ \midrule
 
 
 \subsection{Magic numbers}
-In the next part of the experiment a measurement was conducted to look at magic numbers in the mass spectrum. Magic numbers are defined as a number of atoms where a cluster shows extraordinary behaviour, i.e. the there is a sudden change in the amplitude of a peak or the slope between the peaks changes suddenly. \\
-We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. We can already see that number 13 and 14 do not follow the decreasing trend, but they present a plateau, furthermore at 15 we can notice a drop in intensity. To further investigate these magic numbers, we integrated the area beneath each peak and compared them to each other. This is shown in fig. \ref{fig_magic_simple}
+In the next part of the experiment a measurement was conducted to look at magic numbers in the mass spectrum. Analogous to nuclear physics, magic numbers are understood to be numbers of atoms in a cluster where the cluster shows extraordinary stability, i.e. there is a sudden change in the amplitude of a peak or the slope between the peaks changes unexpectedly. \\
+We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassunit \per \elementarycharge}. Fig. \ref{fig_magic_peak} shows the result of the measurement. We can already see that number 13 and 14 do not follow the decreasing trend, but they present a plateau, furthermore at 15 one notices a drop in intensity. To further investigate these magic numbers, we integrated the area beneath each peak and compared these values to each other. This is shown in fig. \ref{fig_magic_simple}.
 
 \begin{figure}[H]
 	\centering
@@ -229,7 +227,7 @@ We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassuni
   \begin{subfigure}[t]{0.45 \textwidth}
     \centering
     \includegraphics[height=6cm]{magic_area.pdf}
-    \caption{Area of peaks.}
+    \caption{Area beneath peaks.}
   \end{subfigure}
   ~
   \begin{subfigure}[t]{0.45 \textwidth}
@@ -240,18 +238,18 @@ We recorded the $m/Z$ ratio over a range of \SI{38}{} to \SI{330}{\atomicmassuni
   \caption{Plot of the area beneath the peaks and the height of the peaks in Fig. \ref{fig_magic_peak}}
   \label{fig_magic_simple}
 \end{figure}
-As can be seen in fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in clustersize. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum, although they are not really prominent peaks. \\
-This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_peak}.
+As can be seen in fig. \ref{fig_magic_simple} there is a plateau in the size of the clusters at 12, 13 and 14 atom clusters. In the other peaks there seems to be an exponential decline in cluster size. Since the peak at 12 seems to still be part of the declining line, we assume that only 13 and 14 are indeed magic numbers in the Neon cluster spectrum, although they are not really prominent peaks compared to the peaks in the low size clusters. \\
+This seems to be in accordance with \cite{paper_scheier}, where it is stated that 13 is a magic number for clusters of icosahedral shape. They too reach the conclusion that \ch{Ne14+} qualifies as a magic number of atoms since it is followed by a comparably steep decline, which is also visible in fig. \ref{fig_magic_peak}, even though $14$ is not listed as a magic number for any geometrical shape in \cite{bergmann}. Since it is not geometry we assume that chemical properties of \ch{Ne} are responsible for $14$ being a magic number.
 
 \subsection{Appearance energy for Ne and Ne$_2$}
-In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be measured. To measure the ionization energy of the Neon atom the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The result for the monomer is shown in fig. \ref{fig_energy_monomer}.
+In the next section the appearance energy of the ionized monomer and dimer \ch{Ne+} and \ch{Ne2+} have to be measured. To measure the ionization energy of the Neon atom the mass selector was fixed to \SI{20.6}{\atomicmassunit}, and the energy of the electron beam was varied. The energy spectrum of the monomer is shown in fig. \ref{fig_energy_monomer}. By fitting a constant and a linear function into the recoded data, one is able to estimate the appearance energy.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.8 \textwidth]{energy_ne.pdf}
-	\caption{Plot of the detected signal depending on the electron energy. The intersection of the lines is \SI{20}{\electronvolt}. The displacement of the constant function is $c=\SI{1.21(4)}{\hertz}$, while the parameters of the linear function are $a = \SI{165(3)}{\hertz \per \electronvolt}$ and $b = \SI{-3400(60)}{\hertz}$. This yields an intersection at \SI{20.53(1)}{\electronvolt}. }
+	\caption{Plot of the detected signal depending on the electron energy. The displacement of the constant fit is $c=\SI{1.21(4)}{\hertz}$, while the parameters of the linear function are $a = \SI{165(3)}{\hertz \per \electronvolt}$ and $b = \SI{-3400(60)}{\hertz}$. This yields an intersection at \SI{20.53(1)}{\electronvolt}. }
 	\label{fig_energy_monomer}
 \end{figure}
-The intersection of the constant and the linear function, which corresponds to the appearance energy, is found to be at \SI{20.53(1)}{\electronvolt} in fig. \ref{fig_energy_monomer}. According to \cite{neon_nist} the ionization energy is \SI{21.56454}{\electronvolt}. This result allows us to calibrate the energy axis for the appearance energy of the Neon dimer. \\
+The intersection of the constant and the linear function, which corresponds to the appearance energy, is found to be at \SI{20.53(1)}{\electronvolt} in fig. \ref{fig_energy_monomer}. According to \cite{neon_nist} the ionization energy of \ch{Ne} is \SI{21.56454}{\electronvolt}. This result allows us to calibrate the energy axis for the appearance energy of the Neon dimer. \\
 The calculation of the appearance energy of the dimer is done in an analogous way to the monomer. The mass selector is set to \SI{40.6}{\atomicmassunit}, then the energy range is again scanned in the range depicted in fig. \ref{fig_energy_dimer}.
 \begin{figure}[H]
 	\centering
@@ -259,13 +257,13 @@ The calculation of the appearance energy of the dimer is done in an analogous wa
 	\caption{Depiction of the appearance energy for a Neon dimer. The energy axis was calibrated with the result of the monomer. The parameters determined through the fit were $c = \SI{1.18(5)}{\hertz}$ for the constant function, $a = \SI{9(1)}{\hertz \per \electronvolt}$ as the slope and $b = \SI{-200(20)}{\hertz}$ as the offset of the linear function. The intersection is found at \SI{21.32(7)}{\electronvolt}. Note that the intensity scale is different than in fig. \ref{fig_energy_monomer}. }
 	\label{fig_energy_dimer}
 \end{figure}
-The intersection in fig. \ref{fig_energy_dimer} is located at \SI{21.32(7)}{\electronvolt}, which is in agreement with the previous value, since it has a larger error. Hence it takes approximately the same amount of energy to ionize a Neon atom or a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by about a factor of $15$. \\
-We assume this is simply because there is more monomers in the gas that is ionized than there are dimers. Looking at fig. \ref{isotopespectrum}, one can see that the intensity is increasing the smaller the cluster is. Therefore is plausible that the monomer is actually the most abundant component of the gas that is ionized.
+The intersection in fig. \ref{fig_energy_dimer} is located at \SI{21.32(7)}{\electronvolt}, which is slightly lower than the previous value, also it has a larger error. From what we see it takes approximately as much energy to ionize a Neon atom as it does to ionize a Neon dimer. However, one will notice that even though fig. \ref{fig_energy_monomer} and \ref{fig_energy_dimer} look very similar the intensity scale is different by about a factor of $15$. \\
+We assume this is simply because there is more monomers in the gas that is ionized than there are dimers. Looking at fig. \ref{isotopespectrum}, one can see that the intensity is increasing the smaller the cluster is. Therefore it seems plausible that the monomer is actually the most abundant component of the gas that is ionized.
 
 \subsection{Pick-up}
-In the last part of the experiment we studied the impact of a pickup gas in our cluster. We used simple air as pick up. The mass spectrum obtained is shown in figure \ref{pickup}. We can immediately notice two peaks on the left at 28.3 and 32.3, these are from the pickup gas, i.e. air which is manly \ch{N2} and \ch{O2} which are the peaks we see. In figure \ref{pickupzoom} a close up of the other peaks can be seen. Those peaks are one-two order of magnitude lower than the pickup peaks, but they present interesting features. First of all we recognize the same isotopes peaks of section \ref{section:isotopes}, but this time there are also more peaks in between them, which are clusters with the pickup gas nitrogen, oxygen, or both. In table \ref{pickupresults} we summarize all peaks, and our best guess of what they could be. We also observe the same systematic error of section \ref{section:isotopes}.
  From the results we can notice a couple of clusters with pick up gas, in two instances the neon cluster picked up the molecule \ch{N2}, in one case the pickup was of oxygen, and in another case the cluster picked up a \ch{NO} molecule.
- We also notice that in our experiment, clusters with a size $\geq 4$ neon atoms did not pick up any other element.
+ In the last part of the experiment we studied the impact of a pickup gas on the clusters. We did not record the spectrum ourselves, but we were given already existing data. Simple air was used as pick up. The mass spectrum is shown in fig. \ref{pickup}. One immediately notices two peaks on the left at 28.3 and \SI{32.3}{\atomicmassunit \per \elementarycharge}. These are from the pickup gas, i.e. air which is mainly \ch{N2} and \ch{O2} which are the peaks we see. In fig. \ref{pickupzoom} a close-up of the smaller peaks can be seen. Those peaks are one or two orders of magnitude lower than the peaks from air components or pure \ch{Ne} clusters, but they still hold interesting information. First of all we recognize the same isotope peaks of section \ref{section:isotopes}, but this time there are also more peaks in between the pure clusters, which are clusters with the pickup gas nitrogen, oxygen, or both. In table \ref{pickupresults} we summarize all peaks, and our best guess of what they could be. We also observe the same systematic error as in section \ref{section:isotopes}.
+ Furthermore, we notice that in this experiment, clusters with a size of $\geq 4$ neon atoms did not pick up any other element.
 
 \begin{figure}[H]
 	\centering
@@ -276,7 +274,7 @@ In the last part of the experiment we studied the impact of a pickup gas in our 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width =\textwidth]{pickupzoom}
-	\caption{Mass spectrum of Neon clusters with air as pickup.}
+	\caption{Close-up of the mass spectrum of Neon clusters with air as pickup.}
 	\label{pickupzoom}
 \end{figure}
 
@@ -309,6 +307,7 @@ Measured peak (u/e) & Theoretical (u/e) & Cluster composition (charge +) \\ \mid
 \end{table}
 
 \section{Conclusion}
+In the course of this experiment we measured the isotope abundance in Neon clusters. We found that \ch{^{22}Ne} is slightly more abundant than expected, although we are not sure if this is due to a shifted abundance in the source or because of chemical properties. Further we looked at magic numbers in the spectrum and found such numbers at $13$ and $14$, which is in accordance to \cite{paper_scheier}. Next, we measured an energy spectrum for the ionization of \ch{Ne} and used to result to calibrate the energy scale. This calibration was then used to determine the ionization energy of \ch{Ne2}, which was found to be \SI{21.32(7)}{\electronvolt}. Finally, a pick-up measurement was analyzed where we found that mostly \ch{N2} and \ch{NO} was picked up by the \ch{Ne} clusters. 
 
 \begin{thebibliography}{99}
 
